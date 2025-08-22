@@ -58,18 +58,18 @@ import ShareButton from '@/components/share-button';
 export function ShareButtonDemo(): JSX.Element {
   const shareLinks = [
     {
-      icon: Twitter,
-      onClick: () => window.open("https://twitter.com/share"),
-      label: "Share on Twitter",
+      icon: Github,
+      onClick: () => window.open("https://github.com/Rayat-7"),
+      label: "GtitHub",
     },
     {
       icon: Facebook,
-      onClick: () => window.open("https://facebook.com/share"),
+      onClick: () => window.open("https://www.facebook.com/raisoulrayat.omey.1/"),
       label: "Share on Facebook",
     },
     {
       icon: Linkedin,
-      onClick: () => window.open("https://linkedin.com/share"),
+      onClick: () => window.open("https://www.linkedin.com/in/raisoul-rayat-48781a263/"),
       label: "Share on LinkedIn",
     },
     {
@@ -80,7 +80,7 @@ export function ShareButtonDemo(): JSX.Element {
   ]
 
   return (
-   
+   <AnimatedText delay={0.5}>
   <ShareButton
   links={shareLinks}
   className="flex flex-col items-center gap-1 mt-16 text-lg font-medium py-2"
@@ -88,6 +88,8 @@ export function ShareButtonDemo(): JSX.Element {
   <Link size={18} />
   
 </ShareButton>
+</AnimatedText>
+
   )
 }
 
@@ -440,7 +442,7 @@ const Page: React.FC = () => {
                         onClick={() => setActiveSection(item.id)}
                         className={`text-base p-1 transition-all duration-300 hover:translate-x-2    hover:border-cyan-400/50  ${
                           activeSection === item.id
-                            ? 'text-white px-2  bg-gray-900/30  border rounded-sm border-cyan-400/50 translate-x-2 text-xl hover:border-cyan-400/50'
+                            ? 'text-white px-2  bg-gray-900/30  border-b-2 rounded-sm border-cyan-400/50 translate-x-2 text-xl hover:border-cyan-400/50'
                             : 'text-gray-500 hover:text-gray-300'
                         }`}
                       >

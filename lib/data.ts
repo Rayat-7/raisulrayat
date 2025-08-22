@@ -209,11 +209,8 @@ export interface AboutData {
 }
 
 export const aboutData: AboutData = {
-  intro: `Born in 2003 in Dhaka, Bangladesh. I believe web development can be more diverse and inspiring with the Help of AI. 
-          With a mission to present the possibilities of modern web technologies, I am pursuing new expressions 
-          through experiments and innovative solutions.`,
-  description: ` 
-                My journey in tech is driven by curiosity and the desire to make a meaningful impact through code & solutions.`,
+ intro: `Hi, I believe web development can be more diverse and inspiring with AI. My mission is to explore modern web technologies through experiments and innovative solutions.`,
+description: `Driven by curiosity, I’m exploring Next.js to create meaningful impact through code & solving real life problem.`,
   background: [
     "3rd Computer Science stduent at United International University",
     "1+ Years of self coded Experience", 
