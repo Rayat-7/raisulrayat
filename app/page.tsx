@@ -201,14 +201,14 @@ const Page: React.FC = () => {
 
       case 'projects':
         return (
-          <div className="space-y-3 ">
+          <div className="space-y-3  ">
             <div className="space-y-8 overflow-auto">
               {projects.map((project: Project, index: number) => (
                 <AnimatedText key={index} delay={index * 200}>
                   <div className="group overflow-auto ">
                     <div className="flex flex-col gap-4 mb-6">
                       <div className="flex flex-col md:flex-row md:justify-end md:items-start gap-2">
-                        <h3 className="text-white text-lg md:text-3xl lg:text-4xl font-light group-hover:text-cyan-400 transition-colors text-right">
+                        <h3 className="text-white text-lg md:text-3xl lg:text-4xl font-light group-hover:text-cyan-400 transition-colors text-right  overflow-hidden duration-300">
                           {project.title}
                         </h3>
                         {/* <span className="text-gray-500 text-sm font-light md:text-right">{project.year}</span> */}
@@ -442,7 +442,7 @@ const Page: React.FC = () => {
                         onClick={() => setActiveSection(item.id)}
                         className={`text-base p-1 transition-all duration-300 hover:translate-x-2    hover:border-cyan-400/50  ${
                           activeSection === item.id
-                            ? 'text-white px-2  bg-gray-900/30  border-b-2 rounded-sm border-cyan-400/50 translate-x-2 text-xl hover:border-cyan-400/50'
+                            ? 'text-white px-2  bg-gray-900/30  border-b-2 rounded-sm border-cyan-500 translate-x-2 text-xl hover:border-cyan-400/50'
                             : 'text-gray-500 hover:text-gray-300'
                         }`}
                       >

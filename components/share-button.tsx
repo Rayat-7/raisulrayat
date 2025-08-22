@@ -36,7 +36,7 @@ const ShareButton = ({
       <Button
         className={cn(
           "relative w-8 h-40  rounded-3xl ",
-          "bg-gradient-to-tr from-cyan-600 via-black to-cyan-700",
+          "bg-gradient-to-tr from-black via-cyan-800 to-black",
           "hover:bg-gray-50 dark:hover:bg-gray-950",
           "text-white dark:text-white",
           "border border-black/10 dark:border-white/10",
@@ -66,7 +66,7 @@ const ShareButton = ({
                 "transition-all duration-300",
                 index === 0 && "rounded-t-3xl",
                 index === links.length - 1 && "rounded-b-3xl",
-                "border-b border-white/10 last:border-r-0 dark:border-black/10",
+                "border-b border-cyan-500 last:border-r-0 dark:border-black/10",
                 "hover:bg-gray-900 dark:hover:bg-gray-100",
                 "",
                 isHovered
