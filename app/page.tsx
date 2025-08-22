@@ -26,7 +26,7 @@ const styles = `
   @keyframes slide-down {
     from {
       opacity: 0;
-      transform: translateY(-20px);
+      transform: translateY(-25px);
     }
     to {
       opacity: 1;
@@ -43,6 +43,54 @@ interface TechTagProps {
   tech: string;
   index: number;
 }
+
+
+
+import Image from "next/image"
+import { Facebook, Link, Link2, Twitter } from "lucide-react"
+
+import { Button } from "@/components/ui/button"
+import ShareButton from '@/components/share-button';
+
+
+
+// Example usage
+export function ShareButtonDemo(): JSX.Element {
+  const shareLinks = [
+    {
+      icon: Twitter,
+      onClick: () => window.open("https://twitter.com/share"),
+      label: "Share on Twitter",
+    },
+    {
+      icon: Facebook,
+      onClick: () => window.open("https://facebook.com/share"),
+      label: "Share on Facebook",
+    },
+    {
+      icon: Linkedin,
+      onClick: () => window.open("https://linkedin.com/share"),
+      label: "Share on LinkedIn",
+    },
+    {
+      icon: Link,
+      onClick: () => navigator.clipboard.writeText(window.location.href),
+      label: "Copy link",
+    },
+  ]
+
+  return (
+   
+  <ShareButton
+  links={shareLinks}
+  className="flex flex-col items-center gap-1 mt-16 text-lg font-medium py-2"
+>
+  <Link size={18} />
+  
+</ShareButton>
+  )
+}
+
 
 const TechTag: React.FC<TechTagProps> = ({ tech, index }) => {
   const techData: TechIcon | undefined = techIcons[tech];
@@ -69,14 +117,14 @@ const SkillItem: React.FC<SkillItemProps> = ({ skill, index }) => {
   const techData: TechIcon | undefined = techIcons[skill];
   return (
     <AnimatedText delay={index * 50}>
-      <div className="flex items-center gap-2 text-gray-400 font-light py-2 text-sm md:text-base hover:text-cyan-400 transition-colors duration-300">
+      <span className="flex items-center gap-2 text-gray-400 text-xs md:text-sm font-light px-3 py-1 bg-gray-900/30 rounded-full border border-gray-800 hover:border-cyan-400/50 transition-all duration-300">
         {techData && (
           <span className={`text-lg ${techData.color}`}>
             {techData.icon}
           </span>
         )}
         {skill}
-      </div>
+      </span>
     </AnimatedText>
   );
 };
@@ -152,10 +200,10 @@ const Page: React.FC = () => {
       case 'projects':
         return (
           <div className="space-y-3 ">
-            <div className="space-y-8 overflow-auto scrollbar-hide">
+            <div className="space-y-8 overflow-auto">
               {projects.map((project: Project, index: number) => (
                 <AnimatedText key={index} delay={index * 200}>
-                  <div className="group overflow-auto scrollbar-hide">
+                  <div className="group overflow-auto ">
                     <div className="flex flex-col gap-4 mb-6">
                       <div className="flex flex-col md:flex-row md:justify-end md:items-start gap-2">
                         <h3 className="text-white text-lg md:text-3xl lg:text-4xl font-light group-hover:text-cyan-400 transition-colors text-right">
@@ -164,14 +212,14 @@ const Page: React.FC = () => {
                         {/* <span className="text-gray-500 text-sm font-light md:text-right">{project.year}</span> */}
                       </div>
                       
-                      <div className="flex flex-col gap-3">
-                        <div className="flex flex-wrap gap-2 md:justify-end">
+                      <div className="flex flex-col gap-3 ">
+                        <div className="flex flex-wrap gap-2 justify-end">
                           {project.tech.map((tech: string, i: number) => (
                             <TechTag key={i} tech={tech} index={i} />
                           ))}
                         </div>
                         
-                        <p className="text-gray-400 font-light leading-relaxed text-sm md:text-base md:text-right">
+                        <p className="text-gray-400 text-right font-light leading-relaxed text-sm md:text-base md:text-right">
                           {project.description}
                         </p>
                         
@@ -210,12 +258,7 @@ const Page: React.FC = () => {
             </div>
           </AnimatedText>
 
-          <div
-            className="
-              flex flex-wrap justify-end gap-4
-              sm:gap-6
-            "
-          >
+          <div className="flex flex-wrap justify-end gap-4 sm:gap-6 ">
             {skillGroup.items.map((skill: string, i: number) => (
               <SkillItem key={i} skill={skill} index={i} />
             ))}
@@ -395,9 +438,9 @@ const Page: React.FC = () => {
                     <AnimatedText delay={300 + index * 100}>
                       <button
                         onClick={() => setActiveSection(item.id)}
-                        className={`text-base md:text-lg font-light transition-all duration-300 hover:translate-x-2 ${
+                        className={`text-base p-1 transition-all duration-300 hover:translate-x-2    hover:border-cyan-400/50  ${
                           activeSection === item.id
-                            ? 'text-white'
+                            ? 'text-white px-2  bg-gray-900/30  border rounded-sm border-cyan-400/50 translate-x-2 text-xl hover:border-cyan-400/50'
                             : 'text-gray-500 hover:text-gray-300'
                         }`}
                       >
@@ -407,6 +450,10 @@ const Page: React.FC = () => {
                   </li>
                 ))}
               </ul>
+              <div className="p-3">
+    <ShareButtonDemo />
+  </div>
+
             </nav>
           </div>
 

@@ -212,8 +212,8 @@ export const aboutData: AboutData = {
   intro: `Born in 2003 in Dhaka, Bangladesh. I believe web development can be more diverse and inspiring with the Help of AI. 
           With a mission to present the possibilities of modern web technologies, I am pursuing new expressions 
           through experiments and innovative solutions.`,
-  description: `I'm a passionate developer who loves creating innovative solutions and exploring cutting-edge technologies. 
-                My journey in tech is driven by curiosity and the desire to make a meaningful impact through code.`,
+  description: ` 
+                My journey in tech is driven by curiosity and the desire to make a meaningful impact through code & solutions.`,
   background: [
     "3rd Computer Science stduent at United International University",
     "1+ Years of self coded Experience", 
@@ -222,9 +222,9 @@ export const aboutData: AboutData = {
     "Open Source Contributor"
   ],
   interests: [
-    "3D Web Development",
+    "To build something that solves real problems",
     "Interactive Design", 
-    "Performance Optimization",
+    "AI Integration",
     "Modern Web Technologies",
     "Creative Coding"
   ]
