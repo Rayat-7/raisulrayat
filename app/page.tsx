@@ -109,12 +109,12 @@ const Page: React.FC = () => {
           <div className="space-y-8 mt-20">
             <div>
               <AnimatedText delay={0}>
-                <p className="text-gray-300 text-base md:text-lg leading-relaxed font-light mb-6">
+                <p className="text-gray-300 text-right text-base md:text-lg leading-relaxed font-light mb-6">
                   {aboutData.intro}
                 </p>
               </AnimatedText>
               <AnimatedText delay={200}>
-                <p className="text-gray-300 text-base md:text-lg leading-relaxed font-light">
+                <p className="text-gray-300 text-right text-base md:text-lg leading-relaxed font-light">
                   {aboutData.description}
                 </p>
               </AnimatedText>
@@ -123,9 +123,9 @@ const Page: React.FC = () => {
             <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <AnimatedText delay={400}>
-                  <h3 className="text-white text-lg md:text-xl font-light mb-4">Background</h3>
+                  <h3 className="text-white text-right text-lg md:text-xl font-light mb-4">Background</h3>
                 </AnimatedText>
-                <ul className="space-y-2 text-gray-400 font-light text-sm md:text-base">
+                <ul className="space-y-2 text-right text-gray-400 font-light text-sm md:text-base">
                   {aboutData.background.map((item: string, index: number) => (
                     <AnimatedText key={index} delay={500 + index * 100}>
                       <li>{item}</li>
@@ -135,9 +135,9 @@ const Page: React.FC = () => {
               </div>
               <div>
                 <AnimatedText delay={400}>
-                  <h3 className="text-white text-lg md:text-xl font-light mb-4">Interests</h3>
+                  <h3 className="text-white text-right text-lg md:text-xl font-light mb-4">Interests</h3>
                 </AnimatedText>
-                <ul className="space-y-2 text-gray-400 font-light text-sm md:text-base">
+                <ul className="space-y-2 text-right text-gray-400 font-light text-sm md:text-base">
                   {aboutData.interests.map((item: string, index: number) => (
                     <AnimatedText key={index} delay={500 + index * 100}>
                       <li>{item}</li>
