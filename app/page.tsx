@@ -1619,29 +1619,7 @@ import Beams from "@/components/beams";
 import { BentoGrid } from "@/components/bento-grid";
 import { ShareButtonDemo } from "@/components/share-button1";
 
-// export function ShareButtonDemo(): JSX.Element {
-//   const shareLinks = [
-//     {
-//       icon: Github,
-//       onClick: () => window.open("https://github.com/Rayat-7"),
-//       label: "GtitHub",
-//     },
-//     {
-//       icon: Facebook,
-//       onClick: () => window.open("https://www.facebook.com/raisoulrayat.omey.1/"),
-//       label: "Share on Facebook",
-//     },
-//     {
-//       icon: Linkedin,
-//       onClick: () => window.open("https://www.linkedin.com/in/raisoul-rayat-48781a263/"),
-//       label: "Share on LinkedIn",
-//     },
-//     {
-//       icon: Link,
-//       onClick: () => navigator.clipboard.writeText(window.location.href),
-//       label: "Copy link",
-//     },
-//   ]}
+
 
 export default function Home() {
   return (
@@ -1657,23 +1635,21 @@ export default function Home() {
           <div className="text-xl font-bold text-gray-900">Raisul Rayat</div>
           <div className="hidden md:flex items-center space-x-8">
             <a href="#about" className="text-gray-900 hover:text-blue-400 text-sm transition-colors">About</a>
+            <a href="#projects" className="text-gray-900  hover:text-blue-400 text-sm  transition-colors">Projects</a>
             <a href="#experience" className="text-gray-900 hover:text-blue-400 text-sm  transition-colors">Experience</a>
-            <a href="#projects" className="text-gray-900 hover:text-blue-400 text-sm  transition-colors">Projects</a>
             <a href="#contact" className="text-gray-900 hover:text-blue-400 text-sm  transition-colors">Contact</a>
           </div>
-          {/* <button className="bg-gray-800 text-white px-6 py-2 rounded-lg hover:bg-gray-700 transition-colors">
-            Get in Touch
-          </button> */}
           <ShareButtonDemo/>
         </div>
         
       </nav>
       
-      <div className="relative z-10 max-w-7xl mx-auto px-6 pt-24">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 pt-16">
         <HeroSection />
         <AboutSection />
+        <ProjectsSection />
         <TechStackSection/>
-         <ProjectsSection />
+         
         <InterestsSection />
         <ExperienceSection />
         <ContactSection />
@@ -1698,7 +1674,7 @@ function SectionWrapper({ children, id }: { children: React.ReactNode; id: strin
       variants={sectionVariants}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
-      className="mb-32"
+      className=""
     >
       {children}
     </motion.section>
@@ -1708,17 +1684,13 @@ function SectionWrapper({ children, id }: { children: React.ReactNode; id: strin
 function HeroSection() {
   return (
     <SectionWrapper id="hero">
-      <div className="text-center py-16 md:py-24 relative">
+      <div className="text-center py-16 md:py-24 relative mb-10">
         {/* Next.js and Tailwind decorative icons similar to Cluely */}
         <div className="absolute top-10 right-10 w-20 h-20 bg-gradient-to-br from-gray-200 backdrop-blur-2xl to-white rounded-2xl rotate-12 opacity-80 flex items-center justify-center shadow-lg">
-          {/* <svg className="w-10 h-10 text-white" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M11.5725 0c-.1763 0-.3098.0013-.3584.0067-.0516.0053-.2159.021-.3636.0328-3.4088.3073-6.6017 2.1463-8.624 4.9728C1.1004 6.584.3802 8.3666.1082 10.255c-.0962.659-.108.8537-.108 1.7474s.012 1.0884.108 1.7476c.652 4.506 3.8591 8.2919 8.2087 9.6945.7789.2511 1.6.4223 2.5337.5255.3636.04 1.9354.04 2.299 0 1.6117-.1783 2.9772-.577 4.3237-1.2643.2065-.1056.2464-.1337.2183-.1573-.0188-.0139-.8987-1.1938-1.9543-2.62l-1.919-2.592-2.4047-3.5583c-1.3231-1.9564-2.4117-3.556-2.4211-3.556-.0094-.0026-.0187 1.5787-.0235 3.509-.0067 3.3802-.0093 3.5162-.0516 3.596-.061.115-.108.1618-.2064.2134-.075.0374-.1408.0445-.5429.0445h-.4570l-.0899-.0563c-.0326-.0186-.0748-.0563-.0937-.0969-.0326-.0662-.0498-.9884-.0498-6.2434V3.515l.0995-.1027c.0365-.0317.1104-.0634.2068-.0951.161-.0497.2519-.0497.6550-.0497.5123 0 .6173.0299.8737.2442.0762.0634 2.1055 3.1516 4.5093 6.8616 2.4038 3.71 4.3874 6.7592 4.4065 6.7843l.0378-.0186c.3749-.1834.779-.4204 1.1354-.6644.3566-.244.737-.5255 1.0577-.8041.3207-.2786.6173-.5572.8737-.8229.2564-.2657.4888-.5314.6911-.7971l.2043-.2786c.0378-.0497.0567-.0951.0567-.1497v-.2442s-.0189-.0951-.0567-.1497c-.0378-.0547-.0889-.0951-.1536-.1215-.0647-.0264-.1536-.0264-.2183 0-.0647.0264-.1159.0668-.1536.1215-.0378.0546-.0567.0951-.0567.1497v.1027c-.0378.0497-.1049.1191-.1914.2068-.0865.0877-.1914.1834-.3149.2786-.1235.095-.2613.1901-.4129.2851-.1516.095-.3175.1901-.4973.2851-.1798.095-.3742.1901-.5827.2851-.2085.095-.4317.1901-.6700.2851-.2383.095-.4914.1901-.7589.2851-.2675.095-.5493.1901-.8458.2851-.2965.095-.6076.1901-.9335.2851-.3259.095-.6662.1901-1.0210.2851-.3548.095-.7240.1901-1.1078.2851-.3838.095-.7821.1901-1.1949.2851-.4128.095-.8401.1901-1.2819.2851-.4418.095-.8981.1901-1.3689.2851-.4708.095-.9562.1901-1.4560.2851-.4998.095-1.0139.1901-1.5425.2851-.5286.095-1.0715.1901-1.6289.2851-.5574.095-1.1291.1901-1.7151.2851-.5860.095-1.1862.1901-1.8008.2851-.6146.095-1.2435.1901-1.8865.2851-.6430.095-1.3001.1901-1.9713.2851-.6712.095-1.3565.1901-2.0559.2851-.6994.095-1.4130.1901-2.1407.2851-.7277.095-1.4696.1901-2.2256.2851-.7560.095-1.5265.1901-2.3111.2851-.7846.095-1.5834.1901-2.3963.2851-2.0559.2851-4.1118.5702-6.1677.8553-.5574.0762-1.1148.1524-1.6722.2286-.5574.0762-1.1148.1524-1.6722.2286-.5574.0762-1.1148.1524-1.6722.2286-.5574.0762-1.1148.1524-1.6722.2286-.5574.0762-1.1148.1524-1.6722.2286-.5574.0762-1.1148.1524-1.6722.2286-.5574.0762-1.1148.1524-1.6722.2286-.5574.0762-1.1148.1524-1.6722.2286-.5574.0762-1.1148.1524-1.6722.2286-.5574.0762-1.1148.1524-1.6722.2286z"/>
-          </svg> */}
+      
         </div>
         <div className="absolute bottom-20 left-10 w-16 h-16 bg-gradient-to-br from-blue-100 via-blue-500 to-blue-200 rounded-xl -rotate-12 opacity-90 flex items-center justify-center shadow-lg">
-          {/* <svg className="w-8 h-8 text-white" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12.001,4.8c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 C13.666,10.618,15.027,12,18.001,12c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C16.337,6.182,14.976,4.8,12.001,4.8z M6.001,12c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 C7.666,17.818,9.027,19.2,12.001,19.2c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C10.337,13.382,8.976,12,6.001,12z"/>
-          </svg> */}
+         
         </div>
         
         <motion.div
@@ -1735,15 +1707,15 @@ function HeroSection() {
           
           {/* Subtitle similar to Cluely's description */}
           <p className="text-xl md:text-2xl text-slate-900 max-w-3xl  text-left ">
-            Hi, I believe web development can be more diverse and inspiring with <span className="font-bold">AI</span>. My mission is to explore modern web technologies through experiments and innovative solutions.
+            I believe web development can be more diverse and inspiring with <span className="font-bold">AI</span>. My mission is to explore modern web technologies through experiments and innovative solutions.
           </p>
           
           {/* CTA buttons like Cluely */}
           <div className="flex flex-col sm:flex-row gap-4 justify-start mt-8">
-            <button className="  border-2 border-blue-300 bg-gradient-to-br from-blue-400 via-blue-300 to-blue-100 text-white px-18 py-0.5 font-bold rounded-sm shadow-slate-400   hover:from-blue-500 hover:to-blue-300 transition-all duration-300 shadow-lg">
-              📱 View Projects
+            <button className="  border-2 border-blue-300 bg-gradient-to-br from-blue-400 via-blue-300 to-blue-200 text-white px-16 py-2 font-bold rounded-sm shadow-slate-400   hover:from-blue-500 hover:to-blue-300 transition-all duration-300 shadow-lg">
+              <a href="#projects">📱 View Projects</a>
             </button>
-            <button className="border-4 border-fade border-slate-800 bg-gray-900 text-white px-16 py-2.5 rounded-sm font-medium hover:bg-gray-800 transition-colors shadow-slate-400 shadow-lg">
+            <button className="border-4 border-fade border-slate-800 bg-gray-900 text-white px-14 py-2 rounded-sm font-medium hover:bg-gray-800 transition-colors shadow-slate-400 shadow-lg">
               💻 Download Resume
             </button>
           </div>
@@ -1776,10 +1748,10 @@ function HeroSection() {
 function AboutSection() {
   return (
     <SectionWrapper id="about">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        <div className="space-y-8">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-800">
-            Builds your ideas
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-32">
+        <div className="space-y-4">
+          <h2 className="text-4xl md:text-6xl font-semibold text-gray-700">
+            Ideas are everywhere. I <span className="bg-gradient-to-bl from-blue-700  to-blue-400 bg-clip-text text-transparent">chase</span> the ones with <span className="font-bold text-black">impact</span>.
           </h2>
           <p className="text-lg text-gray-600 leading-relaxed">
             I build meaningful web applications that solve real-life problems and constantly level up by exploring new technologies and ideas. Every project is an opportunity to create something impactful.
@@ -1801,27 +1773,39 @@ function AboutSection() {
         </div>
         
         <div className="relative">
-          <div className="bg-white/40 backdrop-blur-sm rounded-3xl p-8 border border-white/30">
-            <div className="space-y-4">
-              <div className="flex items-center space-x-3">
-                <div className="w-8 h-8 bg-blue-400 rounded-lg flex items-center justify-center">
-                  <span className="text-white text-sm font-bold">💡</span>
-                </div>
-                <p className="text-gray-700 font-medium">Creative Problem Solving</p>
-              </div>
-              <div className="flex items-center space-x-3">
-                <div className="w-8 h-8 bg-purple-400 rounded-lg flex items-center justify-center">
-                  <span className="text-white text-sm font-bold">🚀</span>
-                </div>
-                <p className="text-gray-700 font-medium">Modern Tech Stack</p>
-              </div>
-              <div className="flex items-center space-x-3">
-                <div className="w-8 h-8 bg-pink-400 rounded-lg flex items-center justify-center">
-                  <span className="text-white text-sm font-bold">✨</span>
-                </div>
-                <p className="text-gray-700 font-medium">User-Centered Design</p>
+          {/* Image container with blueish border and effects */}
+          <div className="relative group">
+            {/* Background glow effect */}
+            <div className="absolute -inset-1 bg-gradient-to-r from-blue-300 via-blue-400 to-blue-500 rounded-3xl blur opacity-30 group-hover:opacity-50 transition duration-500"></div>
+            
+            {/* Main image container */}
+            <div className="relative bg-white/50 backdrop-blur-sm rounded-3xl p-2 border-2 border-blue-300/40 group-hover:border-blue-400/60 transition-all duration-500">
+              {/* Inner border glow */}
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-blue-200/20 via-transparent to-blue-300/20 pointer-events-none"></div>
+              
+              {/* Image */}
+              <div className="relative rounded-2xl overflow-hidden">
+                <img
+                  src="/portimg.jpeg" // Replace with your image path
+                  alt="Your Name"
+                  className="w-full h-[600px] object-cover rounded-2xl transform group-hover:scale-105 transition-transform duration-500"
+                />
+                
+                {/* Image overlay gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-blue-900/10 via-transparent to-transparent rounded-2xl"></div>
               </div>
             </div>
+            
+            {/* Decorative floating elements */}
+            <div className="absolute -top-4 -right-4 w-8 h-8 bg-blue-300 rounded-full blur-sm opacity-60 animate-pulse"></div>
+            <div className="absolute -bottom-6 -left-6 w-12 h-12 bg-blue-400/30 rounded-full blur-md opacity-40"></div>
+            <div className="absolute top-1/2 -left-8 w-6 h-6 bg-blue-200 rounded-full blur-sm opacity-50 animate-bounce" style={{animationDelay: '1s'}}></div>
+          </div>
+          
+          {/* Optional: Floating info badge */}
+          <div className="absolute -bottom-6 left-6 bg-white/70 backdrop-blur-sm border border-blue-200/50 rounded-2xl px-4 py-2 shadow-lg">
+            <p className="text-sm font-medium text-gray-700">Raisul rayat</p>
+            <p className="text-xs text-blue-600">Available for projects</p>
           </div>
         </div>
       </div>
@@ -1851,11 +1835,11 @@ function ExperienceSection() {
       ),
     },
     {
-      title: "Full Stack Developer",
+      title: "Self learning-Full Stack Developement",
       content: (
         <div className="space-y-4">
           <p className="text-purple-600 font-semibold">
-            Self-Driven Projects | 2023 - Present
+            Self-Driven  Projects | 2023 - Present
           </p>
           <p className="text-gray-600 leading-relaxed">
             Worked on real-world inspired applications including booking systems, dashboards, CRUD apps, and SaaS ideas. Focused on clean code, scalability, and solving real problems.
@@ -1864,14 +1848,28 @@ function ExperienceSection() {
       ),
     },
     {
-      title: "Learning & Growth",
+      title: "Learning & Growth with the AI Wave",
       content: (
         <div className="space-y-4">
           <p className="text-pink-600 font-semibold">
             Personal Development | 2022 - 2023
           </p>
           <p className="text-gray-600 leading-relaxed">
-            Actively practiced with smaller apps and coursework projects. Learned Next.js, Prisma, PostgreSQL, and React Hooks by building practical applications step by step.
+            Embraced the AI revolution by integrating AI tools into my workflow. Continuously learning new technologies and frameworks to stay ahead in the rapidly evolving tech landscape.
+          </p>
+        </div>
+      ),
+    },
+    //internship experience 
+    {
+      title: "Web Development Intern(Frontend)",
+      content: (
+        <div className="space-y-4">
+          <p className="text-green-600 font-semibold">
+            Tekshilpa Solutions Ltd. | March 2025 - May 2025
+          </p>
+          <p className="text-gray-600 leading-relaxed">
+            Worked as a Frontend Developer intern, contributing to the development of user interfaces and enhancing user experience. Gained hands-on experience with modern frontend technologies and collaborated with a team of developers.
           </p>
         </div>
       ),
@@ -1880,7 +1878,7 @@ function ExperienceSection() {
 
   return (
     <SectionWrapper id="experience">
-      <div className="space-y-12 ">
+      <div className="space-y-12 mb-30 mt-20">
         <div className="text-center space-y-6">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-800">
             Experience & Education
@@ -1897,21 +1895,120 @@ function ExperienceSection() {
 
 
 
+// function ProjectsSection() {
+//   const projects = [
+//     {
+//       name: "TuitionTrack",
+//       description: "A comprehensive web app for tuition centers in Bangladesh to manage students, attendance, and monthly fees. Features modern dashboard and easy-to-use interface.",
+//       url: "https://github.com/rayat-7/tuitiontrack",
+//       language: "TypeScript",
+//       color: "bg-pink-400",
+//       tech: ["Next.js", "TypeScript", "Tailwind CSS", "Prisma", "PostgreSQL","clerk","supabase"],
+//     },
+//     {
+//       name: "Cyber Play Arena",
+//       description: "A modern web-based management software to manage booking slots and marketing for local gaming service. Built with Next.js and modern technologies.",
+//       url: "https://github.com/rayat-7/cyber_play_arena",
+//       language: "TypeScript",
+//       color: "bg-blue-400",
+//       tech: ["Next.js", "TypeScript", "Tailwind CSS", "Prisma", "PostgreSQL"],
+//     },
+//     {
+//       name: "UIU Sprs",
+//       description: "This project aims to enhance the university's issue resolution process by providing a transparent, user-friendly, and efficient platform for students to report issues, track progress, and receive timely feedback, while empowering admins to manage and resolve issues effectively.",
+//       url: "https://github.com/rayat-7/uiusprs",
+//       language: "TypeScript",
+//       color: "bg-purple-400",
+//       tech: ["Next.js", "TypeScript", "Tailwind CSS", "Prisma", "PostgreSQL","clerk"],
+//     },
+    
+//     {
+//       name: "Spendo Frontend",
+//       description: "Frontend for a spending tracker app, financial management tool. Built with Next.js and responsive design.",
+//       url: "https://github.com/rayat-7/spendofrontend",
+//       language: "TypeScript",
+//       color: "bg-green-400",
+//       tech: ["Next.js", "TypeScript", "Tailwind CSS"],
+
+//     },
+    
+//   ];
+
+//   // Transform your projects data to match BentoItem interface
+//   const bentoItems = projects.map((project, index) => {
+//     // Map icons based on project names
+//     const getProjectIcon = (name: string) => {
+//       switch (name) {
+//         case "Cyber Play Arena":
+//           return <Globe className="w-4 h-4 text-blue-600" />;
+//         case "Dear U":
+//           return <Code2 className="w-4 h-4 text-blue-600" />;
+//         case "Spendo Frontend":
+//           return <DollarSign className="w-4 h-4 text-blue-600" />;
+//         case "TuitionTrack":
+//           return <GraduationCap className="w-4 h-4 text-blue-600" />;
+//         default:
+//           return <Code2 className="w-4 h-4 text-blue-600" />;
+//       }
+//     };
+
+//     return {
+//       title: project.name,
+//       description: project.description,
+//       icon: getProjectIcon(project.name),
+//       meta: project.language,
+//       url: project.url,
+//       status: "Live",
+//       tags: ["TypeScript", "Next.js", "Web App"],
+//       colSpan: index === 0 || index === 2 ? 2 : 1, // Make first and third projects span 2 columns
+//       hasPersistentHover: index === 0, // Highlight first project
+//       cta: "View on GitHub"
+//     };
+//   });
+
+//   return (
+//     <SectionWrapper id="projects">
+//       <div className="space-y-5 mb-30">
+//         <div className="text-center space-y-6">
+//           <h2 className="text-4xl md:text-5xl font-bold text-gray-800 text-left ml-4">
+//             Featured Projects
+//           </h2>
+//           <p className="text-lg text-gray-600 text-left ml-4">Real solutions for real problems</p>
+//         </div>
+        
+//         <BentoGrid items={bentoItems} />
+//       </div>
+//     </SectionWrapper>
+//   );
+// }
+
+
+
 function ProjectsSection() {
   const projects = [
+    {
+      name: "TuitionTrack",
+      description: "A comprehensive web app for tuition centers in Bangladesh to manage students, attendance, and monthly fees. Features modern dashboard and easy-to-use interface.",
+      url: "https://github.com/rayat-7/tuitiontrack",
+      language: "TypeScript",
+      color: "bg-pink-400",
+      tech: ["Next.js", "TypeScript", "Tailwind CSS", "PostgreSQL", "clerk", "Supabase"],
+    },
     {
       name: "Cyber Play Arena",
       description: "A modern web-based management software to manage booking slots and marketing for local gaming service. Built with Next.js and modern technologies.",
       url: "https://github.com/rayat-7/cyber_play_arena",
       language: "TypeScript",
       color: "bg-blue-400",
+      tech: ["Next.js", "TypeScript", "prisma", "PostgreSQL", "Tailwind CSS"],
     },
     {
-      name: "Dear U",
-      description: "A Next.js project focused on personal messaging or AI-integrated app with modern UI/UX design principles.",
-      url: "https://github.com/rayat-7/dear-u",
+      name: "UIU Sprs",
+      description: "This project aims to enhance the university's issue resolution process by providing a transparent, user-friendly, and efficient platform for students to report issues, track progress, and receive timely feedback, while empowering admins to manage and resolve issues effectively.",
+      url: "https://github.com/rayat-7/uiusprs",
       language: "TypeScript",
       color: "bg-purple-400",
+      tech: ["Next.js", "TypeScript", "Supabase", "clerk", "Shadcn UI", "Tailwind CSS", "Prisma"],
     },
     {
       name: "Spendo Frontend",
@@ -1919,13 +2016,7 @@ function ProjectsSection() {
       url: "https://github.com/rayat-7/spendofrontend",
       language: "TypeScript",
       color: "bg-green-400",
-    },
-    {
-      name: "TuitionTrack",
-      description: "A comprehensive web app for tuition centers in Bangladesh to manage students, attendance, and monthly fees. Features modern dashboard and easy-to-use interface.",
-      url: "https://github.com/rayat-7/tuitiontrack",
-      language: "TypeScript",
-      color: "bg-pink-400",
+      tech: ["Vite", "TypeScript", "Tailwind CSS"],
     },
   ];
 
@@ -1942,6 +2033,8 @@ function ProjectsSection() {
           return <DollarSign className="w-4 h-4 text-blue-600" />;
         case "TuitionTrack":
           return <GraduationCap className="w-4 h-4 text-blue-600" />;
+        case "UIU Sprs":
+          return <Code2 className="w-4 h-4 text-blue-600" />;
         default:
           return <Code2 className="w-4 h-4 text-blue-600" />;
       }
@@ -1954,7 +2047,7 @@ function ProjectsSection() {
       meta: project.language,
       url: project.url,
       status: "Live",
-      tags: ["TypeScript", "Next.js", "Web App"],
+      tech: project.tech, // Pass the tech array instead of tags
       colSpan: index === 0 || index === 2 ? 2 : 1, // Make first and third projects span 2 columns
       hasPersistentHover: index === 0, // Highlight first project
       cta: "View on GitHub"
@@ -1963,7 +2056,7 @@ function ProjectsSection() {
 
   return (
     <SectionWrapper id="projects">
-      <div className="space-y-5">
+      <div className="space-y-5 mb-30">
         <div className="text-center space-y-6">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-800 text-left ml-4">
             Featured Projects
@@ -2037,7 +2130,7 @@ function ContactSection() {
 
   return (
     <SectionWrapper id="contact">
-      <div className="space-y-16">
+      <div className="space-y-16 mb-0">
         {/* CTA Section like Cluely */}
         <div className="text-center space-y-8">
           <h2 className="text-4xl md:text-6xl font-bold text-gray-800 max-w-4xl mx-auto">

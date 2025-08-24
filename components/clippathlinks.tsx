@@ -80,28 +80,28 @@ const ClipPathLinks = () => {
           href="#" 
           color="text-blue-500" 
           hoverColor="bg-blue-500" 
-          tooltip="Build interactive UIs"
+          tooltip="React -Build interactive UIs"
         />
         <LinkBox 
           Icon={SiNextdotjs} 
           href="#" 
           color="text-gray-800" 
           hoverColor="bg-gray-800" 
-          tooltip="Full-stack React framework"
+          tooltip="Next js -Full-stack React framework"
         />
         <LinkBox
             Icon={SiVite} 
             href="#" 
             color="text-purple-600" 
             hoverColor="bg-purple-600" 
-            tooltip="Fast build tool"
+            tooltip="Vite-Fast build tool"
         />
         <LinkBox 
           Icon={SiTypescript} 
           href="#" 
           color="text-blue-600" 
           hoverColor="bg-blue-600" 
-          tooltip="Type-safe JavaScript"
+          tooltip=" TypeScript-Type-safe JavaScript"
         />
       </div>
       
@@ -112,28 +112,28 @@ const ClipPathLinks = () => {
           href="#" 
           color="text-cyan-500" 
           hoverColor="bg-cyan-500" 
-          tooltip="Utility-first CSS styling"
+          tooltip="Tailiwind-Utility-first CSS styling"
         />
         <LinkBox 
           Icon={SiFramer} 
           href="#" 
           color="text-pink-500" 
           hoverColor="bg-pink-500" 
-          tooltip="Smooth animations & motion"
+          tooltip="Framer-motion Smooth animations & motion"
         />
         <LinkBox
             Icon={GsapIcon} 
             href="#" 
             color="text-green-600" 
             hoverColor="bg-green-600" 
-            tooltip="Advanced animations"
+            tooltip="Gsap-Advanced animations"
         />
         <LinkBox 
           Icon={SiShadcnui} 
           href="#" 
           color="text-slate-700" 
           hoverColor="bg-slate-700" 
-          tooltip="Beautiful UI components"
+          tooltip=" Shadcn-Beautiful UI components"
         />
       </div>
       
@@ -144,28 +144,28 @@ const ClipPathLinks = () => {
           href="#" 
           color="text-green-600" 
           hoverColor="bg-green-600" 
-          tooltip="Server-side JavaScript"
+          tooltip="Node-js -Server-side JavaScript"
         />
         <LinkBox 
           Icon={SiPrisma} 
           href="#" 
           color="text-indigo-600" 
           hoverColor="bg-indigo-600" 
-          tooltip="Type-safe database ORM"
+          tooltip="Prisma-Type-safe database ORM"
         />
         <LinkBox 
           Icon={SiPostgresql} 
           href="#" 
           color="text-blue-700" 
           hoverColor="bg-blue-700" 
-          tooltip="Robust SQL database"
+          tooltip="Postgres-Robust SQL database"
         />
         <LinkBox 
           Icon={SiSupabase} 
           href="#" 
           color="text-green-500" 
           hoverColor="bg-green-500" 
-          tooltip="Backend as a Service"
+          tooltip="Supabase-Backend as a Service"
         />
       </div>
       
@@ -176,28 +176,28 @@ const ClipPathLinks = () => {
           href="#" 
           color="text-gray-900" 
           hoverColor="bg-gray-900" 
-          tooltip="Deploy & host apps"
+          tooltip="Vercel-Deploy & host apps"
         />
         <LinkBox 
           Icon={SiGithub} 
           href="#" 
           color="text-gray-700" 
           hoverColor="bg-gray-700" 
-          tooltip="Version control & collaboration"
+          tooltip="Git-Version control & collaboration"
         />
         <LinkBox 
           Icon={SiFigma} 
           href="#" 
           color="text-purple-500" 
           hoverColor="bg-purple-500" 
-          tooltip="UI/UX design tool"
+          tooltip="Figma -UI/UX design tool"
         />
         <LinkBox 
           Icon={SiClerk} 
           href="#" 
           color="text-purple-600" 
           hoverColor="bg-purple-600" 
-          tooltip="User authentication"
+          tooltip="Clerk-User authentication"
         />
       </div>
 
@@ -208,7 +208,7 @@ const ClipPathLinks = () => {
           href="#" 
           color="text-blue-600" 
           hoverColor="bg-blue-600" 
-          tooltip="AI-powered code editor"
+          tooltip="CursorAI-powered code editor"
         />
         <LinkBox 
           Icon={SiOpenai} 
@@ -222,14 +222,14 @@ const ClipPathLinks = () => {
           href="#" 
           color="text-orange-500" 
           hoverColor="bg-orange-500" 
-          tooltip="AI assistant for development"
+          tooltip="Clude-AI assistant for development"
         />
         <LinkBox 
           Icon={V0Icon} 
           href="#" 
           color="text-black" 
           hoverColor="bg-black" 
-          tooltip="Generate UI components"
+          tooltip="V0-Generate UI components"
         />
       </div>
     </div>
