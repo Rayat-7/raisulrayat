@@ -35,8 +35,8 @@ const ShareButton = ({
     >
       <Button
         className={cn(
-          "relative w-8 h-40  rounded-3xl ",
-          "bg-gradient-to-tr from-black via-cyan-800 to-black",
+          "relative min-w-40  rounded-3xl ",
+          "bg-gray-900 dark:bg-black",
           "hover:bg-gray-50 dark:hover:bg-gray-950",
           "text-white dark:text-white",
           "border border-black/10 dark:border-white/10",
@@ -49,7 +49,7 @@ const ShareButton = ({
         <span className="flex items-center gap-2">{children}</span>
       </Button>
 
-      <div className="absolute left-0 top-0 flex flex-col w-10">
+      <div className="absolute left-0 top-0 flex h-10">
         {links.map((link, index) => {
           const Icon = link.icon
           return (
@@ -61,17 +61,17 @@ const ShareButton = ({
                 "h-10",
                 "w-10",
                 "flex items-center justify-center",
-                "bg-black dark:bg-white",
+                "bg-black dark:bg-black",
                 "text-white dark:text-black",
                 "transition-all duration-300",
-                index === 0 && "rounded-t-3xl",
-                index === links.length - 1 && "rounded-b-3xl",
-                "border-b border-cyan-500 last:border-r-0 dark:border-black/10",
+                index === 0 && "rounded-l-3xl",
+                index === links.length - 1 && "rounded-r-3xl",
+                "border-r border-white/10 last:border-r-0 dark:border-black/10",
                 "hover:bg-gray-900 dark:hover:bg-gray-100",
                 "",
                 isHovered
-                  ? "translate-y-0 opacity-100"
-                  : "-translate-y-full opacity-0",
+                  ? "translate-x-0 opacity-100"
+                  : "-translate-x-full opacity-0",
                 index === 0 && "transition-all duration-200",
                 index === 1 && "delay-[50ms] transition-all duration-200",
                 index === 2 && "transition-all delay-100 duration-200",
@@ -86,5 +86,6 @@ const ShareButton = ({
     </div>
   )
 }
+
 
 export default ShareButton;
