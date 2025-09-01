@@ -202,11 +202,11 @@ const ClipPathLinks = () => {
       </div>
 
       {/* AI Development Tools */}
-      <h2 className="text-center bg-blue-400 font-bold mt-10 text-4xl">AI DEVELOPMENT TOOL</h2>
-      <div className="grid grid-cols-5 divide-x divide-gray-200">
-        <div className=" text-center font-bold text-xl p-4 bg-gray-500">
+      {/* <h2 className="text-center bg-blue-400 font-bold mt-10 text-4xl">AI DEVELOPMENT TOOL</h2> */}
+      <div className="grid grid-cols-4 divide-x divide-gray-200">
+        {/* <div className=" text-center font-bold text-xl p-4 bg-gray-500">
             AI Tools
-        </div>
+        </div> */}
         <LinkBox 
           Icon={CursorIcon} 
           href="#" 

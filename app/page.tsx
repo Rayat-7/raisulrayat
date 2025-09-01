@@ -2133,19 +2133,27 @@ function ContactSection() {
 
   return (
     <SectionWrapper id="contact">
-      <div className="relative space-y-20">
-        {/* Watermark Background */}
-        <h1 className="absolute -bottom-8 left-1/2 -translate-x-1/2 text-[6rem] md:text-[10rem] font-extrabold text-gray-200 opacity-10 select-none pointer-events-none tracking-widest">
+      <div className="relative bg-gradient-to-b from-gray-900 via-gray-950 to-black rounded-3xl px-6 py-20 md:px-12 md:py-28 overflow-hidden">
+        
+        {/* Watermark */}
+        <h1 className="absolute bottom-0 left-1/2 -translate-x-1/2 text-[7rem] md:text-[11rem] font-extrabold text-white/5 select-none pointer-events-none tracking-widest">
           RAYAT
         </h1>
 
-        {/* Call To Action */}
-        <div className="text-center space-y-8">
-          <h2 className="text-4xl md:text-6xl font-bold text-gray-800 max-w-4xl mx-auto leading-snug">
-            Developer that helps during the build, not after.
-          </h2>
-          <p className="text-lg text-gray-600">
-            Try Raisul on your next project today.
+        {/* Main CTA */}
+        <div className="relative text-center space-y-6 z-10">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-4xl md:text-6xl font-extrabold text-white max-w-4xl mx-auto leading-tight"
+          >
+            Let’s Build Something Amazing Together 🚀
+          </motion.h2>
+
+          <p className="text-lg text-gray-400">
+            Open to collaborations, freelance work, or just a friendly chat.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
@@ -2153,7 +2161,7 @@ function ContactSection() {
               href="mailto:raisoulrayat@gmail.com"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-gradient-to-r from-blue-400 to-blue-500 text-white px-10 py-4 rounded-xl font-medium shadow-lg hover:from-blue-500 hover:to-blue-600 transition-all duration-300"
+              className="bg-gradient-to-r from-blue-500 to-blue-300 text-white px-10 py-4 rounded-xl font-semibold shadow-lg hover:from-indigo-600 hover:to-purple-700 transition-all duration-300"
             >
               📧 Send Email
             </motion.a>
@@ -2163,48 +2171,46 @@ function ContactSection() {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-gray-900 text-white px-10 py-4 rounded-xl font-medium shadow-lg hover:bg-gray-800 transition-colors"
+              className="bg-gray-800 text-white px-10 py-4 rounded-xl font-semibold shadow-lg hover:bg-gray-700 transition-colors"
             >
               💼 View LinkedIn
             </motion.a>
           </div>
         </div>
 
-        {/* Contact Info Card */}
+        {/* Contact Info Glass Card */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="relative z-10 bg-white/40 backdrop-blur-xl rounded-3xl p-10 border border-white/30 shadow-lg"
+          className="relative z-10 mt-20 bg-white/5 backdrop-blur-xl rounded-3xl p-10 border border-white/10 shadow-xl"
         >
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
             <div>
-              <p className="text-sm text-gray-500 uppercase tracking-wider">
+              <p className="text-sm text-gray-400 uppercase tracking-wider">
                 Email
               </p>
-              <p className="text-gray-900 font-semibold">
+              <p className="text-white font-medium">
                 raisoulrayat@gmail.com
               </p>
             </div>
             <div>
-              <p className="text-sm text-gray-500 uppercase tracking-wider">
+              <p className="text-sm text-gray-400 uppercase tracking-wider">
                 Phone
               </p>
-              <p className="text-gray-900 font-semibold">+880 123 456 7890</p>
+              <p className="text-white font-medium">+880 123 456 7890</p>
             </div>
             <div>
-              <p className="text-sm text-gray-500 uppercase tracking-wider">
+              <p className="text-sm text-gray-400 uppercase tracking-wider">
                 Location
               </p>
-              <p className="text-gray-900 font-semibold">
-                Dhaka, Bangladesh
-              </p>
+              <p className="text-white font-medium">Dhaka, Bangladesh</p>
             </div>
           </div>
 
           {/* Social Links */}
-          <div className="flex justify-center gap-6 pt-10 mt-10 border-t border-white/30">
+          <div className="flex justify-center gap-6 pt-10 mt-10 border-t border-white/10">
             {links.map((link, index) => (
               <motion.a
                 key={index}
@@ -2213,7 +2219,7 @@ function ContactSection() {
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.15, rotate: 5 }}
                 whileTap={{ scale: 0.9 }}
-                className="w-14 h-14 bg-white/60 border border-white/30 rounded-xl flex items-center justify-center text-gray-700 hover:text-gray-900 hover:bg-white transition-all duration-300"
+                className="w-14 h-14 bg-white/10 border border-white/10 rounded-xl flex items-center justify-center text-gray-300 hover:text-white hover:bg-white/20 transition-all duration-300"
               >
                 {link.icon}
               </motion.a>
@@ -2222,7 +2228,7 @@ function ContactSection() {
         </motion.div>
 
         {/* Footer */}
-        <div className="text-center py-8 relative z-10">
+        <div className="text-center pt-12 relative z-10">
           <p className="text-gray-500 text-sm">
             © 2025 Raisul Rayat Omi. All rights reserved.
           </p>
