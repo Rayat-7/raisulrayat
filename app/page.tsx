@@ -1618,6 +1618,7 @@ import { Code2, DollarSign, Facebook, Github, Globe, GraduationCap, Link, Linked
 import Beams from "@/components/beams";
 import { BentoGrid } from "@/components/bento-grid";
 import { ShareButtonDemo } from "@/components/share-button1";
+import { SiGithub, SiLinkedin } from "react-icons/si";
 
 
 
@@ -2114,80 +2115,201 @@ function InterestsSection() {
   );
 }
 
+
+
 function ContactSection() {
   const links = [
     {
       title: "GitHub",
       href: "https://github.com/rayat-7",
-      icon: <IconBrandGithub className="h-6 w-6" />,
+      icon: <SiGithub className="h-7 w-7" />,
     },
     {
       title: "LinkedIn",
       href: "https://linkedin.com/in/raisulrayat",
-      icon: <IconBrandLinkedin className="h-6 w-6" />,
+      icon: <SiLinkedin className="h-7 w-7" />,
     },
   ];
 
   return (
     <SectionWrapper id="contact">
-      <div className="space-y-16 mb-0">
-        {/* CTA Section like Cluely */}
+      <div className="relative space-y-20">
+        {/* Watermark Background */}
+        <h1 className="absolute -bottom-8 left-1/2 -translate-x-1/2 text-[6rem] md:text-[10rem] font-extrabold text-gray-200 opacity-10 select-none pointer-events-none tracking-widest">
+          RAYAT
+        </h1>
+
+        {/* Call To Action */}
         <div className="text-center space-y-8">
-          <h2 className="text-4xl md:text-6xl font-bold text-gray-800 max-w-4xl mx-auto">
+          <h2 className="text-4xl md:text-6xl font-bold text-gray-800 max-w-4xl mx-auto leading-snug">
             Developer that helps during the build, not after.
           </h2>
           <p className="text-lg text-gray-600">
             Try Raisul on your next project today.
           </p>
-          
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-            <button className="bg-gradient-to-r from-blue-400 to-blue-500 text-white px-8 py-4 rounded-xl font-medium hover:from-blue-500 hover:to-blue-600 transition-all duration-300 shadow-lg">
+            <motion.a
+              href="mailto:raisoulrayat@gmail.com"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-gradient-to-r from-blue-400 to-blue-500 text-white px-10 py-4 rounded-xl font-medium shadow-lg hover:from-blue-500 hover:to-blue-600 transition-all duration-300"
+            >
               📧 Send Email
-            </button>
-            <button className="bg-gray-800 text-white px-8 py-4 rounded-xl font-medium hover:bg-gray-700 transition-colors shadow-lg">
+            </motion.a>
+            <motion.a
+              href="https://linkedin.com/in/raisulrayat"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-gray-900 text-white px-10 py-4 rounded-xl font-medium shadow-lg hover:bg-gray-800 transition-colors"
+            >
               💼 View LinkedIn
-            </button>
+            </motion.a>
           </div>
         </div>
-        
-        {/* Contact Info */}
-        <div className="bg-white/40 backdrop-blur-sm rounded-3xl p-8 border border-white/30">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            <div className="space-y-2">
-              <p className="text-sm text-gray-500 uppercase tracking-wider">Email</p>
-              <p className="text-gray-800 font-medium">raisoulrayat@gmail.com</p>
+
+        {/* Contact Info Card */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="relative z-10 bg-white/40 backdrop-blur-xl rounded-3xl p-10 border border-white/30 shadow-lg"
+        >
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
+            <div>
+              <p className="text-sm text-gray-500 uppercase tracking-wider">
+                Email
+              </p>
+              <p className="text-gray-900 font-semibold">
+                raisoulrayat@gmail.com
+              </p>
             </div>
-            <div className="space-y-2">
-              <p className="text-sm text-gray-500 uppercase tracking-wider">Phone</p>
-              <p className="text-gray-800 font-medium">+880 123 456 7890</p>
+            <div>
+              <p className="text-sm text-gray-500 uppercase tracking-wider">
+                Phone
+              </p>
+              <p className="text-gray-900 font-semibold">+880 123 456 7890</p>
             </div>
-            <div className="space-y-2">
-              <p className="text-sm text-gray-500 uppercase tracking-wider">Location</p>
-              <p className="text-gray-800 font-medium">Dhaka, Bangladesh</p>
+            <div>
+              <p className="text-sm text-gray-500 uppercase tracking-wider">
+                Location
+              </p>
+              <p className="text-gray-900 font-semibold">
+                Dhaka, Bangladesh
+              </p>
             </div>
           </div>
-          
-          <div className="flex justify-center space-x-6 pt-8 mt-8 border-t border-white/30">
+
+          {/* Social Links */}
+          <div className="flex justify-center gap-6 pt-10 mt-10 border-t border-white/30">
             {links.map((link, index) => (
               <motion.a
                 key={index}
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                whileHover={{ scale: 1.1 }}
-                className="w-12 h-12 bg-white/50 border border-white/30 rounded-xl flex items-center justify-center text-gray-600 hover:text-gray-800 hover:bg-white/70 transition-all duration-300"
+                whileHover={{ scale: 1.15, rotate: 5 }}
+                whileTap={{ scale: 0.9 }}
+                className="w-14 h-14 bg-white/60 border border-white/30 rounded-xl flex items-center justify-center text-gray-700 hover:text-gray-900 hover:bg-white transition-all duration-300"
               >
                 {link.icon}
               </motion.a>
             ))}
           </div>
-        </div>
-        
-        {/* Footer like Cluely */}
-        <div className="text-center py-8">
-          <p className="text-gray-500 text-sm">© 2025 Raisul Rayat Omi. All rights reserved.</p>
+        </motion.div>
+
+        {/* Footer */}
+        <div className="text-center py-8 relative z-10">
+          <p className="text-gray-500 text-sm">
+            © 2025 Raisul Rayat Omi. All rights reserved.
+          </p>
         </div>
       </div>
     </SectionWrapper>
   );
 }
+
+
+
+
+
+// function ContactSection() {
+//   const links = [
+//     {
+//       title: "GitHub",
+//       href: "https://github.com/rayat-7",
+//       icon: <IconBrandGithub className="h-6 w-6" />,
+//     },
+//     {
+//       title: "LinkedIn",
+//       href: "https://linkedin.com/in/raisulrayat",
+//       icon: <IconBrandLinkedin className="h-6 w-6" />,
+//     },
+//   ];
+
+//   return (
+//     <SectionWrapper id="contact">
+//       <div className="space-y-16 mb-0">
+//         {/* CTA Section like Cluely */}
+//         <div className="text-center space-y-8">
+//           <h2 className="text-4xl md:text-6xl font-bold text-gray-800 max-w-4xl mx-auto">
+//             Developer that helps during the build, not after.
+//           </h2>
+//           <p className="text-lg text-gray-600">
+//             Try Raisul on your next project today.
+//           </p>
+          
+//           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+//             <button className="bg-gradient-to-r from-blue-400 to-blue-500 text-white px-8 py-4 rounded-xl font-medium hover:from-blue-500 hover:to-blue-600 transition-all duration-300 shadow-lg">
+//               📧 Send Email
+//             </button>
+//             <button className="bg-gray-800 text-white px-8 py-4 rounded-xl font-medium hover:bg-gray-700 transition-colors shadow-lg">
+//               💼 View LinkedIn
+//             </button>
+//           </div>
+//         </div>
+        
+//         {/* Contact Info */}
+//         <div className="bg-white/40 backdrop-blur-sm rounded-3xl p-8 border border-white/30">
+//           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+//             <div className="space-y-2">
+//               <p className="text-sm text-gray-500 uppercase tracking-wider">Email</p>
+//               <p className="text-gray-800 font-medium">raisoulrayat@gmail.com</p>
+//             </div>
+//             <div className="space-y-2">
+//               <p className="text-sm text-gray-500 uppercase tracking-wider">Phone</p>
+//               <p className="text-gray-800 font-medium">+880 123 456 7890</p>
+//             </div>
+//             <div className="space-y-2">
+//               <p className="text-sm text-gray-500 uppercase tracking-wider">Location</p>
+//               <p className="text-gray-800 font-medium">Dhaka, Bangladesh</p>
+//             </div>
+//           </div>
+          
+//           <div className="flex justify-center space-x-6 pt-8 mt-8 border-t border-white/30">
+//             {links.map((link, index) => (
+//               <motion.a
+//                 key={index}
+//                 href={link.href}
+//                 target="_blank"
+//                 rel="noopener noreferrer"
+//                 whileHover={{ scale: 1.1 }}
+//                 className="w-12 h-12 bg-white/50 border border-white/30 rounded-xl flex items-center justify-center text-gray-600 hover:text-gray-800 hover:bg-white/70 transition-all duration-300"
+//               >
+//                 {link.icon}
+//               </motion.a>
+//             ))}
+//           </div>
+//         </div>
+        
+//         {/* Footer like Cluely */}
+//         <div className="text-center py-8">
+//           <p className="text-gray-500 text-sm">© 2025 Raisul Rayat Omi. All rights reserved.</p>
+//         </div>
+//       </div>
+//     </SectionWrapper>
+//   );
+// }
