@@ -87,13 +87,13 @@ const HeroSection = () => {
             {/* Photo Container */}
             <div className="relative w-full h-full rounded-2xl overflow-hidden border border-[#1a1a1a] bg-[#0d0d0d] group">
               <Image 
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop&crop=face" 
-                alt="Raisul Rayat" 
-                fill
-                className="object-cover grayscale-[30%] group-hover:grayscale-0 transition-all duration-500"
-                priority
-                unoptimized
-              />
+                  src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/2832a7b9-6393-42b6-b877-3b83b7ed050a/3fa258ea-a5d1-426c-9538-1a1ea2187fe3-1768600459235.jpg?width=800&height=1000&resize=cover" 
+                  alt="Raisul Rayat" 
+                  fill
+                  className="object-cover object-top grayscale-[20%] group-hover:grayscale-0 transition-all duration-500"
+                  priority
+                  unoptimized
+                />
               
               {/* Decorative corners */}
               <div className="absolute top-0 right-0 w-16 h-16 border-t-2 border-r-2 border-[#0ea5e9]/60" />
