@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import { ExternalLink, Github, GraduationCap, Globe } from 'lucide-react';
+import { ExternalLink, Github, GraduationCap, Globe, Gamepad2, FileText } from 'lucide-react';
 
 const ProjectsSection = () => {
   const projects = [
@@ -9,15 +9,33 @@ const ProjectsSection = () => {
       title: "TuitionTrack",
       description: "A comprehensive web app for tuition centers in Bangladesh to manage students, attendance, and monthly fees. Features modern dashboard and easy-to-use interface.",
       tech: ["Next.js", "TypeScript", "Tailwind CSS", "PostgreSQL", "Clerk", "Supabase"],
-      link: "https://github.com/rayat-7/tuitiontrack",
+      github: "https://github.com/rayat-7/tuitiontrack",
+      live: "#",
       icon: <GraduationCap className="h-6 w-6 text-[#0ea5e9]" />
     },
     {
       title: "Cyber Play Arena",
-      description: "Modern web-based management software for local gaming services. Manages booking slots and marketing with a sleek user interface.",
-      tech: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
-      link: "https://github.com/rayat-7/cyber_play_arena",
+      description: "A modern web-based management software to manage booking slots and marketing for local gaming service. Built with Next.js and modern technologies.",
+      tech: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Tailwind CSS"],
+      github: "https://github.com/rayat-7/cyber_play_arena",
+      live: "#",
+      icon: <Gamepad2 className="h-6 w-6 text-[#0ea5e9]" />
+    },
+    {
+      title: "UIU Sprs",
+      description: "A platform to enhance university's issue resolution process. Transparent, user-friendly system for students to report issues, track progress, and receive feedback.",
+      tech: ["Next.js", "TypeScript", "Supabase", "Clerk", "Shadcn UI", "Tailwind CSS", "Prisma"],
+      github: "https://github.com/rayat-7/uiu-sprs",
+      live: "#",
       icon: <Globe className="h-6 w-6 text-[#0ea5e9]" />
+    },
+    {
+      title: "Spendo Frontend",
+      description: "Frontend for a spending tracker app, financial management tool. Built with Vite and responsive design for seamless user experience.",
+      tech: ["Vite", "TypeScript", "Tailwind CSS"],
+      github: "https://github.com/rayat-7/spendo-frontend",
+      live: "#",
+      icon: <FileText className="h-6 w-6 text-[#0ea5e9]" />
     }
   ];
 
@@ -33,45 +51,67 @@ const ProjectsSection = () => {
                 ))}
              </div>
           </div>
-          <h2 className="text-[48px] font-medium leading-[1.1] tracking-[-0.02em] text-white max-w-2xl">
+          <h2 className="text-[48px] font-medium leading-[1.1] tracking-[-0.02em] text-white max-w-2xl lg:text-[40px] md:text-[32px]">
             Featured Projects.{" "}
             <span className="text-[#999999]">
-              Real solutions built with modern web technologies and a focus on impact.
+              Real solutions for real problems.
             </span>
           </h2>
         </div>
 
         {/* Feature Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[#1A1A1A]">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {projects.map((project, index) => (
             <div 
               key={index} 
-              className="bg-black p-12 flex flex-col min-h-[320px] transition-colors duration-200 hover:bg-[#0d0d0d] group"
+              className="bg-[#0d0d0d] border border-[#1a1a1a] rounded-xl p-8 flex flex-col min-h-[320px] transition-all duration-300 hover:border-[#0ea5e9]/30 hover:bg-[#0d0d0d]/80 group"
             >
-              <div className="mb-8 flex items-center justify-between">
-                <div className="p-3 bg-[#1a1a1a] rounded-xl border border-[#333] group-hover:border-[#0ea5e9]/50 transition-colors">
-                  {project.icon}
+              <div className="mb-6 flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="p-3 bg-[#1a1a1a] rounded-xl border border-[#333] group-hover:border-[#0ea5e9]/50 transition-colors">
+                    {project.icon}
+                  </div>
+                  <span className="px-2 py-1 bg-[#0ea5e9]/10 text-[#0ea5e9] text-[10px] font-bold uppercase tracking-wider rounded">
+                    Live
+                  </span>
                 </div>
-                <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-[#999999] hover:text-[#0ea5e9] transition-colors">
-                  <Github size={20} />
-                </a>
+                <div className="flex items-center gap-3">
+                  <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-[#999999] hover:text-[#0ea5e9] transition-colors">
+                    <Github size={20} />
+                  </a>
+                  <a href={project.live} target="_blank" rel="noopener noreferrer" className="text-[#999999] hover:text-[#0ea5e9] transition-colors">
+                    <ExternalLink size={20} />
+                  </a>
+                </div>
               </div>
-              <h3 className="text-2xl font-medium text-white mb-4 flex items-center gap-2">
+              <h3 className="text-2xl font-medium text-white mb-3 flex items-center gap-2">
                 {project.title}
-                <ExternalLink size={16} className="opacity-0 group-hover:opacity-100 transition-opacity" />
               </h3>
-              <p className="text-[#999999] text-[16px] leading-relaxed mb-8 flex-grow">
+              <p className="text-[#999999] text-[15px] leading-relaxed mb-6 flex-grow">
                 {project.description}
               </p>
               <div className="flex flex-wrap gap-2">
                 {project.tech.map((t, i) => (
-                  <span key={i} className="px-3 py-1 bg-[#1a1a1a] text-[#0ea5e9] text-[12px] font-mono rounded-full border border-[#333]">
+                  <span key={i} className="px-3 py-1.5 bg-[#1a1a1a] text-[#0ea5e9] text-[11px] font-mono rounded-full border border-[#333] hover:border-[#0ea5e9]/30 transition-colors">
                     {t}
                   </span>
                 ))}
               </div>
             </div>
           ))}
+        </div>
+
+        {/* View More Link */}
+        <div className="mt-12 text-center">
+          <a 
+            href="https://github.com/rayat-7" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-[#999999] hover:text-[#0ea5e9] transition-colors text-[15px] font-medium"
+          >
+            View all projects on GitHub
+            <ExternalLink size={16} />
+          </a>
         </div>
       </div>
 
