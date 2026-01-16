@@ -106,10 +106,11 @@ export default function Home() {
                 <div className="aspect-square rounded-2xl overflow-hidden border border-[#1a1a1a] bg-[#0d0d0d] relative group sticky top-32">
                   <div className="absolute inset-0 bg-gradient-to-br from-[#0ea5e9]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                   <Image 
-                    src="/portimg.jpeg" 
+                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=500&fit=crop&crop=face" 
                     alt="Raisul Rayat" 
                     fill
                     className="object-cover grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
+                    unoptimized
                   />
                   {/* Decorative corner */}
                   <div className="absolute top-0 right-0 w-20 h-20 border-t border-r border-[#0ea5e9]/50" />
