@@ -87,11 +87,12 @@ const HeroSection = () => {
             {/* Photo Container */}
             <div className="relative w-full h-full rounded-2xl overflow-hidden border border-[#1a1a1a] bg-[#0d0d0d] group">
               <Image 
-                src="/portimg.jpeg" 
+                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop&crop=face" 
                 alt="Raisul Rayat" 
                 fill
                 className="object-cover grayscale-[30%] group-hover:grayscale-0 transition-all duration-500"
                 priority
+                unoptimized
               />
               
               {/* Decorative corners */}
