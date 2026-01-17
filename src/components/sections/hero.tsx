@@ -9,14 +9,7 @@ import { NeuButton } from "@/components/ui/neu-button";
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen w-full overflow-hidden bg-[#000000] text-white">
-      // <BeamsBackground 
-      //   beamCount={6}
-      //   beamColor="#0ea5e9"
-      //   rotation={-45}
-      //   noise={0.25}
-      //   opacity={0.45}
-      //   className="z-0"
-      // />
+      
 
       <div className="absolute inset-0 z-[1] pointer-events-none">
         <div className="absolute top-1/4 -left-20 w-[400px] h-[500px] bg-gradient-to-br from-[#0ea5e9]/8 via-[#0ea5e9]/4 to-transparent blur-[80px]" />
