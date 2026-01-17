@@ -14,7 +14,7 @@ const HeroSection = () => {
         beamCount={16}
         beamColor="#0ea5e9"
         beamOpacity={0.12}
-        beamWidth={3}
+        beamWidth={2}
         beamBlur={50}
         rotation={-135}
         noise={0.5}
