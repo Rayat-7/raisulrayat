@@ -4,19 +4,32 @@ import React from 'react';
 import Image from 'next/image';
 import { Button } from "@/components/ui/button";
 import { Trophy } from 'lucide-react';
+import { BeamsBackground } from "@/components/ui/beams-background";
 
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen w-full overflow-hidden bg-[#000000] text-white">
-      {/* Background Noise Texture */}
-      <div 
-        className="pointer-events-none absolute inset-0 z-0 opacity-30 mix-blend-overlay"
-        style={{
-          backgroundImage: `url('https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/2832a7b9-6393-42b6-b877-3b83b7ed050a-neon-com/assets/images/noise-19.svg')`,
-          backgroundRepeat: 'repeat',
-          backgroundSize: '200px 200px'
-        }}
+      {/* Beams Background */}
+      <BeamsBackground 
+        beamCount={16}
+        beamColor="#0ea5e9"
+        beamOpacity={0.12}
+        beamWidth={3}
+        beamBlur={50}
+        rotation={-135}
+        noise={0.5}
+        speed={12}
+        className="z-0"
       />
+
+      {/* Additional ambient glow */}
+      <div className="absolute inset-0 z-[1] pointer-events-none">
+        <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-[#0ea5e9]/8 blur-[150px] rounded-full" />
+        <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-[#0ea5e9]/5 blur-[120px] rounded-full" />
+      </div>
+
+      {/* Dark overlay for better text contrast */}
+      <div className="absolute inset-0 z-[2] bg-gradient-to-b from-black/40 via-transparent to-black/60 pointer-events-none" />
 
       {/* Main Content Container */}
       <div className="container relative z-10 mx-auto flex flex-col lg:flex-row items-center gap-12 px-8 pt-32 pb-20 lg:pt-40 lg:px-8 md:px-5">
@@ -32,7 +45,7 @@ const HeroSection = () => {
           </div>
 
           {/* Achievement Badge */}
-          <div className="mb-8 inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#0ea5e9]/20 to-transparent border border-[#0ea5e9]/30 rounded-full">
+          <div className="mb-8 inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#0ea5e9]/20 to-transparent border border-[#0ea5e9]/30 rounded-full backdrop-blur-sm">
             <Trophy className="w-4 h-4 text-[#fbbf24]" />
             <span className="text-[13px] font-medium text-white">
               Startup Competition Champion — Spendo AI (Cohort IC6)
@@ -52,13 +65,13 @@ const HeroSection = () => {
 
           {/* Status Tags */}
           <div className="mt-8 flex flex-wrap gap-3">
-            <span className="px-4 py-2 bg-[#0d0d0d] border border-[#1a1a1a] rounded-full text-[13px] text-white font-medium">
+            <span className="px-4 py-2 bg-[#0d0d0d]/80 backdrop-blur-sm border border-[#1a1a1a] rounded-full text-[13px] text-white font-medium">
               Computer Science Student
             </span>
-            <span className="px-4 py-2 bg-[#0d0d0d] border border-[#1a1a1a] rounded-full text-[13px] text-white font-medium">
+            <span className="px-4 py-2 bg-[#0d0d0d]/80 backdrop-blur-sm border border-[#1a1a1a] rounded-full text-[13px] text-white font-medium">
               Full-Stack Developer
             </span>
-            <span className="px-4 py-2 bg-[#0d0d0d] border border-[#1a1a1a] rounded-full text-[13px] text-white font-medium">
+            <span className="px-4 py-2 bg-[#0d0d0d]/80 backdrop-blur-sm border border-[#1a1a1a] rounded-full text-[13px] text-white font-medium">
               UI/UX Designer
             </span>
           </div>
@@ -66,12 +79,12 @@ const HeroSection = () => {
           {/* CTA Buttons */}
           <div className="mt-10 flex flex-wrap gap-4">
             <a href="#projects">
-              <Button className="h-[48px] rounded-full bg-[#0ea5e9] px-8 text-base font-medium text-white transition-transform hover:scale-[1.02] hover:bg-[#0ea5e9]/90">
+              <Button className="h-[48px] rounded-full bg-[#0ea5e9] px-8 text-base font-medium text-white transition-transform hover:scale-[1.02] hover:bg-[#0ea5e9]/90 shadow-lg shadow-[#0ea5e9]/25">
                 View Projects
               </Button>
             </a>
             <a href="/resume.pdf" target="_blank">
-              <Button variant="outline" className="h-[48px] rounded-full border-[#333333] bg-transparent px-8 text-base font-medium text-white transition-transform hover:scale-[1.02] hover:border-gray-400 hover:bg-transparent">
+              <Button variant="outline" className="h-[48px] rounded-full border-[#333333] bg-transparent px-8 text-base font-medium text-white transition-transform hover:scale-[1.02] hover:border-[#0ea5e9]/50 hover:bg-transparent backdrop-blur-sm">
                 Download Resume
               </Button>
             </a>
@@ -112,13 +125,13 @@ const HeroSection = () => {
             </div>
 
             {/* Floating Stats Card */}
-            <div className="absolute -bottom-6 -left-6 p-4 bg-[#0d0d0d] border border-[#1a1a1a] rounded-xl shadow-2xl">
+            <div className="absolute -bottom-6 -left-6 p-4 bg-[#0d0d0d]/90 backdrop-blur-md border border-[#1a1a1a] rounded-xl shadow-2xl">
               <div className="text-[24px] font-bold text-white">1+</div>
               <div className="text-[11px] text-[#999999] uppercase tracking-wider">Years Exp</div>
             </div>
 
             {/* Another Floating Card */}
-            <div className="absolute -top-4 -right-4 p-4 bg-[#0d0d0d] border border-[#1a1a1a] rounded-xl shadow-2xl">
+            <div className="absolute -top-4 -right-4 p-4 bg-[#0d0d0d]/90 backdrop-blur-md border border-[#1a1a1a] rounded-xl shadow-2xl">
               <div className="text-[24px] font-bold text-white">UIU</div>
               <div className="text-[11px] text-[#999999] uppercase tracking-wider">3rd Year CSE</div>
             </div>
@@ -126,26 +139,8 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* Background Video Element */}
-      <div className="absolute right-0 top-0 h-full w-full pointer-events-none overflow-hidden opacity-40">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute right-0 top-1/2 h-full w-full -translate-y-1/2 object-cover object-right mix-blend-lighten"
-          style={{ height: '120%' }}
-        >
-          <source src="https://cdn.neonapi.io/public/pages/home/hero/hero.mp4" type="video/mp4" />
-        </video>
-        
-        {/* Gradient Masks */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/60 to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-black to-transparent" />
-      </div>
-
       {/* Vertical Glowing Line */}
-      <div className="absolute left-[32px] top-40 bottom-0 w-px bg-gradient-to-b from-[#0ea5e9]/0 via-[#0ea5e9]/20 to-[#0ea5e9]/0 hidden xl:block" />
+      <div className="absolute left-[32px] top-40 bottom-0 w-px bg-gradient-to-b from-[#0ea5e9]/0 via-[#0ea5e9]/20 to-[#0ea5e9]/0 hidden xl:block z-[3]" />
     </section>
   );
 };
