@@ -22,29 +22,28 @@ const HeroSection = () => {
         <div className="absolute top-1/4 -left-20 w-[400px] h-[500px] bg-gradient-to-br from-[#0ea5e9]/8 via-[#0ea5e9]/4 to-transparent blur-[80px]" />
       </div>
 
-      <div className="absolute top-0 right-0 w-[50%] h-full z-[1] hidden lg:block">
-        <div className="relative w-full h-full flex items-end justify-center">
-          <div className="relative w-full h-[110%] -mb-[5%]">
+      <div className="absolute top-0 right-0 w-[40%] h-full z-[1] hidden lg:block">
+        <div className="relative w-full h-full flex items-end justify-end">
+          <div className="relative w-full h-[115%] -mb-[5%]">
             <Image 
               src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/2832a7b9-6393-42b6-b877-3b83b7ed050a/3fa258ea-a5d1-426c-9538-1a1ea2187fe3-1768600459235.jpg?width=1200&height=1600&resize=contain" 
               alt="Raisul Rayat" 
               fill
-              className="object-contain object-bottom"
+              className="object-contain object-bottom-right"
+              style={{ objectPosition: 'right bottom' }}
               priority
               unoptimized
             />
           </div>
           
-          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/40 to-transparent" style={{ background: 'linear-gradient(to right, black 0%, rgba(0,0,0,0.6) 25%, rgba(0,0,0,0.2) 50%, transparent 100%)' }} />
+          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/50 to-transparent" style={{ background: 'linear-gradient(to right, black 0%, rgba(0,0,0,0.5) 30%, rgba(0,0,0,0.15) 60%, transparent 100%)' }} />
           
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20" />
           
           <div className="absolute inset-0 bg-[#0ea5e9]/5 mix-blend-overlay" />
           
-          <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-black to-transparent" />
-          <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-black/50 to-transparent" />
-          
-          <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-black/20 to-transparent" />
+          <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-black to-transparent" />
+          <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-black/40 to-transparent" />
         </div>
       </div>
 
