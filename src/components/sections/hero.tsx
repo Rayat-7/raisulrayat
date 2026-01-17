@@ -66,12 +66,12 @@ const HeroSection = () => {
       </div>
 
       <div className="absolute inset-0 z-[2] pointer-events-none">
-        <div className="absolute left-0 top-0 w-[50%] h-full bg-gradient-to-r from-black via-black/90 to-transparent" />
+        <div className="absolute left-0 top-0 w-[60%] h-full bg-gradient-to-r from-black via-black/95 to-transparent" />
       </div>
 
       <div className="container relative z-10 mx-auto flex flex-col lg:flex-row items-start min-h-screen px-8 pt-32 pb-20 lg:pt-40 lg:px-8 md:px-5">
         
-        <div className="flex-1 max-w-[700px] lg:max-w-[550px]">
+        <div className="flex-1 max-w-[700px] lg:max-w-[600px] lg:w-[60%]">
           <div className="mb-6 flex items-center gap-3">
             <div className="h-0 w-0 border-y-[5px] border-y-transparent border-l-[8px] border-l-[#0ea5e9]" />
             <span className="text-[10px] font-medium uppercase tracking-[0.1em] text-[#999999]">
