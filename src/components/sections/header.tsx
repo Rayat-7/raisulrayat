@@ -3,6 +3,7 @@
 import React from 'react';
 import { Github, Twitter, Linkedin, Menu, X } from 'lucide-react';
 import { useState } from 'react';
+import { NeuButton } from "@/components/ui/neu-button";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -48,13 +49,13 @@ const Header = () => {
               <Linkedin size={18} />
             </a>
           </div>
-          <a 
+          <NeuButton 
             href="mailto:raisoulrayat@gmail.com" 
-            className="hidden sm:inline-flex h-9 items-center justify-center bg-[#0ea5e9] px-5 text-[13px] font-semibold text-white transition-transform duration-200 hover:scale-105 relative group"
+            variant="primary"
+            className="hidden sm:inline-flex px-5 py-2 text-[13px]"
           >
-            <div className="absolute -inset-[1px] bg-gradient-to-r from-[#0ea5e9] via-[#38bdf8] to-[#0ea5e9] opacity-50 blur-sm group-hover:opacity-75 transition-opacity" />
-            <span className="relative z-10">Get in touch</span>
-          </a>
+            Get in touch
+          </NeuButton>
           
           <button 
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -110,12 +111,13 @@ const Header = () => {
                 </div>
               </li>
               <li className="pt-4">
-                <a 
+                <NeuButton 
                   href="mailto:raisoulrayat@gmail.com" 
-                  className="inline-flex h-10 items-center justify-center bg-[#0ea5e9] px-6 text-[14px] font-semibold text-white"
+                  variant="primary"
+                  className="px-6 py-2.5"
                 >
                   Get in touch
-                </a>
+                </NeuButton>
               </li>
             </ul>
           </nav>
