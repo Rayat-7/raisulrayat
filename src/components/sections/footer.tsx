@@ -6,7 +6,6 @@ import { Github, Linkedin, Twitter, Mail, MapPin, Phone, ExternalLink } from 'lu
 const Footer = () => {
   return (
     <footer className="w-full bg-black text-white border-t border-[#1a1a1a]">
-      {/* CTA Section */}
       <div className="py-24 px-8 border-b border-[#1a1a1a]">
         <div className="max-w-[1280px] mx-auto text-center">
           <h2 className="text-[48px] font-medium leading-[1.1] tracking-[-0.02em] text-white mb-6 lg:text-[40px] md:text-[32px]">
@@ -18,29 +17,29 @@ const Footer = () => {
           <div className="flex flex-wrap justify-center gap-4">
             <a 
               href="mailto:raisoulrayat@gmail.com"
-              className="inline-flex h-12 items-center justify-center rounded-full bg-[#0ea5e9] px-8 text-[15px] font-medium text-white transition-transform hover:scale-[1.02] hover:bg-[#0ea5e9]/90"
+              className="relative group inline-flex h-12 items-center justify-center bg-[#0ea5e9] px-8 text-[15px] font-medium text-white transition-transform hover:scale-[1.02] hover:bg-[#0ea5e9]/90"
             >
-              <Mail className="w-4 h-4 mr-2" />
-              Send Email
+              <div className="absolute -inset-[1px] bg-gradient-to-r from-[#0ea5e9] via-[#38bdf8] to-[#0ea5e9] opacity-50 blur-sm group-hover:opacity-75 transition-opacity" />
+              <Mail className="w-4 h-4 mr-2 relative z-10" />
+              <span className="relative z-10">Send Email</span>
             </a>
             <a 
               href="https://linkedin.com/in/raisulrayat"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex h-12 items-center justify-center rounded-full border border-[#333] bg-transparent px-8 text-[15px] font-medium text-white transition-transform hover:scale-[1.02] hover:border-[#0ea5e9]/50"
+              className="relative group inline-flex h-12 items-center justify-center border border-[#333] bg-transparent px-8 text-[15px] font-medium text-white transition-transform hover:scale-[1.02] hover:border-[#0ea5e9]/50"
             >
-              <Linkedin className="w-4 h-4 mr-2" />
-              View LinkedIn
+              <div className="absolute -inset-[1px] bg-gradient-to-r from-[#0ea5e9]/30 to-transparent opacity-0 group-hover:opacity-75 blur-sm transition-opacity" />
+              <Linkedin className="w-4 h-4 mr-2 relative z-10" />
+              <span className="relative z-10">View LinkedIn</span>
             </a>
           </div>
         </div>
       </div>
 
-      {/* Main Footer */}
       <div className="py-16 px-8">
         <div className="max-w-[1280px] mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
-            {/* Brand and Mission */}
             <div className="md:col-span-5 flex flex-col justify-between">
               <div className="space-y-6">
                 <div className="flex items-center gap-x-2">
@@ -53,13 +52,12 @@ const Footer = () => {
                 </p>
 
                 <div className="flex items-center gap-x-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#0ea5e9] animate-pulse"></span>
+                  <span className="w-1.5 h-1.5 bg-[#0ea5e9] animate-pulse"></span>
                   <span className="text-[13px] font-medium text-white">Available for new opportunities</span>
                 </div>
               </div>
             </div>
 
-            {/* Contact Info */}
             <div className="md:col-span-3">
               <h3 className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#999999] mb-6">
                 Contact
@@ -86,7 +84,6 @@ const Footer = () => {
               </ul>
             </div>
 
-            {/* Quick Links */}
             <div className="md:col-span-2">
               <h3 className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#999999] mb-6">
                 Links
@@ -115,7 +112,6 @@ const Footer = () => {
               </ul>
             </div>
 
-            {/* Social Links */}
             <div className="md:col-span-2">
               <h3 className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#999999] mb-6">
                 Connect
@@ -137,7 +133,6 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Bottom Bar */}
           <div className="mt-16 pt-8 border-t border-[#1a1a1a] flex flex-col sm:flex-row justify-between items-center gap-4">
             <div className="text-[#999999] text-[12px]">
               © {new Date().getFullYear()} Raisul Rayat Omi. All rights reserved.
