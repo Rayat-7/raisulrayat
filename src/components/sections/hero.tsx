@@ -11,14 +11,10 @@ const HeroSection = () => {
     <section className="relative min-h-screen w-full overflow-hidden bg-[#000000] text-white">
       {/* Beams Background */}
       <BeamsBackground 
-        beamCount={16}
-        beamColor="#0ea5e9"
-        beamOpacity={0.12}
-        beamWidth={2}
-        beamBlur={50}
+        beamCount={4}
+        beamColor="#1e40af"
         rotation={-135}
         noise={0.5}
-        speed={12}
         className="z-0"
       />
 
