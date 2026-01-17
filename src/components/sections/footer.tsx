@@ -1,7 +1,8 @@
 "use client";
 
 import React from 'react';
-import { Github, Linkedin, Twitter, Mail, MapPin, Phone, ExternalLink } from 'lucide-react';
+import { Github, Linkedin, Twitter, Mail, MapPin, Phone } from 'lucide-react';
+import { NeuButton } from "@/components/ui/neu-button";
 
 const Footer = () => {
   return (
@@ -15,24 +16,24 @@ const Footer = () => {
             Open to collaborations, freelance work, or just a friendly chat.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <a 
+            <NeuButton 
               href="mailto:raisoulrayat@gmail.com"
-              className="relative group inline-flex h-12 items-center justify-center bg-[#0ea5e9] px-8 text-[15px] font-medium text-white transition-transform hover:scale-[1.02] hover:bg-[#0ea5e9]/90"
+              variant="primary"
+              className="inline-flex items-center gap-2 px-8 py-3"
             >
-              <div className="absolute -inset-[1px] bg-gradient-to-r from-[#0ea5e9] via-[#38bdf8] to-[#0ea5e9] opacity-50 blur-sm group-hover:opacity-75 transition-opacity" />
-              <Mail className="w-4 h-4 mr-2 relative z-10" />
-              <span className="relative z-10">Send Email</span>
-            </a>
-            <a 
+              <Mail className="w-4 h-4" />
+              Send Email
+            </NeuButton>
+            <NeuButton 
               href="https://linkedin.com/in/raisulrayat"
+              variant="outline"
               target="_blank"
               rel="noopener noreferrer"
-              className="relative group inline-flex h-12 items-center justify-center border border-[#333] bg-transparent px-8 text-[15px] font-medium text-white transition-transform hover:scale-[1.02] hover:border-[#0ea5e9]/50"
+              className="inline-flex items-center gap-2 px-8 py-3"
             >
-              <div className="absolute -inset-[1px] bg-gradient-to-r from-[#0ea5e9]/30 to-transparent opacity-0 group-hover:opacity-75 blur-sm transition-opacity" />
-              <Linkedin className="w-4 h-4 mr-2 relative z-10" />
-              <span className="relative z-10">View LinkedIn</span>
-            </a>
+              <Linkedin className="w-4 h-4" />
+              View LinkedIn
+            </NeuButton>
           </div>
         </div>
       </div>
