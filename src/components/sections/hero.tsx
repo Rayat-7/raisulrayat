@@ -23,12 +23,34 @@ const HeroSection = () => {
       </div>
 
       <div className="absolute inset-0 z-[2] pointer-events-none">
-        <div className="absolute left-0 top-0 w-[60%] h-full bg-gradient-to-r from-black via-black/90 to-transparent" />
+        <div className="absolute left-0 top-0 w-[55%] h-full bg-gradient-to-r from-black via-black/95 to-transparent" />
       </div>
 
-      <div className="container relative z-10 mx-auto flex flex-col lg:flex-row items-center gap-12 px-8 pt-32 pb-20 lg:pt-40 lg:px-8 md:px-5">
+      <div className="absolute top-0 right-0 w-[50%] h-full z-[1] hidden lg:block">
+        <div className="relative w-full h-full">
+          <Image 
+            src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/2832a7b9-6393-42b6-b877-3b83b7ed050a/3fa258ea-a5d1-426c-9538-1a1ea2187fe3-1768600459235.jpg?width=1200&height=1400&resize=cover" 
+            alt="Raisul Rayat" 
+            fill
+            className="object-cover object-top grayscale-[30%] opacity-60"
+            priority
+            unoptimized
+          />
+          
+          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/50" />
+          <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-black/80" />
+          
+          <div className="absolute inset-0 bg-gradient-to-br from-[#0ea5e9]/5 via-transparent to-[#0ea5e9]/10 mix-blend-overlay" />
+          
+          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent" />
+          <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-black/80 to-transparent" />
+        </div>
+      </div>
+
+      <div className="container relative z-10 mx-auto flex flex-col lg:flex-row items-center min-h-screen px-8 pt-32 pb-20 lg:pt-40 lg:px-8 md:px-5">
         
-        <div className="flex-1 max-w-[700px]">
+        <div className="flex-1 max-w-[700px] lg:max-w-[600px]">
           <div className="mb-6 flex items-center gap-3">
             <div className="h-0 w-0 border-y-[5px] border-y-transparent border-l-[8px] border-l-[#0ea5e9]" />
             <span className="text-[10px] font-medium uppercase tracking-[0.1em] text-[#999999]">
@@ -82,39 +104,20 @@ const HeroSection = () => {
               </Button>
             </a>
           </div>
-        </div>
 
-        <div className="relative flex-shrink-0 lg:flex-1 flex justify-center lg:justify-end">
-          <div className="relative w-[320px] h-[400px] lg:w-[380px] lg:h-[480px]">
-            <div className="absolute -inset-8 bg-[#0ea5e9]/10 blur-[80px] opacity-40" />
-            
-            <div className="relative w-full h-full overflow-hidden border border-[#1a1a1a] bg-[#0d0d0d] group">
-              <Image 
-                  src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/2832a7b9-6393-42b6-b877-3b83b7ed050a/3fa258ea-a5d1-426c-9538-1a1ea2187fe3-1768600459235.jpg?width=800&height=1000&resize=cover" 
-                  alt="Raisul Rayat" 
-                  fill
-                  className="object-cover object-top grayscale-[20%] group-hover:grayscale-0 transition-all duration-500"
-                  priority
-                  unoptimized
-                />
-              
-              <div className="absolute top-0 right-0 w-16 h-16 border-t-2 border-r-2 border-[#0ea5e9]/60" />
-              <div className="absolute bottom-0 left-0 w-16 h-16 border-b-2 border-l-2 border-[#0ea5e9]/60" />
-              
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-              
-              <div className="absolute bottom-4 left-4 right-4">
-                <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 bg-[#0ea5e9] animate-pulse" />
-                  <span className="text-[13px] text-white font-medium">Available for projects</span>
-                </div>
-              </div>
-            </div>
+          <div className="mt-12 flex items-center gap-2 lg:hidden">
+            <span className="w-2 h-2 bg-[#0ea5e9] animate-pulse" />
+            <span className="text-[13px] text-white/80 font-medium">Available for projects</span>
           </div>
         </div>
       </div>
 
       <div className="absolute left-[32px] top-40 bottom-0 w-px bg-gradient-to-b from-[#0ea5e9]/0 via-[#0ea5e9]/20 to-[#0ea5e9]/0 hidden xl:block z-[3]" />
+      
+      <div className="absolute bottom-8 left-8 z-[5] hidden lg:flex items-center gap-2">
+        <span className="w-2 h-2 bg-[#0ea5e9] animate-pulse" />
+        <span className="text-[13px] text-white/80 font-medium">Available for projects</span>
+      </div>
     </section>
   );
 };
