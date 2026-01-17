@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { ExternalLink, Github, GraduationCap, Globe, Gamepad2, FileText } from 'lucide-react';
+import { NeuButton } from "@/components/ui/neu-button";
 
 const ProjectsSection = () => {
   const projects = [
@@ -103,15 +104,16 @@ const ProjectsSection = () => {
         </div>
 
         <div className="mt-12 text-center">
-          <a 
+          <NeuButton 
             href="https://github.com/rayat-7" 
-            target="_blank" 
+            variant="outline"
+            target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-[#999999] hover:text-[#0ea5e9] transition-colors text-[15px] font-medium"
+            className="inline-flex items-center gap-2"
           >
             View all projects on GitHub
             <ExternalLink size={16} />
-          </a>
+          </NeuButton>
         </div>
       </div>
 
