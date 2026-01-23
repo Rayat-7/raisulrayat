@@ -170,8 +170,8 @@ const Footer = () => {
       </div>
 
      {/* Big Background Text */}
-      <div className="w-full overflow-hidden flex justify-center opacity-10 pointer-events-none select-none">
-          <h1 className="text-[15vw] md:text-[20vw] font-bold text-white tracking-tighter leading-[0.8] whitespace-nowrap bg-clip-text text-transparent bg-gradient-to-b from-white to-transparent">
+      <div className="w-full overflow-hidden flex justify-center  pointer-events-none select-none">
+          <h1 className="text-[15vw] md:text-[20vw] font-bold  tracking-tighter leading-[0.8] whitespace-nowrap bg-gradient-to-t from-blue-500 via-blue-400 to-white bg-clip-text text-transparent">
             raisulrayat.
           </h1>
       </div>
