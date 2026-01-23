@@ -1,114 +1,131 @@
 "use client";
 
-import React from 'react';
+import { FiCode, FiDatabase, FiTool } from "react-icons/fi";
+import { motion } from "framer-motion";
+import React from "react";
+import PixelCard from "@/components/ui/pixel-card";
 
-const technologies = [
-  { name: "Next.js", category: "Framework" },
-  { name: "React", category: "Framework" },
-  { name: "TypeScript", category: "Language" },
-  { name: "JavaScript", category: "Language" },
-  { name: "Tailwind CSS", category: "Styling" },
-  { name: "Shadcn UI", category: "UI Library" },
-  { name: "Framer Motion", category: "Animation" },
-  { name: "PostgreSQL", category: "Database" },
-  { name: "Supabase", category: "Backend" },
-  { name: "Prisma", category: "ORM" },
-  { name: "Clerk", category: "Auth" },
-  { name: "Node.js", category: "Runtime" },
-  { name: "Git", category: "Version Control" },
-  { name: "Vercel", category: "Deployment" },
-  { name: "Figma", category: "Design" },
-  { name: "Vite", category: "Build Tool" },
+// Helper to construct Devicon URLs
+const getDevIcon = (name: string, variant: string = "original") => 
+  `https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${name}/${name}-${variant}.svg`;
+
+const stackCategories = [
+  {
+    id: 1,
+    title: "Frontend",
+    Icon: FiCode,
+    description: "Building responsive, accessible, and performant user interfaces with modern frameworks.",
+    items: [
+      { name: "JavaScript", icon: getDevIcon("javascript") },
+      { name: "TypeScript", icon: getDevIcon("typescript") },
+      { name: "React", icon: getDevIcon("react") },
+      { name: "Next.js", icon: getDevIcon("nextjs") },
+      { name: "Tailwind", icon: getDevIcon("tailwindcss") },
+      { name: "MongoDB", icon: getDevIcon("mongodb") },
+      { name: "GSAP", icon: "https://cdn.worldvectorlogo.com/logos/greensock.svg" },
+      { name: "Vite", icon: "https://vite.dev/assets/vite-light.t8GCa_VF.svg" },
+    ]
+  },
+  {
+    id: 2,
+    title: "Backend & DB",
+    Icon: FiDatabase,
+    description: "Robust server-side solutions and scalable database architectures.",
+    items: [
+      { name: "Node.js", icon: getDevIcon("nodejs") },
+      { name: "Python", icon: getDevIcon("python") },
+      
+      { name: "PostgreSQL", icon: getDevIcon("postgresql") },
+      { name: "Express", icon: getDevIcon("express") },
+      { name: "Framer Motion", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/framermotion/framermotion-original.svg" },
+      { name: "Redis", icon: getDevIcon("redis") },
+      { name: "Supabase", icon: getDevIcon("supabase") },
+      { name: "Appwrite", icon: getDevIcon("appwrite") },
+      { name: "Prisma", icon: getDevIcon("prisma") },
+      { name: "Firebase", icon: getDevIcon("firebase") },
+      { name: "Sanity", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sanity/sanity-original.svg" },
+    ]
+  },
+  {
+    id: 3,
+    title: "Tools",
+    Icon: FiTool,
+    description: "The essential toolkit for efficient development and deployment workflows.",
+    items: [
+      { name: "Expo", icon: "https://www.vectorlogo.zone/logos/expoio/expoio-icon.svg" },
+      { name: "Sentry", icon: getDevIcon("sentry") },
+      { name: "Git", icon: getDevIcon("git") },
+      { name: "Figma", icon: getDevIcon("figma") },
+      { name: "Postman", icon: getDevIcon("postman") },
+      { name: "Docker", icon: getDevIcon("docker") },
+      { name: "Vercel", icon: "https://assets.vercel.com/image/upload/v1588805858/repositories/vercel/logo.png" },
+    ]
+  }
 ];
 
-const passions = [
-  { icon: "🚀", text: "Building solutions for real problems" },
-  { icon: "🎨", text: "Interactive & Modern Design" },
-  { icon: "🤖", text: "AI Integration & Innovation" },
-  { icon: "💻", text: "Modern Web Technologies" },
-  { icon: "✨", text: "Creative Development" },
-];
+const TechStack = () => {
+  const allTechs = stackCategories.flatMap((category) => category.items);
 
-const TechStackSection = () => {
   return (
-    <section id="techstack" className="relative bg-black py-32 overflow-hidden border-t border-[#1a1a1a]">
-      <div className="absolute inset-0 opacity-5 pointer-events-none"
+    <section id="techstack" className="py-24 bg-black relative overflow-hidden border-t border-[#1a1a1a]">
+      {/* Background Gradients */}
+      {/* Blue Spotlight Effect */}
+      <div 
+        className="absolute inset-0 z-[1] pointer-events-none opacity-60"
         style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, #0ea5e9 1px, transparent 0)`,
-          backgroundSize: '32px 32px'
+          background: "radial-gradient(circle at top right, rgba(14, 165, 233, 0.25) 0%, rgba(14, 165, 233, 0.05) 40%, transparent 70%)"
         }}
       />
-
-      <div className="container mx-auto px-8 max-w-[1280px] relative z-10">
-        <div className="mb-16">
-          <div className="mb-6 flex items-center gap-2">
-            <div className="grid grid-cols-3 gap-1">
-              {[...Array(9)].map((_, i) => (
-                <div key={i} className={`h-1.5 w-1.5 ${i % 2 === 0 ? 'bg-[#0ea5e9]' : 'bg-[#0ea5e9]/30'}`} />
-              ))}
-            </div>
-            <span className="ml-2 text-[10px] font-bold uppercase tracking-[0.2em] text-[#0ea5e9]">
-              Technology Stack
-            </span>
-          </div>
-          <h2 className="text-[48px] font-medium leading-[1.1] tracking-[-0.02em] text-white max-w-2xl lg:text-[40px] md:text-[32px]">
-            Tools & Technologies.{" "}
-            <span className="text-[#999999]">
-              The tech I use to bring ideas to life.
-            </span>
-          </h2>
-        </div>
-
-        <div className="flex flex-wrap gap-3 mb-24">
-          {technologies.map((tech, index) => (
-            <div
-              key={index}
-              className="group relative px-5 py-3 bg-[#0d0d0d] border border-[#1a1a1a] transition-all duration-300 hover:border-[#0ea5e9]/50 hover:bg-[#0ea5e9]/5 cursor-default"
-            >
-              <span className="text-[14px] font-medium text-white group-hover:text-[#0ea5e9] transition-colors">
-                {tech.name}
-              </span>
-              <div className="absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-1 bg-[#1a1a1a] text-[10px] text-[#999999] opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
-                {tech.category}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="h-px w-full bg-gradient-to-r from-transparent via-[#1a1a1a] to-transparent mb-24" />
-
-        <div className="mb-8">
-          <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#999999] mb-8">
-            What Drives Me
-          </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-            {passions.map((passion, index) => (
-              <div
-                key={index}
-                className="group p-6 bg-[#0d0d0d] border border-[#1a1a1a] transition-all duration-300 hover:border-[#0ea5e9]/30 hover:bg-[#0ea5e9]/5"
-              >
-                <div className="text-3xl mb-4">{passion.icon}</div>
-                <p className="text-[14px] text-[#999999] group-hover:text-white transition-colors leading-snug">
-                  {passion.text}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="mt-20 max-w-[600px]">
-          <blockquote className="text-[24px] font-medium text-white leading-[1.4] tracking-[-0.02em]">
-            "Ideas are everywhere. I chase the ones with impact."
-          </blockquote>
-          <p className="mt-4 text-[15px] text-[#999999]">
-            I build meaningful web applications that solve real-life problems and constantly level up by exploring new technologies and ideas.
-          </p>
-        </div>
+      <div className="absolute top-0 right-0 w-[1000px] h-[1000px] bg-[#0ea5e9]/10 blur-[140px] rounded-full -mr-96 -mt-96 z-[1] pointer-events-none" />
+      
+      {/* Pixelated Background */}
+      <div className="absolute inset-0 z-0 opacity-30">
+        <PixelCard 
+          variant="default" 
+          className="w-full h-full" 
+          gap={6} 
+          speed={20} 
+          autoAppear
+          noHover
+          noFocus
+        />
       </div>
 
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#0ea5e9]/5 blur-[150px] pointer-events-none" />
+      <div className="container mx-auto px-6 max-w-[1280px] relative z-10">
+        <div className="mb-16 text-left">
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight">
+            Tech Stack
+          </h2>
+          <p className="text-[#999] max-w-2xl text-lg leading-relaxed">
+             The technologies I trust to build robust, scalable, and beautiful applications.
+          </p>
+        </div>
+
+        <div className="flex flex-wrap items-center gap-x-12 gap-y-12">
+          {allTechs.map((tech, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.03, duration: 0.4 }}
+              className="relative group w-10 h-10 md:w-12 md:h-12 flex items-center justify-center"
+            >
+              <img 
+                src={tech.icon} 
+                alt={tech.name} 
+                title={tech.name}
+                className="w-full h-full object-contain grayscale-0 hover:scale-110 transition-transform duration-300" 
+              />
+            </motion.div>
+          ))}
+        </div>
+      </div>
     </section>
   );
 };
 
-export default TechStackSection;
+export default TechStack;
+
+
+

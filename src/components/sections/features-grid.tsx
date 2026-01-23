@@ -3,40 +3,46 @@
 import React from 'react';
 import { ExternalLink, Github, GraduationCap, Globe, Gamepad2, FileText } from 'lucide-react';
 import { NeuButton } from "@/components/ui/neu-button";
+import PixelCard from "@/components/ui/pixel-card";
+import { ExpandableCard } from "@/components/ui/expandable-card";
 
 const ProjectsSection = () => {
   const projects = [
     {
       title: "TuitionTrack",
-      description: "A comprehensive web app for tuition centers in Bangladesh to manage students, attendance, and monthly fees. Features modern dashboard and easy-to-use interface.",
+      description: "A comprehensive web app for tuition centers in Bangladesh.",
+      fullDescription: "TuitionTrack is a comprehensive web application designed for tuition centers in Bangladesh. It simplifies management tasks by handling student records, attendance tracking, and monthly fee collections. The platform features a modern dashboard and an easy-to-use interface, ensuring efficiency for administrators.",
       tech: ["Next.js", "TypeScript", "Tailwind CSS", "PostgreSQL", "Clerk", "Supabase"],
       github: "https://github.com/rayat-7/tuitiontrack",
       live: "#",
-      icon: <GraduationCap className="h-6 w-6 text-[#0ea5e9]" />
+      image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=1000&auto=format&fit=crop"
     },
     {
       title: "Cyber Play Arena",
-      description: "A modern web-based management software to manage booking slots and marketing for local gaming service. Built with Next.js and modern technologies.",
+      description: "A modern web-based management software for booking slots.",
+      fullDescription: "Cyber Play Arena is a web-based management software tailored for local gaming services. It facilitates the booking of gaming slots and manages marketing campaigns. Built with Next.js and modern technologies, it offers a seamless booking experience for users and robust management tools for admins.",
       tech: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Tailwind CSS"],
       github: "https://github.com/rayat-7/cyber_play_arena",
       live: "#",
-      icon: <Gamepad2 className="h-6 w-6 text-[#0ea5e9]" />
+      image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1000&auto=format&fit=crop"
     },
     {
       title: "UIU Sprs",
-      description: "A platform to enhance university's issue resolution process. Transparent, user-friendly system for students to report issues, track progress, and receive feedback.",
+      description: "A platform to enhance university's issue resolution process.",
+      fullDescription: "UIU Sprs is a dedicated platform aimed at enhancing the issue resolution process within the university. It provides a transparent and user-friendly system for students to report issues, track their progress, and receive timely feedback, fostering better communication between students and administration.",
       tech: ["Next.js", "TypeScript", "Supabase", "Clerk", "Shadcn UI", "Tailwind CSS", "Prisma"],
       github: "https://github.com/rayat-7/uiu-sprs",
       live: "#",
-      icon: <Globe className="h-6 w-6 text-[#0ea5e9]" />
+      image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=1000&auto=format&fit=crop"
     },
     {
       title: "Spendo Frontend",
-      description: "Frontend for a spending tracker app, financial management tool. Built with Vite and responsive design for seamless user experience.",
+      description: "Frontend for a spending tracker app and financial management.",
+      fullDescription: "Spendo Frontend is the user interface for a spending tracker application. Built with Vite and responsive design principles, it delivers a seamless user experience for financial management, allowing users to track expenses and manage their finances effectively on any device.",
       tech: ["Vite", "TypeScript", "Tailwind CSS"],
       github: "https://github.com/rayat-7/spendo-frontend",
       live: "#",
-      icon: <FileText className="h-6 w-6 text-[#0ea5e9]" />
+      image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=1000&auto=format&fit=crop"
     }
   ];
 
@@ -59,59 +65,83 @@ const ProjectsSection = () => {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
-            <div 
-              key={index} 
-              className="bg-[#0d0d0d] border border-[#1a1a1a] p-8 flex flex-col min-h-[320px] transition-all duration-300 hover:border-[#0ea5e9]/30 hover:bg-[#0d0d0d]/80 group relative"
-            >
-              <div className="absolute -inset-[1px] bg-gradient-to-r from-[#0ea5e9]/20 via-[#38bdf8]/10 to-transparent opacity-0 group-hover:opacity-100 blur-sm transition-all duration-300 pointer-events-none" />
-              <div className="relative z-10">
-                <div className="mb-6 flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className="p-3 bg-[#1a1a1a] border border-[#333] group-hover:border-[#0ea5e9]/50 transition-colors">
-                      {project.icon}
+             <ExpandableCard
+                key={index}
+                title={project.title}
+                description={project.description}
+                src={project.image}
+                className="border-[#1a1a1a] bg-[#0d0d0d] hover:border-[#0ea5e9]/40 min-h-[320px]"
+                triggerHeader={(
+                  <div className="absolute inset-0 w-full h-full bg-[#0d0d0d] overflow-hidden">
+                    <div
+                      className="absolute inset-0 w-full h-full opacity-30"
+                      style={{
+                        maskImage: 'linear-gradient(to bottom, black 0%, transparent 100%)'
+                      }}
+                    >
+                      <PixelCard
+                        variant="blue"
+                        gap={12}
+                        speed={20}
+                        className="w-full h-full"
+                        noFocus
+                      />
                     </div>
-                    <span className="px-2 py-1 bg-[#0ea5e9]/10 text-[#0ea5e9] text-[10px] font-bold uppercase tracking-wider">
-                      Live
-                    </span>
+                    {/* Overlay gradient for text readability */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-transparent to-transparent" />
                   </div>
-                  <div className="flex items-center gap-3">
-                    <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-[#999999] hover:text-[#0ea5e9] transition-colors">
-                      <Github size={20} />
+                )}
+             >
+                <div className="space-y-6 pt-4">
+                  <p className="text-[#ccc] leading-relaxed text-base">
+                    {project.fullDescription}
+                  </p>
+                  
+                  <div>
+                    <h4 className="text-sm font-bold uppercase tracking-wider text-[#0ea5e9] mb-3">Technologies</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {project.tech.map((t, i) => (
+                        <span key={i} className="px-3 py-1 bg-[#1a1a1a] text-[#0ea5e9] text-xs font-mono border border-[#333] rounded-sm">
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="flex gap-4 pt-4 border-t border-[#1a1a1a]">
+                    <a 
+                      href={project.github} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-white hover:text-[#0ea5e9] transition-colors text-sm font-medium"
+                    >
+                      <Github size={18} />
+                      View Source
                     </a>
-                    <a href={project.live} target="_blank" rel="noopener noreferrer" className="text-[#999999] hover:text-[#0ea5e9] transition-colors">
-                      <ExternalLink size={20} />
+                    <a 
+                      href={project.live} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-white hover:text-[#0ea5e9] transition-colors text-sm font-medium"
+                    >
+                      <ExternalLink size={18} />
+                      Live Demo
                     </a>
                   </div>
                 </div>
-                <h3 className="text-2xl font-medium text-white mb-3 flex items-center gap-2">
-                  {project.title}
-                </h3>
-                <p className="text-[#999999] text-[15px] leading-relaxed mb-6 flex-grow">
-                  {project.description}
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {project.tech.map((t, i) => (
-                    <span key={i} className="px-3 py-1.5 bg-[#1a1a1a] text-[#0ea5e9] text-[11px] font-mono border border-[#333] hover:border-[#0ea5e9]/30 transition-colors">
-                      {t}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
+             </ExpandableCard>
           ))}
         </div>
 
         <div className="mt-12 text-center">
           <NeuButton 
-            href="https://github.com/rayat-7" 
+            href="/projects" 
             variant="outline"
-            target="_blank"
-            rel="noopener noreferrer"
             className="inline-flex items-center gap-2"
           >
-            View all projects on GitHub
+            View All Projects
             <ExternalLink size={16} />
           </NeuButton>
         </div>

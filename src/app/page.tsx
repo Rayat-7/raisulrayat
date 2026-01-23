@@ -100,8 +100,7 @@ export default function Home() {
                 <div className="aspect-square overflow-hidden border border-[#1a1a1a] bg-[#0d0d0d] relative group">
                   <div className="absolute inset-0 bg-gradient-to-br from-[#0ea5e9]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                   <Image 
-                    src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/2832a7b9-6393-42b6-b877-3b83b7ed050a/3fa258ea-a5d1-426c-9538-1a1ea2187fe3-1768600459235.jpg?width=600&height=600&resize=cover" 
-                    alt="Raisul Rayat" 
+                    src="/portfolio_img.jpg"        alt="Raisul Rayat" 
                     fill
                     className="object-cover object-top grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
                     unoptimized

@@ -154,8 +154,10 @@ interface PixelCardProps {
   speed?: number;
   colors?: string;
   noFocus?: boolean;
+  noHover?: boolean;
   className?: string;
-  children: React.ReactNode;
+  autoAppear?: boolean;
+  children?: React.ReactNode;
 }
 
 interface VariantConfig {
@@ -172,7 +174,9 @@ export default function PixelCard({
   speed,
   colors,
   noFocus,
+  noHover = false,
   className = '',
+  autoAppear = false,
   children
 }: PixelCardProps): JSX.Element {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -180,7 +184,7 @@ export default function PixelCard({
   const pixelsRef = useRef<Pixel[]>([]);
   const animationRef = useRef<ReturnType<typeof requestAnimationFrame> | null>(null);
   const timePreviousRef = useRef(performance.now());
-  const reducedMotion = useRef(window.matchMedia('(prefers-reduced-motion: reduce)').matches).current;
+  const reducedMotion = useRef(typeof window !== 'undefined' ? window.matchMedia('(prefers-reduced-motion: reduce)').matches : false).current;
 
   const variantCfg: VariantConfig = VARIANTS[variant] || VARIANTS.default;
   const finalGap = gap ?? variantCfg.gap;
@@ -253,8 +257,8 @@ export default function PixelCard({
     animationRef.current = requestAnimationFrame(() => doAnimate(name));
   };
 
-  const onMouseEnter = () => handleAnimation('appear');
-  const onMouseLeave = () => handleAnimation('disappear');
+  const onMouseEnter = () => !noHover && handleAnimation('appear');
+  const onMouseLeave = () => !noHover && handleAnimation('disappear');
   const onFocus: React.FocusEventHandler<HTMLDivElement> = e => {
     if (e.currentTarget.contains(e.relatedTarget)) return;
     handleAnimation('appear');
@@ -266,8 +270,14 @@ export default function PixelCard({
 
   useEffect(() => {
     initPixels();
+    if (autoAppear) {
+      handleAnimation('appear');
+    }
     const observer = new ResizeObserver(() => {
       initPixels();
+      if (autoAppear) {
+        handleAnimation('appear');
+      }
     });
     if (containerRef.current) {
       observer.observe(containerRef.current);
@@ -279,20 +289,22 @@ export default function PixelCard({
       }
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [finalGap, finalSpeed, finalColors, finalNoFocus]);
+  }, [finalGap, finalSpeed, finalColors, finalNoFocus, autoAppear]);
+
 
   return (
     <div
       ref={containerRef}
-      className={`h-[400px] w-[300px] relative overflow-hidden grid place-items-center aspect-[4/5] border border-[#27272a] rounded-[25px] isolate transition-colors duration-200 ease-[cubic-bezier(0.5,1,0.89,1)] select-none ${className}`}
+      className={`relative overflow-hidden isolate transition-colors duration-200 ease-[cubic-bezier(0.5,1,0.89,1)] select-none ${className}`}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
       onFocus={finalNoFocus ? undefined : onFocus}
       onBlur={finalNoFocus ? undefined : onBlur}
       tabIndex={finalNoFocus ? -1 : 0}
     >
-      <canvas className="w-full h-full block" ref={canvasRef} />
+      <canvas className="absolute inset-0 w-full h-full block" ref={canvasRef} />
       {children}
     </div>
   );
 }
+
