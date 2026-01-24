@@ -93,7 +93,7 @@ const TechStack = () => {
 
       <div className="container mx-auto px-6 max-w-[1280px] relative z-10">
         <div className="mb-16 text-left">
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight">
+          <h2 className="text-3xl md:text-2xl font-bold text-white mb-6 tracking-tight">
             Tech Stack
           </h2>
           <p className="text-[#999] max-w-2xl text-lg leading-relaxed">
@@ -109,7 +109,7 @@ const TechStack = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.03, duration: 0.4 }}
-              className="relative group w-10 h-10 md:w-12 md:h-12 flex items-center justify-center"
+              className="relative group w-8 h-8 md:w-12 md:h-12 flex items-center justify-center"
             >
               <img 
                 src={tech.icon} 
