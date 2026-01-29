@@ -31,7 +31,12 @@ const Footer = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
           
           {/* Left Large Card */}
-          <div className="lg:col-span-5 flex flex-col justify-between bg-[#0d0d0d] border border-[#1a1a1a] rounded-[32px] p-8 md:p-12 relative overflow-hidden group">
+          <div 
+            className="lg:col-span-5 flex flex-col justify-between rounded-[32px] p-8 md:p-12 relative overflow-hidden group border-2 border-transparent animate-border"
+            style={{
+              background: 'linear-gradient(#0d0d0d, #0d0d0d) padding-box, conic-gradient(from var(--border-angle), transparent 20%, #0ea5e9 40%, #ffffff 50%, #0ea5e9 60%, transparent 80%) border-box',
+            }}
+          >
              {/* Gradient glow effect */}
              <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-[#0ea5e9]/10 blur-[100px] rounded-full pointer-events-none" />
 

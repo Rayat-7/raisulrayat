@@ -72,7 +72,13 @@ const ProjectsSection = () => {
                 title={project.title}
                 description={project.description}
                 src={project.image}
-                className="border-[#1a1a1a] bg-[#0d0d0d] hover:border-[#0ea5e9]/40 min-h-[320px]"
+                className={index === 0 
+                  ? "border-2 border-transparent animate-border bg-[#0d0d0d] min-h-[320px]" 
+                  : "border-[#1a1a1a] bg-[#0d0d0d] hover:border-[#0ea5e9]/40 min-h-[320px]"
+                }
+                style={index === 0 ? {
+                  background: 'linear-gradient(#0d0d0d, #0d0d0d) padding-box, conic-gradient(from var(--border-angle), transparent 20%, #0ea5e9 40%, #ffffff 50%, #0ea5e9 60%, transparent 80%) border-box',
+                } : {}}
                 triggerHeader={(
                   <div className="absolute inset-0 w-full h-full bg-[#0d0d0d] overflow-hidden">
                     <div

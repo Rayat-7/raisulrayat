@@ -10,6 +10,7 @@ interface NeuButtonProps {
   type?: 'button' | 'submit';
   target?: string;
   rel?: string;
+  style?: React.CSSProperties;
 }
 
 export const NeuButton = ({ 
@@ -20,7 +21,8 @@ export const NeuButton = ({
   onClick,
   type = 'button',
   target,
-  rel
+  rel,
+  style
 }: NeuButtonProps) => {
   const baseStyles = "px-6 py-3 font-medium transition-all duration-150 text-[14px]";
   
@@ -33,14 +35,14 @@ export const NeuButton = ({
 
   if (href) {
     return (
-      <a href={href} className={classes} target={target} rel={rel}>
+      <a href={href} className={classes} target={target} rel={rel} style={style}>
         {children}
       </a>
     );
   }
 
   return (
-    <button type={type} onClick={onClick} className={classes}>
+    <button type={type} onClick={onClick} className={classes} style={style}>
       {children}
     </button>
   );

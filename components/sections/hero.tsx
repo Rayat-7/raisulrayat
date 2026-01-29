@@ -5,11 +5,19 @@ import Image from 'next/image';
 import { NeuButton } from "@/components/ui/neu-button";
 import PixelCard from "@/components/ui/pixel-card";
 import ShinyText from "@/components/ui/shiny-text";
+import { AuroraBackground } from "@/components/ui/aurora-background";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen w-full overflow-hidden bg-[#000000] text-white">
+    <section className="relative min-h-screen w-full overflow-hidden bg-black text-white">
       
+      {/* Aurora Background - Left Side */}
+      <div className="absolute left-0 top-0 w-full lg:w-2/3 h-full z-[4] pointer-events-none">
+        <AuroraBackground className="bg-transparent h-full w-full" showRadialGradient={true}>
+           <div className="w-full h-full" />
+        </AuroraBackground>
+      </div>
+
       {/* Pixelated Background Pattern - Left Side */}
       <div
         className="absolute left-0 top-0 w-full lg:w-2/3 h-full z-[2] pointer-events-none"
@@ -22,8 +30,8 @@ const HeroSection = () => {
       >
          <PixelCard 
            variant="blue" 
-           className="w-full h-full" 
-           gap={12} 
+           className="w-full h-full opacity-30" 
+           gap={13} 
            speed={0} 
            autoAppear
            noFocus
@@ -108,10 +116,7 @@ const HeroSection = () => {
             unoptimized
           />
           
-          {/* <div className="absolute inset-0 bg-gradient-to-r from-black via-black/60 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/50" />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-transparent to-black/80" />
-          <div className="absolute inset-0 bg-[#0ea5e9]/5 mix-blend-overlay" /> */}
+         
         </div>
       </div>
 
@@ -133,8 +138,8 @@ const HeroSection = () => {
             <span className="text-blue-300">Hi, </span>I'm
           </ShinyText>
           <h1 className="text-left mb-4">
-            <ShinyText className="text-[40px] xs:text-[48px] sm:text-[60px] md:text-[70px] font-bold leading-[1.1] tracking-tight block text-white">
-              Raisul <span className="text-[#0ea5e9]">Rayat</span>
+            <ShinyText className="text-[40px] xs:text-[48px] sm:text-[60px] md:text-[60px]  leading-[1.1] tracking-tight block">
+              Raisul  <span className="text-[#0ea5e9]">Rayat</span>
             </ShinyText>
           </h1>
           <p className="text-lg sm:text-xl md:text-2xl font-medium text-white/90 mb-6">Frontend Developer</p>
@@ -144,17 +149,25 @@ const HeroSection = () => {
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">
-            <NeuButton href="/projects" variant="primary" className="px-7 py-2.5 text-[14px]">
-              View Projects
-            </NeuButton>
-            <NeuButton href="/resume" variant="outline" className="px-7 py-2.5 text-[14px]">
+            <NeuButton href="/resume" variant="primary" className="px-7 py-2.5 text-[14px]">
               View Resume
+            </NeuButton>
+            <NeuButton 
+              href="/projects" 
+              variant="outline" 
+              className="px-7 py-2.5 text-[14px] border-2 border-transparent animate-border !shadow-none !translate-x-0 !translate-y-0 hover:scale-105 transition-all duration-300"
+              style={{
+                background: 'linear-gradient(#000, #000) padding-box, conic-gradient(from var(--border-angle), transparent 20%, #0ea5e9 40%, #ffffff 50%, #0ea5e9 60%, transparent 80%) border-box',
+              }}
+            >
+              View Projects
             </NeuButton>
           </div>
         </div>
       </div>
 
-      <div className="absolute left-[32px] top-40 bottom-0 w-px bg-gradient-to-b from-[#0ea5e9]/0 via-[#0ea5e9]/20 to-[#0ea5e9]/0 hidden xl:block z-[3]" />
+      <div className="absolute left-[32px] top-40 bottom-10 w-px bg-gradient-to-t from-[#0ea5e9]/0 via-[#0ea5e9]/20 to-[#0ea5e9]/0 hidden xl:block z-[3]" />
+       <div className="absolute left-[34px] top-40 bottom-10 w-px bg-gradient-to-t from-[#0ea5e9]/0 via-[#0ea5e9]/20 to-[#0ea5e9]/0 hidden xl:block z-[3]" />
     </section>
   );
 };
