@@ -31,21 +31,7 @@ export default function Home() {
                   <span className="text-[#999999]">Building foundations for the future.</span>
                 </h2>
                 
-                <div className="mt-16 space-y-10">
-                  <div className="p-6 bg-gradient-to-r from-[#0ea5e9]/10 to-transparent border border-[#0ea5e9]/30 relative overflow-hidden group">
-                    <div className="absolute -inset-[1px] bg-gradient-to-r from-[#0ea5e9]/30 via-[#38bdf8]/20 to-transparent opacity-0 group-hover:opacity-100 blur-sm transition-all duration-300" />
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-[#0ea5e9]/10 blur-[60px]" />
-                    <div className="relative z-10">
-                      <div className="flex items-center gap-3 mb-3">
-                        <Trophy className="w-5 h-5 text-[#fbbf24]" />
-                        <span className="text-[12px] font-bold uppercase tracking-wider text-[#fbbf24]">Achievement</span>
-                      </div>
-                      <h3 className="text-xl font-medium text-white mb-2">Startup Competition Champion</h3>
-                      <p className="text-[#999999] text-[15px] mb-2">Spendo AI — Cohort IC6</p>
-                      <p className="text-[#666] text-[13px]">Won first place at university startup competition with an AI-powered financial management solution.</p>
-                    </div>
-                  </div>
-
+                <div className="mt-12 space-y-12">
                   <div className="border-l-2 border-[#1a1a1a] pl-8 relative">
                     <div className="absolute left-[-5px] top-0 w-2 h-2 bg-[#0ea5e9]" />
                     <div className="flex items-center gap-2 mb-2">
@@ -124,14 +110,17 @@ export default function Home() {
                       <div className="text-[#999999] text-sm uppercase tracking-wider">Years Experience</div>
                     </div>
                   </div>
-                  <div className="p-6 bg-[#0d0d0d] border border-[#1a1a1a] hover:border-[#0ea5e9]/30 transition-colors col-span-2 relative group">
-                    <div className="absolute -inset-[1px] bg-gradient-to-r from-[#0ea5e9]/20 via-[#38bdf8]/10 to-transparent opacity-0 group-hover:opacity-100 blur-sm transition-all duration-300" />
+                  <div className="p-6 bg-gradient-to-r from-[#0ea5e9]/10 to-transparent border border-[#0ea5e9]/30 hover:border-[#0ea5e9]/50 transition-all duration-300 col-span-2 relative overflow-hidden group">
+                    <div className="absolute -inset-[1px] bg-gradient-to-r from-[#0ea5e9]/30 via-[#38bdf8]/20 to-transparent opacity-0 group-hover:opacity-100 blur-sm transition-all duration-300" />
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-[#0ea5e9]/10 blur-[60px]" />
                     <div className="relative z-10">
-                      <div className="text-[32px] font-medium text-[#0ea5e9] tracking-tight flex items-center gap-2">
-                        <Trophy className="w-6 h-6 text-[#fbbf24]" />
-                        Champion
+                      <div className="flex items-center gap-3 mb-3">
+                        <Trophy className="w-5 h-5 text-[#fbbf24]" />
+                        <span className="text-[12px] font-bold uppercase tracking-wider text-[#fbbf24]">Achievement</span>
                       </div>
-                      <div className="text-[#999999] text-sm uppercase tracking-wider">UIU Startup Competition IC6</div>
+                      <h3 className="text-2xl font-medium text-white mb-2">Startup Competition Champion</h3>
+                      <p className="text-[#999999] text-[15px] mb-2">Spendo AI — Cohort IC6</p>
+                      <p className="text-[#666] text-[14px]">Won first place at university startup competition with an AI-powered financial management solution.</p>
                     </div>
                   </div>
                 </div>

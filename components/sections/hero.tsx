@@ -4,6 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import { NeuButton } from "@/components/ui/neu-button";
 import PixelCard from "@/components/ui/pixel-card";
+import ShinyText from "@/components/ui/shiny-text";
 
 const HeroSection = () => {
   return (
@@ -47,7 +48,7 @@ const HeroSection = () => {
             />
           </div>
           
-          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/10 to-transparent" 
+          <div className="absolute inset-0 bg-gradient-to-r from-black via-transparent to-transparent" 
           // style={{ background: 'linear-gradient(to right, black 0%, rgba(0,0,0,0.5) 10%, rgba(0,0,0,0.15) 20%, transparent 100%)' }} 
           />
           
@@ -107,10 +108,10 @@ const HeroSection = () => {
             unoptimized
           />
           
-          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/60 to-transparent" />
+          {/* <div className="absolute inset-0 bg-gradient-to-r from-black via-black/60 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/50" />
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-transparent to-black/80" />
-          <div className="absolute inset-0 bg-[#0ea5e9]/5 mix-blend-overlay" />
+          <div className="absolute inset-0 bg-[#0ea5e9]/5 mix-blend-overlay" /> */}
         </div>
       </div>
 
@@ -128,11 +129,13 @@ const HeroSection = () => {
               </span>
               <span className="text-[12px] font-medium text-white/90">Open for Project opportunity</span>
             </div>
-          <p className="text-base sm:text-lg md:text-xl font-medium text-white/80 mb-2">Hi, I'm</p>
+          <ShinyText className="text-base sm:text-lg md:text-xl font-medium mb-2">
+            <span className="text-blue-300">Hi, </span>I'm
+          </ShinyText>
           <h1 className="text-left mb-4">
-            <span className="text-[40px] xs:text-[48px] sm:text-[60px] md:text-[70px] font-bold text-white leading-[1.1] tracking-tight block">
+            <ShinyText className="text-[40px] xs:text-[48px] sm:text-[60px] md:text-[70px] font-bold leading-[1.1] tracking-tight block text-white">
               Raisul <span className="text-[#0ea5e9]">Rayat</span>
-            </span>
+            </ShinyText>
           </h1>
           <p className="text-lg sm:text-xl md:text-2xl font-medium text-white/90 mb-6">Frontend Developer</p>
 
