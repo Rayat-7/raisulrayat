@@ -17,10 +17,10 @@ export default function Home() {
       
       <main className="flex-grow">
         <HeroSection />
-
+<ExperienceEducation />
         <TechStackSection />
 
-        <ExperienceEducation />
+        
 
         <ProjectsSection />
       </main>

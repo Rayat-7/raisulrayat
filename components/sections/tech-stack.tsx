@@ -4,6 +4,7 @@ import { FiCode, FiDatabase, FiTool } from "react-icons/fi";
 import { motion } from "framer-motion";
 import React from "react";
 import PixelCard from "@/components/ui/pixel-card";
+import ShinyText from "../ui/shiny-text";
 
 // Helper to construct Devicon URLs
 const getDevIcon = (name: string, variant: string = "original") => 
@@ -93,9 +94,14 @@ const TechStack = () => {
 
       <div className="container mx-auto px-6 max-w-[1280px] relative z-10">
         <div className="mb-16 text-left">
-          <h2 className="text-3xl md:text-2xl font-bold text-white mb-6 tracking-tight">
-            Tech Stack
-          </h2>
+           <div className="flex items-center gap-2 mb-3">
+             <div className="w-8 h-[1px] bg-[#0ea5e9]" />
+             <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#0ea5e9]">ARSENAL</span>
+             <div className="w-8 h-[1px] bg-[#0ea5e9]" />
+          </div>
+          <ShinyText className="text-3xl md:text-5xl   mb-6 tracking-tight">
+            Tech  Stack
+          </ShinyText>
           <p className="text-[#999] max-w-2xl text-lg leading-relaxed">
              The technologies I trust to build robust, scalable, and beautiful applications.
           </p>

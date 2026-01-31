@@ -30,8 +30,8 @@ const HeroSection = () => {
       >
          <PixelCard 
            variant="blue" 
-           className="w-full h-full opacity-30" 
-           gap={13} 
+           className="w-full h-full opacity-40" 
+           gap={10} 
            speed={0} 
            autoAppear
            noFocus
@@ -68,14 +68,14 @@ const HeroSection = () => {
           <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-black/40 to-transparent" /> */}
 
           {/* New Overlay Content for Image Side, scaled down */}
-          <div className="absolute bottom-17 left-8 z-20 flex flex-col gap-3">
+          <div className="absolute bottom-17 left-0 z-20 flex flex-col gap-3">
             {/* Open for Project Badge */}
-             <div className="flex items-center gap-2 px-2.5 py-1 rounded-full bg-black/50 backdrop-blur-md border border-white/10 w-fit">
+             <div className="flex items-center gap-2 px-2.5 py-1 rounded-full bg-black/50 backdrop-blur-md border border-white/10 w-fit mb-5">
               <span className="relative flex h-1.5 w-1.5">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-500"></span>
               </span>
-              <span className="text-[11px] font-medium text-white/90">Open for Project</span>
+              <span className="text-[11px] font-medium text-white/90 ">Open for Project</span>
             </div>
 
             {/* Tech Stack Icons */}
@@ -100,7 +100,33 @@ const HeroSection = () => {
                <div className="w-7 h-7 rounded-full bg-black/50 backdrop-blur-md border border-white/10 flex items-center justify-center group pointer-events-auto hover:scale-110 transition-transform p-1.5">
                 <p className="text-green-500 font-italic text-[8px] font-extrabold">GSAP</p>
               </div>
+              
             </div>
+{/* 2nd row */}
+<div className="flex items-center gap-2.5">
+  {/*javascript*/}
+              <div className="w-7 h-7 rounded-full bg-black/50 backdrop-blur-md border border-white/10 flex items-center justify-center group pointer-events-auto hover:scale-110 transition-transform p-1.5">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="JavaScript" className="w-full h-full object-contain" />
+              </div>
+              {/*mongodb*/}
+              <div className="w-7 h-7 rounded-full bg-black/50 backdrop-blur-md border border-white/10 flex items-center justify-center group pointer-events-auto hover:scale-110 transition-transform p-1.5">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg" alt="MongoDB" className="w-full h-full object-contain" />
+              </div>
+              {/*express*/}
+              <div className="w-7 h-7 rounded-full bg-white/50 backdrop-blur-md border border-white/10 flex items-center justify-center group pointer-events-auto hover:scale-110 transition-transform p-1.5">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg" alt="Express" className="w-full h-full object-contain" />
+              </div>
+              {/*nodejs*/}
+              <div className="w-7 h-7 rounded-full bg-black/50 backdrop-blur-md border border-white/10 flex items-center justify-center group pointer-events-auto hover:scale-110 transition-transform p-1.5">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" alt="Node.js" className="w-full h-full object-contain" />
+              </div>
+              {/*github*/}
+              <div className="w-7 h-7 rounded-full bg-white/50 backdrop-blur-md border border-white/10 flex items-center justify-center group pointer-events-auto hover:scale-110 transition-transform p-1.5">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="GitHub" className="w-full h-full object-contain" />
+              </div>
+
+</div>
+
           </div>
         </div>
       </div>
