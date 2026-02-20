@@ -104,7 +104,7 @@ const Footer = () => {
                label="Source" 
                icon={<Github size={24} />} 
                platform="GitHub" 
-               href="https://github.com/raisulrayat"
+               href="https://github.com/rayat-7"
              />
              <SocialCard 
                label="Community" 
@@ -134,7 +134,7 @@ const Footer = () => {
                label="Follow" 
                icon={<Twitter size={24} />} 
                platform="Twitter / X" 
-               href="https://twitter.com"
+               href="https://x.com/RaisulRayat"
              />
 
              {/* Email Card (Full Width) */}
@@ -160,19 +160,17 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-20 flex flex-col md:flex-row items-center justify-between text-[#666] text-xs font-medium uppercase tracking-wider">
+         <div className="mt-20 flex flex-col md:flex-row items-center justify-between text-[#666] text-xs font-medium uppercase tracking-wider">
            <div className="flex items-center gap-2">
-             Hand made and Home Made 
              <span className="text-[#0ea5e9] animate-pulse">✦</span> 
              © Raisul Rayat
            </div>
            <div className="flex items-center gap-6 mt-4 md:mt-0">
              <a href="#" className="hover:text-white transition-colors">Payment Policy</a>
              <span className="text-[#333]">+</span>
-             <a href="#" className="hover:text-white transition-colors">T&C and Privacy Policies</a>
            </div>
         </div>
-      </div>
+      </div> 
 
      {/* Big Background Text */}
       <div className="w-full overflow-hidden flex justify-center  pointer-events-none select-none">

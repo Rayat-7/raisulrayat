@@ -42,7 +42,7 @@ const ResumePage = () => {
                   </div>
                   <div className="flex items-center gap-2 text-white hover:text-white transition-colors">
                     <Phone size={16} className="text-[#0ea5e9]" />
-                    <span className="text-sm">+880123456789</span>
+                    <span className="text-sm">+880123</span>
                   </div>
                   <div className="flex items-center gap-2 text-[#666] hover:text-white transition-colors">
                     <MapPin size={16} className="text-[#0ea5e9]" />
