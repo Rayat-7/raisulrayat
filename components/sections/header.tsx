@@ -9,7 +9,7 @@ const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 w-full bg-black/80 backdrop-blur-xl transition-all duration-300 border-b border-[#1a1a1a]">
+    <header className="fixed top-0 left-0 right-0 z-50 w-full bg-black/80 backdrop-blur-xl transition-all duration-300 ">
       <div className="container mx-auto flex h-14 items-center justify-between px-8">
         <div className="flex items-center gap-x-12">
           <a href="/" className="block shrink-0 focus-visible:outline-offset-4">
