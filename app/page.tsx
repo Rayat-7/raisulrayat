@@ -3,7 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Header from '@/components/sections/header';
-import HeroSection from '@/components/sections/hero';
+import HeroSection2 from '@/components/sections/hero2';
 import TechStackSection from '@/components/sections/tech-stack';
 import ExperienceEducation from '@/components/sections/experience-education';
 import ProjectsSection from '@/components/sections/features-grid';
@@ -13,10 +13,10 @@ import { Trophy, Briefcase, GraduationCap, Sparkles, Code } from 'lucide-react';
 export default function Home() {
   return (
     <div className="flex min-h-screen flex-col bg-black selection:bg-[#0ea5e9]/30 selection:text-white">
-      <Header />
+      {/* <Header /> */}
       
       <main className="flex-grow">
-        <HeroSection />
+        <HeroSection2 />
 <ExperienceEducation />
         <TechStackSection />
 

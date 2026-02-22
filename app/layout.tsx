@@ -7,6 +7,8 @@ export const metadata: Metadata = {
   description: "Raisul Rayat - Frontend Developer ",
 };
 
+import { SocialSidebar } from "@/components/ui/social-sidebar";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -16,11 +18,19 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet"
+        />
       </head>
       <body className="antialiased">
         {children}
+        <SocialSidebar />
       </body>
     </html>
   );

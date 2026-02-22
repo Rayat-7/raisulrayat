@@ -16,7 +16,7 @@ import {
 import { NeuButton } from "@/components/ui/neu-button";
 import Image from "next/image";
 
-const Footer = () => {
+const Footer2 = () => {
   const [copied, setCopied] = React.useState(false);
 
   const handleCopyEmail = () => {
@@ -26,7 +26,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="w-full bg-black text-white pt-16 pb-0 relative overflow-hidden">
+    <footer className="w-full bg-white text-zinc-900 pt-16 pb-0 relative overflow-hidden border-t border-zinc-100">
       <div className="container mx-auto px-6 mb-16 relative z-10 w-full max-w-[1400px]">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
           {/* Left Large Card */}
@@ -34,14 +34,14 @@ const Footer = () => {
             className="lg:col-span-5 flex flex-col justify-between rounded-[32px] p-8 md:p-12 relative overflow-hidden group border-2 border-transparent animate-border"
             style={{
               background:
-                "linear-gradient(#0d0d0d, #0d0d0d) padding-box, conic-gradient(from var(--border-angle), transparent 20%, #0ea5e9 40%, #ffffff 50%, #0ea5e9 60%, transparent 80%) border-box",
+                "linear-gradient(white, white) padding-box, conic-gradient(from var(--border-angle), transparent 20%, #2563eb 40%, #000 50%, #2563eb 60%, transparent 80%) border-box",
             }}
           >
             {/* Gradient glow effect */}
-            <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-[#0ea5e9]/10 blur-[100px] rounded-full pointer-events-none" />
+            <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-blue-500/5 blur-[100px] rounded-full pointer-events-none" />
 
             <div className="relative z-10">
-              <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-[#1a1a1a] mb-8">
+              <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-zinc-100 mb-8 shadow-sm">
                 <Image
                   src="/portfolio_img.jpg"
                   alt="Raisul Rayat"
@@ -51,10 +51,10 @@ const Footer = () => {
                 />
               </div>
 
-              <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
+              <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4 text-zinc-900">
                 I’m Raisul Rayat.
               </h2>
-              <p className="text-[#999] text-lg max-w-sm mb-12">
+              <p className="text-zinc-500 text-lg max-w-sm mb-12">
                 I care about making your startup look and feel ready to pitch.
               </p>
 
@@ -63,7 +63,7 @@ const Footer = () => {
                 <div className="relative w-48 h-24">
                   <svg
                     viewBox="0 0 200 100"
-                    className="w-full h-full text-[#0ea5e9] opacity-80"
+                    className="w-full h-full text-blue-600 opacity-60"
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="2"
@@ -94,10 +94,10 @@ const Footer = () => {
             <div className="relative z-10 flex flex-wrap items-center justify-between gap-6 mt-auto">
               <div className="flex items-center gap-2">
                 <span className="relative flex h-2.5 w-2.5">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-blue-600"></span>
                 </span>
-                <span className="text-sm font-medium text-[#ccc]">
+                <span className="text-sm font-medium text-zinc-600">
                   Taking New Projects
                 </span>
               </div>
@@ -105,14 +105,14 @@ const Footer = () => {
               <div className="flex items-center gap-3">
                 <a
                   href="mailto:raisoulrayat@gmail.com"
-                  className="px-6 py-2.5 bg-white text-black font-medium rounded-full hover:bg-gray-100 transition-colors flex items-center gap-2 text-sm"
+                  className="px-6 py-2.5 bg-zinc-900 text-white font-medium rounded-full hover:bg-zinc-800 transition-colors flex items-center gap-2 text-sm"
                 >
                   <Mail size={16} />
                   Book a Call
                 </a>
                 <a
                   href="/resume"
-                  className="px-6 py-2.5 bg-white text-black font-medium rounded-full hover:bg-gray-100 transition-colors flex items-center gap-2 text-sm"
+                  className="px-6 py-2.5 bg-zinc-100 text-zinc-900 font-medium rounded-full hover:bg-zinc-200 transition-colors flex items-center gap-2 text-sm"
                 >
                   <ArrowUpRight size={16} />
                   View Resume
@@ -162,13 +162,13 @@ const Footer = () => {
             />
 
             {/* Email Card (Full Width) */}
-            <div className="sm:col-span-2 md:col-span-3 bg-[#0d0d0d] border border-[#1a1a1a] rounded-[20px] p-4 flex flex-col justify-between group hover:border-[#0ea5e9]/30 transition-colors">
-              <span className="text-[11px] font-medium text-[#666] uppercase tracking-wider mb-4">
+            <div className="sm:col-span-2 md:col-span-3 bg-zinc-50 border border-zinc-200 rounded-[20px] p-4 flex flex-col justify-between group hover:border-blue-600/30 transition-colors">
+              <span className="text-[11px] font-medium text-zinc-400 uppercase tracking-wider mb-4">
                 Or, Feel free to send a email
               </span>
               <div className="flex items-center justify-between gap-4">
-                <div className="flex items-center gap-4 text-white">
-                  <div className="w-10 h-10 rounded-full bg-[#1a1a1a] flex items-center justify-center text-[#999]">
+                <div className="flex items-center gap-4 text-zinc-900">
+                  <div className="w-10 h-10 rounded-full bg-zinc-100 flex items-center justify-center text-zinc-500">
                     <Mail size={20} />
                   </div>
                   <span className="text-base md:text-lg font-medium tracking-tight">
@@ -177,10 +177,10 @@ const Footer = () => {
                 </div>
                 <button
                   onClick={handleCopyEmail}
-                  className="w-10 h-10 rounded-full bg-[#1a1a1a] flex items-center justify-center text-[#999] hover:bg-[#222] hover:text-white transition-colors"
+                  className="w-10 h-10 rounded-full bg-zinc-100 flex items-center justify-center text-zinc-500 hover:bg-zinc-200 hover:text-zinc-900 transition-colors"
                 >
                   {copied ? (
-                    <Check size={18} className="text-green-500" />
+                    <Check size={18} className="text-green-600" />
                   ) : (
                     <Copy size={18} />
                   )}
@@ -191,23 +191,21 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-20 flex flex-col md:flex-row items-center justify-between text-[#666] text-xs font-medium uppercase tracking-wider">
+        <div className="mt-20 flex flex-col md:flex-row items-center justify-between text-zinc-400 text-xs font-medium uppercase tracking-wider">
           <div className="flex items-center gap-2">
-            <span className="text-[#0ea5e9] animate-pulse">✦</span>© Raisul
-            Rayat
+            <span className="text-blue-600 animate-pulse">✦</span>© Raisul Rayat
           </div>
           <div className="flex items-center gap-6 mt-4 md:mt-0">
-            <a href="#" className="hover:text-white transition-colors">
+            <a href="#" className="hover:text-zinc-900 transition-colors">
               Payment Policy
             </a>
-            <span className="text-[#333]">+</span>
+            <span className="text-zinc-200">+</span>
           </div>
         </div>
       </div>
 
-      {/* Big Background Text */}
-      <div className="w-full overflow-hidden flex justify-center  pointer-events-none select-none">
-        <h1 className="text-[12vw] md:text-[16vw] font-bold  tracking-tighter leading-[0.8] whitespace-nowrap bg-gradient-to-t from-blue-500 via-blue-400 to-white bg-clip-text text-transparent">
+      <div className="w-full overflow-hidden flex justify-center pointer-events-none select-none">
+        <h1 className="text-[12vw] md:text-[16vw] font-bold tracking-tighter leading-[0.8] whitespace-nowrap bg-gradient-to-t from-blue-600 via-blue-400 to-zinc-400 bg-clip-text text-transparent">
           raisulrayat.
         </h1>
       </div>
@@ -232,17 +230,17 @@ const SocialCard = ({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="bg-[#0d0d0d] border border-[#1a1a1a] rounded-[20px] p-4 flex flex-col justify-between h-[120px] group hover:border-[#0ea5e9]/30 transition-all hover:-translate-y-1"
+      className="bg-zinc-50 border border-zinc-200 rounded-[20px] p-4 flex flex-col justify-between h-[120px] group hover:border-blue-600/30 transition-all hover:-translate-y-1 shadow-sm"
     >
-      <span className="text-[11px] font-medium text-[#666] uppercase tracking-wider">
+      <span className="text-[11px] font-medium text-zinc-400 uppercase tracking-wider">
         {label}
       </span>
       <div>
-        <div className="text-white mb-3 opacity-80 group-hover:opacity-100 transition-opacity">
+        <div className="text-zinc-900 mb-3 opacity-60 group-hover:opacity-100 transition-opacity">
           {React.isValidElement(icon) &&
-            React.cloneElement(icon, { className: "w-7 h-7" } as any)}
+            React.cloneElement(icon, { className: "w-6 h-6" } as any)}
         </div>
-        <span className="text-base font-medium text-white tracking-tight">
+        <span className="text-sm font-medium text-zinc-900 tracking-tight">
           {platform}
         </span>
       </div>
@@ -250,4 +248,4 @@ const SocialCard = ({
   );
 };
 
-export default Footer;
+export default Footer2;
