@@ -5,6 +5,7 @@ import { ExternalLink, Github } from "lucide-react";
 import { NeuButton } from "@/components/ui/neu-button";
 import PixelCard from "@/components/ui/pixel-card";
 import { ExpandableCard2 } from "@/components/ui/expandable-card2";
+import ShinyText from "@/components/ui/shiny-text";
 
 const ProjectsSection2 = () => {
   const projects = [
@@ -74,23 +75,27 @@ const ProjectsSection2 = () => {
   return (
     <section
       id="projects"
-      className="bg-white text-zinc-900 py-32 relative overflow-hidden"
+      className="bg-white text-zinc-900 py-32 relative overflow-hidden border-t border-zinc-100"
     >
       <div className="container mx-auto px-8 max-w-[1280px]">
-        <div className="mb-16 border-t border-zinc-100 pt-12">
-          <div className="mb-6 flex">
-            <div className="grid grid-cols-4 gap-1">
-              {[...Array(16)].map((_, i) => (
-                <div key={i} className="h-1 w-1 bg-blue-600/30" />
-              ))}
-            </div>
-          </div>
-          <h2 className="text-[48px] font-medium leading-[1.1] tracking-[-0.02em] text-zinc-900 max-w-2xl lg:text-[40px] md:text-[32px]">
-            Featured Projects.{" "}
-            <span className="text-zinc-400">
-              Real solutions for real problems.
+        <div className="mb-24 text-center">
+          <div className="flex items-center justify-center gap-2 mb-4">
+            <div className="w-12 h-[1px] bg-blue-600/30" />
+            <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-blue-600">
+              Selected Works
             </span>
-          </h2>
+            <div className="w-12 h-[1px] bg-blue-600/30" />
+          </div>
+          <ShinyText
+            isLight={true}
+            className="text-4xl md:text-6xl mb-6 tracking-tighter"
+          >
+            Featured Projects
+          </ShinyText>
+          <p className="text-zinc-500 max-w-2xl mx-auto text-lg md:text-xl leading-relaxed font-light">
+            Real solutions for real problems. Building scalable products with a
+            focus on user experience and performance.
+          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

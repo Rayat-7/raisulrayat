@@ -9,6 +9,7 @@ import ExperienceEducation from '@/components/sections/experience-education';
 import ProjectsSection from '@/components/sections/features-grid';
 import Footer from '@/components/sections/footer';
 import { Trophy, Briefcase, GraduationCap, Sparkles, Code } from 'lucide-react';
+import VisitorSection from '@/components/sections/visitor-section';
 
 export default function Home() {
   return (
@@ -23,6 +24,7 @@ export default function Home() {
         
 
         <ProjectsSection />
+        <VisitorSection />
       </main>
 
       <Footer />

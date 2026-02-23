@@ -5,6 +5,7 @@ import Hero2 from "@/components/sections/hero2";
 import TechStackSection from "@/components/sections/tech-stack";
 import ExperienceEducation2 from "@/components/sections/experience-education2";
 import ProjectsSection2 from "@/components/sections/features-grid2";
+import VisitorSection from "@/components/sections/visitor-section";
 import Footer from "@/components/sections/footer";
 
 export default function Hero2Page() {
@@ -16,6 +17,7 @@ export default function Hero2Page() {
         <ExperienceEducation2 />
         <TechStackSection />
         <ProjectsSection2 />
+        <VisitorSection />
       </main>
 
       <Footer />

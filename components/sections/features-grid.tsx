@@ -10,6 +10,7 @@ import {
   Wallet,
   ArrowUpRight,
 } from "lucide-react";
+import ShinyText from "../ui/shiny-text";
 
 const ProjectsSection = () => {
   const projects = [
@@ -61,17 +62,20 @@ const ProjectsSection = () => {
       className="bg-black py-24 md:py-32 relative overflow-hidden transition-all duration-500"
     >
       <div className="container mx-auto px-6 max-w-[1200px]">
-        {/* Header Section */}
-        <div className="max-w-4xl mx-auto text-center mb-24">
-          <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-white mb-6">
-            Real solutions.{" "}
-            <span className="text-zinc-500">
-              Built for scale and real-world impact.
+        <div className="mb-24 text-center">
+          <div className="flex items-center justify-center gap-2 mb-4">
+            <div className="w-12 h-[1px] bg-[#0ea5e9]/50" />
+            <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-[#0ea5e9]">
+              Innovation Gallery
             </span>
-          </h2>
-          <p className="text-zinc-500 text-lg md:text-xl">
-            High-performance applications designed to solve specific challenges
-            with modern technology.
+            <div className="w-12 h-[1px] bg-[#0ea5e9]/50" />
+          </div>
+          <ShinyText className="text-4xl md:text-6xl mb-6 tracking-tighter font-medium">
+            Featured Projects
+          </ShinyText>
+          <p className="text-[#999] max-w-2xl mx-auto text-lg md:text-xl leading-relaxed font-light">
+            Real solutions for real problems. Building scalable products with a
+            focus on user experience and performance.
           </p>
         </div>
 
