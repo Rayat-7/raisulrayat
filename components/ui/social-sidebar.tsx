@@ -37,10 +37,10 @@ export function SocialSidebar() {
           initial={{ x: 100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 1.5, ease: "circOut" }}
-          className="bg-black backdrop-blur-xl flex flex-col gap-2 rounded-l-xl px-1.5 py-4 shadow-[0_10px_40px_rgba(0,0,0,0.1)] border-l border-t border-b"
+          className="bg-transparent backdrop-blur-xl flex flex-col gap-2 rounded-l-xl px-1.5 py-4 "
         >
           {/* Share icon at top */}
-          <div className="text-zinc-200 pb-2 border-b border-zinc-200 flex justify-center">
+          <div className="text-zinc-100 pb-2 border-b border-zinc-200 flex justify-center">
             <Share2 size={12} strokeWidth={2.5} />
           </div>
 

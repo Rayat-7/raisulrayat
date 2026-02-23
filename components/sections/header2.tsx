@@ -30,11 +30,11 @@ const Header2 = ({ isLight = false }: { isLight?: boolean }) => {
     <motion.nav
       initial={{ y: -50, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
+      transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
       className="absolute top-0 left-0 right-0 z-50 w-full bg-transparent transition-all pr-0 duration-300"
     >
-      <div className="container mx-auto flex h-24 items-center justify-between px-8 md:px-0">
-        <div className="flex items-center gap-x-12">
+      <div className="max-w-[1500px] mx-auto flex h-24 items-center  justify-between px-8 md:px-12">
+        <div className="flex items-center gap-x-12 ml-16">
           <a href="/" className="block shrink-0 focus-visible:outline-offset-4">
             <span
               className={`text-xl font-bold ${isLight ? "text-zinc-900" : "text-white"}`}
@@ -62,13 +62,11 @@ const Header2 = ({ isLight = false }: { isLight?: boolean }) => {
                 Experience
               </a>
             </li>
-            
-           
           </ul>
 
           <button
             onClick={handleCopyMarkdown}
-            className="flex items-center gap-2 px-4 py-2 bg-white text-black text-[11px] font-bold uppercase tracking-wider  hover:bg-zinc-100 transition-all shadow-sm group"
+            className="flex items-center justify-center gap-2 w-[140px] h-10 bg-white text-black text-[11px] font-bold uppercase tracking-wider hover:bg-zinc-100 transition-all shadow-sm group"
           >
             {copied ? (
               <>

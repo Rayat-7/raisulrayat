@@ -30,24 +30,24 @@ const Hero2 = () => {
       <Name />
 
       {/* Hero Content Container: Exact positioning from Hero1 */}
-      <div className="container relative z-10 mx-auto flex flex-col items-start justify-end min-h-screen px-6 md:px-12 lg:px-0 pb-12 sm:pb-36">
+      <div className="container relative z-10 mx-auto flex flex-col items-start justify-end min-h-screen px-6 md:px-12 lg:px-0 pb-12 sm:pb-24">
         <motion.div
           initial={{ x: 100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ delay: 0.1, duration: 0.7, ease: "easeOut" }}
-          className="max-w-full lg:max-w-[800px]"
+          className="max-w-full  lg:max-w-[800px]"
         >
           {/* Status Badge moved to bottom right */}
 
           {/* Intro Text / Designation */}
-          <ShinyText className="mb-12 mt-10" isLight={false}>
+          <ShinyText className=" mt-4" isLight={false}>
             <p className="text-lg sm:text-xl md:text-3xl font-medium ">
               Frontend Developer
             </p>
           </ShinyText>
 
           {/* Designation - Content matched from Hero1 */}
-
+            <p className="text-white text-base sm:text-lg leading-relaxed max-w-[500px] mb-6">Based in Dhaka ,Bangladesh</p>
           {/* Bio - Content matched from Hero1 */}
           <p className="text-white text-base sm:text-lg leading-relaxed max-w-[500px] mb-8">
             I build meaningful web applications that solve real-life problems
@@ -86,7 +86,7 @@ const Hero2 = () => {
         initial={{ x: -100, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ delay: 0.1, duration: 0.7, ease: "easeOut" }}
-        className="absolute bottom-12 right-6 md:right-12 z-20 hidden sm:flex flex-col items-end gap-5"
+        className="absolute bottom-20 right-6 md:right-12 z-20 hidden sm:flex flex-col items-end gap-5"
       >
         {/* Status Badge moved from main content */}
         <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/50 backdrop-blur-md border border-white/10 w-fit">
@@ -103,7 +103,7 @@ const Hero2 = () => {
           {/* Row 1 */}
           <div className="flex items-center gap-2.5">
             {/* React */}
-            <div className="w-7 h-7 rounded-full bg-black/50 backdrop-blur-md border border-white/10 flex items-center justify-center group pointer-events-auto hover:scale-110 transition-transform p-1">
+            <div className="w-8 h-8 rounded-full bg-black/50 backdrop-blur-md border border-white/10 flex items-center justify-center group pointer-events-auto hover:scale-110 transition-transform p-1.5">
               <img
                 src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg"
                 alt="React"
@@ -111,7 +111,7 @@ const Hero2 = () => {
               />
             </div>
             {/* Next.js */}
-            <div className="w-7 h-7 rounded-full bg-black/50 backdrop-blur-md border border-white/10 flex items-center justify-center group pointer-events-auto hover:scale-110 transition-transform p-1">
+            <div className="w-8 h-8 rounded-full bg-black/50 backdrop-blur-md border border-white/10 flex items-center justify-center group pointer-events-auto hover:scale-110 transition-transform p-1.5">
               <img
                 src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg"
                 alt="Next.js"
@@ -119,7 +119,7 @@ const Hero2 = () => {
               />
             </div>
             {/* TS */}
-            <div className="w-7 h-7 rounded-full bg-black/50 backdrop-blur-md border border-white/10 flex items-center justify-center group pointer-events-auto hover:scale-110 transition-transform p-1">
+            <div className="w-8 h-8 rounded-full bg-black/50 backdrop-blur-md border border-white/10 flex items-center justify-center group pointer-events-auto hover:scale-110 transition-transform p-1.5">
               <img
                 src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg"
                 alt="TypeScript"
@@ -127,7 +127,7 @@ const Hero2 = () => {
               />
             </div>
             {/* Postgres */}
-            <div className="w-7 h-7 rounded-full bg-black/50 backdrop-blur-md border border-white/10 flex items-center justify-center group pointer-events-auto hover:scale-110 transition-transform p-1">
+            <div className="w-8 h-8 rounded-full bg-black/50 backdrop-blur-md border border-white/10 flex items-center justify-center group pointer-events-auto hover:scale-110 transition-transform p-1.5">
               <img
                 src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg"
                 alt="PostgreSQL"
@@ -135,8 +135,8 @@ const Hero2 = () => {
               />
             </div>
             {/* GSAP */}
-            <div className="w-7 h-7 rounded-full bg-black/50 backdrop-blur-md border border-white/10 flex items-center justify-center group pointer-events-auto hover:scale-110 transition-transform p-1">
-              <p className="text-green-500 font-italic text-[8px] font-extrabold">
+            <div className="w-8 h-8 rounded-full bg-black/50 backdrop-blur-md border border-white/10 flex items-center justify-center group pointer-events-auto hover:scale-110 transition-transform p-1.5">
+              <p className="text-green-500 font-italic text-[9px] font-extrabold">
                 GSAP
               </p>
             </div>
@@ -145,7 +145,7 @@ const Hero2 = () => {
           {/* Row 2 */}
           <div className="flex items-center gap-2.5">
             {/* JavaScript */}
-            <div className="w-7 h-7 rounded-full bg-black/50 backdrop-blur-md border border-white/10 flex items-center justify-center group pointer-events-auto hover:scale-110 transition-transform p-1">
+            <div className="w-8 h-8 rounded-full bg-black/50 backdrop-blur-md border border-white/10 flex items-center justify-center group pointer-events-auto hover:scale-110 transition-transform p-1.5">
               <img
                 src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"
                 alt="JavaScript"
@@ -153,7 +153,7 @@ const Hero2 = () => {
               />
             </div>
             {/* MongoDB */}
-            <div className="w-7 h-7 rounded-full bg-black/50 backdrop-blur-md border border-white/10 flex items-center justify-center group pointer-events-auto hover:scale-110 transition-transform p-1">
+            <div className="w-8 h-8 rounded-full bg-black/50 backdrop-blur-md border border-white/10 flex items-center justify-center group pointer-events-auto hover:scale-110 transition-transform p-1.5">
               <img
                 src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg"
                 alt="MongoDB"
@@ -161,7 +161,7 @@ const Hero2 = () => {
               />
             </div>
             {/* Express */}
-            <div className="w-7 h-7 rounded-full bg-white/50 backdrop-blur-md border border-white/10 flex items-center justify-center group pointer-events-auto hover:scale-110 transition-transform p-1">
+            <div className="w-8 h-8 rounded-full bg-white/50 backdrop-blur-md border border-white/10 flex items-center justify-center group pointer-events-auto hover:scale-110 transition-transform p-1.5">
               <img
                 src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg"
                 alt="Express"
@@ -169,7 +169,7 @@ const Hero2 = () => {
               />
             </div>
             {/* Node.js */}
-            <div className="w-7 h-7 rounded-full bg-black/50 backdrop-blur-md border border-white/10 flex items-center justify-center group pointer-events-auto hover:scale-110 transition-transform p-1">
+            <div className="w-8 h-8 rounded-full bg-black/50 backdrop-blur-md border border-white/10 flex items-center justify-center group pointer-events-auto hover:scale-110 transition-transform p-1.5">
               <img
                 src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg"
                 alt="Node.js"
@@ -177,7 +177,7 @@ const Hero2 = () => {
               />
             </div>
             {/* GitHub */}
-            <div className="w-7 h-7 rounded-full bg-white/50 backdrop-blur-md border border-white/10 flex items-center justify-center group pointer-events-auto hover:scale-110 transition-transform p-1">
+            <div className="w-8 h-8 rounded-full bg-white/50 backdrop-blur-md border border-white/10 flex items-center justify-center group pointer-events-auto hover:scale-110 transition-transform p-1.5">
               <img
                 src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg"
                 alt="GitHub"
