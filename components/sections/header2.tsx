@@ -10,15 +10,24 @@ const Header2 = ({ isLight = false }: { isLight?: boolean }) => {
 
   const handleCopyMarkdown = () => {
     const details = `
-# Raisul Rayat
+# Raisoul Rayat
 **Frontend Developer**
 
-- 📧 Email: raisoulrayat@gmail.com
-- 🔗 LinkedIn: https://linkedin.com/in/raisulrayat
-- 💻 GitHub: https://github.com/rayat-7
-- 🌐 Portfolio: https://raisulrayat.com
+📧 raisoulrayat@gmail.com | 📞 01892707713 | 📍 Dhaka, Bangladesh
+🔗 LinkedIn: https://linkedin.com/in/raisoul-rayat-48781a263
+💻 GitHub: https://github.com/Rayat-7
+🌐 Portfolio: https://raisulrayat.vercel.app
 
-*Experienced in React, Next.js, and modern frontend architecture.*
+## Summary
+Frontend Developer with hands-on experience in React.js and Next.js, specializing in building responsive, scalable, and user-centric web applications. Completed a Web Development Internship at Tekshilpa Solutions Ltd.
+
+## Skills
+Frontend: React.js, Next.js, JavaScript (ES6+), TypeScript, HTML5, CSS3, Tailwind CSS, ShadCN UI
+Backend & Database: Node.js, REST APIs, PostgreSQL, MySQL, Prisma, Firebase
+Tools: Git, GitHub, Vercel, VS Code
+
+## Education
+BSc in Computer Science & Engineering — United International University (Expected 2027)
     `.trim();
 
     navigator.clipboard.writeText(details);
@@ -34,7 +43,7 @@ const Header2 = ({ isLight = false }: { isLight?: boolean }) => {
       className="absolute top-0 left-0 right-0 z-50 w-full bg-transparent transition-all pr-0 duration-300"
     >
       <div className="max-w-[1500px] mx-auto flex h-24 items-center  justify-between px-8 md:px-12">
-        <div className="flex items-center gap-x-12 ml-16">
+        <div className="flex items-center gap-x-12 md:ml-16 ml-0">
           <a href="/" className="block shrink-0 focus-visible:outline-offset-4">
             <span
               className={`text-xl font-bold ${isLight ? "text-zinc-900" : "text-white"}`}
@@ -66,7 +75,7 @@ const Header2 = ({ isLight = false }: { isLight?: boolean }) => {
 
           <button
             onClick={handleCopyMarkdown}
-            className="flex items-center justify-center gap-2 w-[140px] h-10 bg-white text-black text-[11px] font-bold uppercase tracking-wider hover:bg-zinc-100 transition-all shadow-sm group"
+            className="flex items-center justify-center rounded-full gap-2 w-[160px] h-10 bg-white text-black text-[11px] font-bold uppercase tracking-wider hover:bg-zinc-100 transition-all  group"
           >
             {copied ? (
               <>
@@ -79,23 +88,13 @@ const Header2 = ({ isLight = false }: { isLight?: boolean }) => {
                   size={14}
                   className="group-hover:scale-110 transition-transform"
                 />
-                <span>Copy Details</span>
+                <span>Copy Profile</span>
               </>
             )}
           </button>
         </div>
 
-        <div className="md:hidden flex items-center gap-8">
-          <button
-            onClick={handleCopyMarkdown}
-            className="p-2 bg-white text-black rounded-full shadow-sm"
-          >
-            {copied ? (
-              <Check size={18} className="text-green-600" />
-            ) : (
-              <Copy size={18} />
-            )}
-          </button>
+        <div className="md:hidden flex items-center">
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className={`p-2 ${isLight ? "text-zinc-900" : "text-white"}`}
@@ -171,7 +170,7 @@ const Header2 = ({ isLight = false }: { isLight?: boolean }) => {
               ) : (
                 <Copy size={20} />
               )}
-              {copied ? "Copied to Clipboard!" : "Copy Developer Markdown"}
+              {copied ? "Copied to Clipboard!" : "Copy Profile Summary"}
             </button>
           </motion.div>
         )}

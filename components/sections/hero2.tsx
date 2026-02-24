@@ -10,7 +10,7 @@ import Name from "./name";
 
 const Hero2 = () => {
   return (
-    <section className="relative min-h-screen w-full overflow-hidden bg-black text-white">
+    <section className="relative  w-full overflow-hidden bg-black text-white">
       {/* Background Layer: hero2.jpg */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -30,7 +30,7 @@ const Hero2 = () => {
       <Name />
 
       {/* Hero Content Container: Exact positioning from Hero1 */}
-      <div className="container relative z-10 mx-auto flex flex-col items-start justify-end min-h-screen px-6 md:px-12 lg:px-0 pb-12 sm:pb-24">
+      <div className="container relative z-10 mx-auto flex flex-col items-start justify-end min-h-[85vh] sm:min-h-screen px-6 md:px-12 lg:px-0 pb-16 sm:pb-24 pt-24 sm:pt-0">
         <motion.div
           initial={{ x: 100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
@@ -41,38 +41,106 @@ const Hero2 = () => {
 
           {/* Intro Text / Designation */}
           <ShinyText className=" mt-4" isLight={false}>
-            <p className="text-lg sm:text-xl md:text-3xl font-medium ">
+            <p className="text-2xl sm:text-2xl md:text-3xl font-medium ">
               Frontend Developer
             </p>
           </ShinyText>
 
           {/* Designation - Content matched from Hero1 */}
-            <p className="text-white text-base sm:text-lg leading-relaxed max-w-[500px] mb-6">Based in Dhaka ,Bangladesh</p>
+          <p className="text-white text-lg sm:text-base leading-relaxed max-w-[500px] mb-6">
+            Based in Dhaka ,Bangladesh
+          </p>
           {/* Bio - Content matched from Hero1 */}
-          <p className="text-white text-base sm:text-lg leading-relaxed max-w-[500px] mb-8">
+          <p className="text-white text-sm sm:text-base md:text-lg leading-relaxed max-w-[500px] mb-4 sm:mb-8">
             I build meaningful web applications that solve real-life problems
             and constantly level up by exploring new technologies and ideas.
           </p>
 
           {/* Action Buttons - Content matched from Hero1 but with luxury spacing */}
-          <div className="mt-8 flex flex-wrap gap-4 items-center">
+          <div className="mt-4 sm:mt-8 flex flex-wrap gap-4 items-center">
             <NeuButton
               href="/resume"
               variant="primary"
               isLight={false}
-              className="px-8 py-3 font-medium"
+              className="px-6 sm:px-8 py-2.5 sm:py-3 font-medium text-sm sm:text-[14px]"
             >
               View Resume
             </NeuButton>
 
-            <NeuButton
+            <a
               href="/projects"
-              variant="outline"
-              isLight={false}
-              className="px-8 py-3  bg-black font-medium border-2  text-white hover:bg-blue-900/20 transition-all !shadow-none !translate-x-0 !translate-y-0"
+              className="relative px-6 sm:px-8 py-2.5 sm:py-3 font-medium text-sm sm:text-[14px] text-white bg-black border-2 border-transparent animate-border transition-all hover:scale-[1.02]"
+              style={{
+                background:
+                  "linear-gradient(#000, #000) padding-box, conic-gradient(from var(--border-angle), transparent 20%, #0ea5e9 40%, #ffffff 50%, #0ea5e9 60%, transparent 80%) border-box",
+              }}
             >
               View Projects
-            </NeuButton>
+            </a>
+          </div>
+
+          {/* Mobile-only: Tech Icons + Status Badge */}
+          <div className="mt-4 flex flex-col gap-3 sm:hidden">
+            {/* Status Badge */}
+            <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/50 backdrop-blur-md border border-white/10 w-fit">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+              </span>
+              <span className="text-[10px] font-medium tracking-wide text-white/90 uppercase">
+                open for opportunity
+              </span>
+            </div>
+            {/* Tech Icons Row */}
+            <div className="flex flex-wrap items-center gap-2">
+              {[
+                {
+                  src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
+                  alt: "React",
+                },
+                {
+                  src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg",
+                  alt: "Next.js",
+                  invert: true,
+                },
+                {
+                  src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg",
+                  alt: "TypeScript",
+                },
+                {
+                  src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg",
+                  alt: "PostgreSQL",
+                },
+                {
+                  src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg",
+                  alt: "JavaScript",
+                },
+                {
+                  src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg",
+                  alt: "MongoDB",
+                },
+                {
+                  src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg",
+                  alt: "Node.js",
+                },
+              ].map((icon) => (
+                <div
+                  key={icon.alt}
+                  className="w-7 h-7 rounded-full bg-black/50 backdrop-blur-md border border-white/10 flex items-center justify-center p-1.5"
+                >
+                  <img
+                    src={icon.src}
+                    alt={icon.alt}
+                    className={`w-full h-full object-contain ${icon.invert ? "invert" : ""}`}
+                  />
+                </div>
+              ))}
+              <div className="w-7 h-7 rounded-full bg-black/50 backdrop-blur-md border border-white/10 flex items-center justify-center p-1.5">
+                <p className="text-green-500 font-italic text-[7px] font-extrabold">
+                  GSAP
+                </p>
+              </div>
+            </div>
           </div>
         </motion.div>
       </div>
@@ -95,7 +163,7 @@ const Hero2 = () => {
             <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
           </span>
           <span className="text-[10px] font-medium tracking-wide text-white/90 uppercase">
-            Open for Project
+            open for opportunity
           </span>
         </div>
 

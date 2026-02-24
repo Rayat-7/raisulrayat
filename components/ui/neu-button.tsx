@@ -12,6 +12,7 @@ interface NeuButtonProps {
   target?: string;
   rel?: string;
   style?: React.CSSProperties;
+  download?: boolean | string;
 }
 
 export const NeuButton = ({
@@ -25,6 +26,7 @@ export const NeuButton = ({
   target,
   rel,
   style,
+  download,
 }: NeuButtonProps) => {
   const baseStyles =
     "px-6 py-3 font-medium transition-all duration-150 text-[14px]";
@@ -50,6 +52,7 @@ export const NeuButton = ({
         target={target}
         rel={rel}
         style={style}
+        download={download}
       >
         {children}
       </a>

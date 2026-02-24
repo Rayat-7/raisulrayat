@@ -10,7 +10,7 @@ const Name = () => {
         flexDirection: "row",
         gap: "265px",
       }}
-      className="absolute flex items-center justify-center ml-4 z-20 w-full bg-transparent transition-all duration-300"
+      className="absolute hidden lg:flex items-center justify-center ml-4 z-20 w-full bg-transparent transition-all duration-300"
     >
       <motion.p
         initial={{ x: 150, opacity: 0 }}

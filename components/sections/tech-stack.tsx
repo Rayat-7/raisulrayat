@@ -27,15 +27,10 @@ const stackCategories = [
       { name: "Vite", icon: "https://vite.dev/assets/vite-light.t8GCa_VF.svg" },
       {
         name: "TanStack Start",
-        icon:
-          "https://raw.githubusercontent.com/tanstack/query/main/docs/src/hooks/useQuery.md" ===
-          ""
-            ? ""
-            : "https://avatars.githubusercontent.com/u/72518440?v=4",
+        icon: "/tanstackstart.png",
       },
       { name: "motion.dev", icon: getDevIcon("framermotion") },
       { name: "Figma", icon: getDevIcon("figma") },
-      
     ],
   },
   {
@@ -44,11 +39,7 @@ const stackCategories = [
       { name: "Node.js", icon: getDevIcon("nodejs") },
       {
         name: "Express",
-        custom: (
-          <span className="text-white   leading-none text-2xl">
-            ex
-          </span>
-        ),
+        custom: <span className="text-white   leading-none text-2xl">ex</span>,
       },
       {
         name: "Sanity",

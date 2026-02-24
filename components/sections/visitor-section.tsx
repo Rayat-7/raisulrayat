@@ -11,6 +11,7 @@ import {
   MessageSquare,
   ShieldAlert,
   CheckCircle2,
+  Sparkles,
 } from "lucide-react";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { saveVisitorMessage } from "@/app/actions/visitor";
@@ -51,13 +52,9 @@ const VisitorSection = () => {
   const [isSent, setIsSent] = useState(false);
   const chatEndRef = useRef<HTMLDivElement>(null);
 
-  // const scrollToBottom = () => {
-  //   chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  // };
-
-  // useEffect(() => {
-  //   scrollToBottom();
-  // }, [messages]);
+  useEffect(() => {
+    chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
 
   const handleChatSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -70,7 +67,6 @@ const VisitorSection = () => {
 
     try {
       const apiKey = process.env.NEXT_PUBLIC_GEMINI_API_KEY;
-      console.log("Attempting chat with API Key existence:", !!apiKey);
 
       if (!apiKey) {
         setTimeout(() => {
@@ -119,7 +115,6 @@ const VisitorSection = () => {
       email: anonEmail,
       message: anonMsg,
     });
-    console.log("DEBUG: Submission result:", result);
 
     if (result.success) {
       setIsSent(true);
@@ -139,7 +134,7 @@ const VisitorSection = () => {
   return (
     <section
       id="visitor"
-      className="relative w-full py-24 bg-black overflow-hidden border-t border-[#1a1a1a]"
+      className="relative w-full py-16 md:py-24 bg-black overflow-hidden border-t border-[#1a1a1a]"
     >
       {/* Background Gradients (Same as Tech Stack) */}
       <div
@@ -166,93 +161,77 @@ const VisitorSection = () => {
       <div className="container mx-auto px-6 max-w-7xl relative z-10 transition-all duration-700 max-h-[100vh]">
         <div className="mb-16 text-center">
           <div className="flex items-center justify-center gap-2 mb-4">
-            <div className="w-12 h-[1px] bg-[#0ea5e9]/30" />
+            <div className="w-8 h-[1px] bg-[#0ea5e9]/30" />
             <span className="text-[10px] uppercase tracking-[0.4em] text-[#0ea5e9] font-normal">
               Connect
             </span>
-            <div className="w-12 h-[1px] bg-[#0ea5e9]/30" />
+            <div className="w-8 h-[1px] bg-[#0ea5e9]/30" />
           </div>
-
-          <p className="text-zinc-500 max-w-2xl mx-auto text-lg leading-relaxed font-light">
-            Chat with my AI twin or leave a footprint in my digital guestbook.
+          <p className="text-zinc-200 max-w-md mx-auto text-sm leading-relaxed font-light">
+            Chat with my AI assistant or leave me a message.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 h-auto lg:h-[550px]">
-          {/* Left Side: AI Chatbot */}
-          <div className="flex flex-col h-full bg-[#0d0d0d]/40 backdrop-blur-2xl border border-zinc-900/50 rounded-2xl overflow-hidden group">
-            <div className="p-6 border-b border-zinc-900/50 flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-blue-500/5 flex items-center justify-center text-blue-400/80">
-                  <Bot size={18} strokeWidth={1.5} />
-                </div>
-                <div>
-                  <h3 className="text-white text-xs tracking-[0.2em] font-light uppercase opacity-80">
-                    AI Assistant
-                  </h3>
-                  <div className="flex items-center gap-1.5 mt-0.5">
-                    <div className="w-1 h-1 rounded-full bg-emerald-500/60 animate-pulse" />
-                    <span className="text-[9px] text-zinc-600 uppercase tracking-widest font-normal">
-                      Online
-                    </span>
-                  </div>
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
+          {/* AI Chatbot — Takes more space */}
+          <div className="lg:col-span-3 flex flex-col h-[420px] border border-[#1a1a1a] rounded-xl overflow-hidden">
+            {/* Chat Header */}
+            <div className="px-4 py-3 border-b border-[#1a1a1a] flex items-center gap-2.5">
+              <div className="w-6 h-6 rounded-md bg-[#0ea5e9]/10 flex items-center justify-center">
+                <Sparkles size={12} className="text-[#0ea5e9]" />
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-[18px] font-medium text-white/80">
+                  AI Assistant
+                </span>
+                <div className="flex items-center gap-1">
+                  <div className="w-1 h-1 rounded-full bg-emerald-500 animate-pulse" />
+                  <span className="text-[9px] text-zinc-600 font-mono">
+                    online
+                  </span>
                 </div>
               </div>
             </div>
 
-            <div className="flex-grow overflow-y-auto p-6 space-y-6 scrollbar-hide">
+            {/* Messages */}
+            <div className="flex-grow overflow-y-auto p-4 space-y-3 scrollbar-hide">
               <AnimatePresence initial={false}>
                 {messages.map((msg, idx) => (
                   <motion.div
                     key={idx}
-                    initial={{ opacity: 0, y: 10 }}
+                    initial={{ opacity: 0, y: 8 }}
                     animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.2 }}
                     className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
                   >
                     <div
-                      className={`max-w-[90%] md:max-w-[80%] flex items-start gap-3 ${msg.role === "user" ? "flex-row-reverse" : ""}`}
+                      className={`max-w-[85%] ${
+                        msg.role === "user"
+                          ? "bg-[#0ea5e9]/10 border border-[#0ea5e9]/15 text-blue-100/90 rounded-xl rounded-br-sm"
+                          : "bg-[#111] border border-[#1a1a1a] text-zinc-400 rounded-xl rounded-bl-sm"
+                      } px-3.5 py-2.5 text-[13px] leading-relaxed`}
                     >
-                      <div
-                        className={`w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 transition-colors ${
-                          msg.role === "user"
-                            ? "bg-zinc-900 text-zinc-500"
-                            : "bg-blue-500/5 text-blue-400/70"
-                        }`}
-                      >
-                        {msg.role === "user" ? (
-                          <User size={12} strokeWidth={1.5} />
-                        ) : (
-                          <Bot size={12} strokeWidth={1.5} />
-                        )}
-                      </div>
-                      <div
-                        className={`p-4 rounded-2xl text-sm leading-relaxed font-light tracking-wide ${
-                          msg.role === "user"
-                            ? "bg-blue-600/5 border border-blue-500/10 text-blue-100/90"
-                            : "bg-zinc-900/50 border border-zinc-800/30 text-zinc-400"
-                        }`}
-                      >
-                        {msg.content}
-                      </div>
+                      {msg.content}
                     </div>
                   </motion.div>
                 ))}
               </AnimatePresence>
               {isTyping && (
                 <div className="flex justify-start">
-                  <div className="flex items-center gap-2 bg-zinc-900/50 p-3 px-4 rounded-2xl border border-zinc-800/30">
-                    <div className="w-1 h-1 bg-blue-400/40 rounded-full animate-bounce [animation-delay:-0.3s]" />
-                    <div className="w-1 h-1 bg-blue-400/40 rounded-full animate-bounce [animation-delay:-0.15s]" />
-                    <div className="w-1 h-1 bg-blue-400/40 rounded-full animate-bounce" />
+                  <div className="flex items-center gap-1.5 bg-[#111] px-3.5 py-2.5 rounded-xl border border-[#1a1a1a]">
+                    <div className="w-1 h-1 bg-[#0ea5e9]/50 rounded-full animate-bounce [animation-delay:-0.3s]" />
+                    <div className="w-1 h-1 bg-[#0ea5e9]/50 rounded-full animate-bounce [animation-delay:-0.15s]" />
+                    <div className="w-1 h-1 bg-[#0ea5e9]/50 rounded-full animate-bounce" />
                   </div>
                 </div>
               )}
               <div ref={chatEndRef} />
             </div>
 
+            {/* Input */}
             <form
               onSubmit={handleChatSubmit}
-              className="p-4 border-t border-zinc-900/50 bg-[#080808]/40"
+              className="px-3 py-2.5 border-t border-[#1a1a1a]"
             >
               <div className="relative flex items-center">
                 <input
@@ -260,110 +239,90 @@ const VisitorSection = () => {
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   placeholder="Ask about my work..."
-                  className="w-full bg-zinc-900/30 border border-zinc-800/50 rounded-xl px-4 py-3 text-sm text-zinc-300 placeholder:text-zinc-700 focus:outline-none focus:border-blue-500/20 transition-all font-light tracking-wide"
+                  className="w-full bg-[#111] border border-[#1a1a1a] rounded-lg px-3.5 py-2 text-[13px] text-zinc-300 placeholder:text-zinc-700 focus:outline-none focus:border-[#0ea5e9]/20 transition-colors"
                 />
                 <button
                   type="submit"
                   disabled={isTyping || !input.trim()}
-                  className="absolute right-2 p-2 text-zinc-600 hover:text-blue-500/60 disabled:opacity-20 disabled:hover:text-zinc-600 transition-all"
+                  className="absolute right-1.5 p-1.5 text-zinc-600 hover:text-[#0ea5e9] disabled:opacity-20 transition-colors"
                 >
-                  <Send size={16} strokeWidth={1.5} />
+                  <Send size={14} />
                 </button>
               </div>
             </form>
           </div>
 
-          {/* Right Side: Anonymous Message */}
-          <div className="flex flex-col h-full bg-[#0d0d0d]/40 backdrop-blur-2xl border border-zinc-900/50 rounded-2xl overflow-hidden p-8 lg:p-10 group relative">
-            <div className="flex items-center gap-3 mb-10">
-              <div className="w-8 h-8 rounded-full bg-emerald-500/5 flex items-center justify-center text-emerald-400/80">
-                <MessageSquare size={18} strokeWidth={1.5} />
+          {/* Anonymous Message */}
+          <div className="lg:col-span-2 flex flex-col h-[420px] border border-[#1a1a1a] rounded-xl overflow-hidden">
+            {/* Header */}
+            <div className="px-4 py-3 border-b border-[#1a1a1a] flex items-center gap-2.5">
+              <div className="w-6 h-6 rounded-md bg-emerald-500/10 flex items-center justify-center">
+                <MessageSquare size={12} className="text-emerald-400" />
               </div>
-              <h3 className="text-white text-xs tracking-[0.2em] font-light uppercase opacity-80">
-                Drop a Message
-              </h3>
+              <span className="text-[18px] font-medium text-white/80">
+                Leave a Message
+              </span>
             </div>
 
+            {/* Form */}
             <form
               onSubmit={handleAnonSubmit}
-              className="space-y-6 flex-grow flex flex-col"
+              className="flex-grow flex flex-col p-4 gap-3"
             >
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <label className="text-[9px] text-zinc-600 uppercase tracking-[0.3em] ml-1 font-normal opacity-80">
-                    Name
-                  </label>
-                  <input
-                    type="text"
-                    value={anonName}
-                    onChange={(e) => setAnonName(e.target.value)}
-                    placeholder="Optional"
-                    className="w-full bg-zinc-900/20 border border-zinc-900 rounded-xl px-4 py-3 text-sm text-zinc-400 placeholder:text-zinc-800 focus:outline-none focus:border-emerald-500/10 transition-all font-light tracking-wide"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-[9px] text-zinc-600 uppercase tracking-[0.3em] ml-1 font-normal opacity-80">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    value={anonEmail}
-                    onChange={(e) => setAnonEmail(e.target.value)}
-                    placeholder="Optional"
-                    className="w-full bg-zinc-900/20 border border-zinc-900 rounded-xl px-4 py-3 text-sm text-zinc-400 placeholder:text-zinc-800 focus:outline-none focus:border-emerald-500/10 transition-all font-light tracking-wide"
-                  />
-                </div>
-              </div>
-
-              <div className="space-y-2 flex-grow flex flex-col">
-                <label className="text-[9px] text-zinc-600 uppercase tracking-[0.3em] ml-1 font-normal opacity-80">
-                  Your Message
-                </label>
-                <textarea
-                  value={anonMsg}
-                  onChange={(e) => setAnonMsg(e.target.value)}
-                  placeholder="Drop a note, feedback, or a quick hello..."
-                  className="w-full flex-grow bg-zinc-900/20 border border-zinc-900 rounded-xl px-4 py-3 text-sm text-zinc-400 placeholder:text-zinc-800 focus:outline-none focus:border-emerald-500/10 transition-all resize-none font-light tracking-wide min-h-[120px]"
+              <div className="grid grid-cols-2 gap-3">
+                <input
+                  type="text"
+                  value={anonName}
+                  onChange={(e) => setAnonName(e.target.value)}
+                  placeholder="Name"
+                  className="w-full bg-[#111] border border-[#1a1a1a] rounded-lg px-3 py-2 text-[12px] text-zinc-400 placeholder:text-zinc-700 focus:outline-none focus:border-emerald-500/20 transition-colors"
+                />
+                <input
+                  type="email"
+                  value={anonEmail}
+                  onChange={(e) => setAnonEmail(e.target.value)}
+                  placeholder="Email"
+                  className="w-full bg-[#111] border border-[#1a1a1a] rounded-lg px-3 py-2 text-[12px] text-zinc-400 placeholder:text-zinc-700 focus:outline-none focus:border-emerald-500/20 transition-colors"
                 />
               </div>
+
+              <textarea
+                value={anonMsg}
+                onChange={(e) => setAnonMsg(e.target.value)}
+                placeholder="Your message..."
+                className="w-full flex-grow bg-[#111] border border-[#1a1a1a] rounded-lg px-3 py-2.5 text-[12px] text-zinc-400 placeholder:text-zinc-700 focus:outline-none focus:border-emerald-500/20 transition-colors resize-none min-h-[100px]"
+              />
 
               <button
                 type="submit"
                 disabled={!anonMsg.trim() || isSent}
-                className={`w-full py-4 rounded-xl flex items-center justify-center gap-2 text-[10px] uppercase tracking-[0.3em] transition-all font-light relative overflow-hidden ${
+                className={`w-full py-2.5 rounded-lg flex items-center justify-center gap-2 text-[11px] uppercase tracking-widest font-medium transition-all ${
                   isSent
-                    ? "bg-emerald-500/5 text-emerald-400/60 border border-emerald-500/10"
-                    : "bg-zinc-900/50 text-zinc-500 border border-zinc-800/50 hover:bg-blue-600/5 hover:text-blue-400 hover:border-blue-500/20 active:scale-[0.98]"
+                    ? "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20"
+                    : "bg-[#111] text-zinc-500 border border-[#1a1a1a] hover:text-[#0ea5e9] hover:border-[#0ea5e9]/20 active:scale-[0.98]"
                 }`}
               >
                 {isSent ? (
                   <>
-                    <CheckCircle2 size={14} strokeWidth={1.5} />
-                    Message Received
+                    <CheckCircle2 size={12} />
+                    Sent!
                   </>
                 ) : (
                   <>
-                    <Send
-                      size={14}
-                      strokeWidth={1.5}
-                      className="group-hover:translate-x-1 transition-transform"
-                    />
-                    Send Message
+                    <Send size={12} />
+                    Send
                   </>
                 )}
               </button>
-            </form>
 
-            <div className="mt-8 flex items-center gap-3 p-4 bg-zinc-900/20 rounded-xl border border-zinc-900/50">
-              <ShieldAlert
-                className="text-zinc-700 flex-shrink-0"
-                size={14}
-                strokeWidth={1.5}
-              />
-              <p className="text-[9px] text-zinc-600 leading-relaxed font-light tracking-wide uppercase opacity-70">
-                All communications are filtered and stored securely.
-              </p>
-            </div>
+              {/* Privacy note */}
+              <div className="flex items-center gap-2 pt-1">
+                <ShieldAlert size={10} className="text-zinc-700 shrink-0" />
+                <p className="text-[9px] text-zinc-700 leading-relaxed">
+                  Messages are stored securely and privately.
+                </p>
+              </div>
+            </form>
           </div>
         </div>
       </div>

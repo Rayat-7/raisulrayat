@@ -7,13 +7,15 @@ import {
   Twitter,
   Mail,
   Phone,
-  Facebook,
-  Instagram,
+  MapPin,
   ArrowUpRight,
   Copy,
   Check,
+  Terminal,
+  Download,
+  Globe,
 } from "lucide-react";
-import { NeuButton } from "@/components/ui/neu-button";
+import ShinyText from "../ui/shiny-text";
 import Image from "next/image";
 
 const Footer = () => {
@@ -26,227 +28,239 @@ const Footer = () => {
   };
 
   return (
-    <footer className="w-full bg-black text-white pt-16 pb-0 relative overflow-hidden">
-      <div className="container mx-auto px-6 mb-16 relative z-10 w-full max-w-[1400px]">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-          {/* Left Large Card */}
-          <div
-            className="lg:col-span-5 flex flex-col justify-between rounded-[32px] p-8 md:p-12 relative overflow-hidden group border-2 border-transparent animate-border"
-            style={{
-              background:
-                "linear-gradient(#0d0d0d, #0d0d0d) padding-box, conic-gradient(from var(--border-angle), transparent 20%, #0ea5e9 40%, #ffffff 50%, #0ea5e9 60%, transparent 80%) border-box",
-            }}
-          >
-            {/* Gradient glow effect */}
-            <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-[#0ea5e9]/10 blur-[100px] rounded-full pointer-events-none" />
+    <footer className="w-full bg-black text-white pt-20 pb-0 relative overflow-hidden border-t border-[#1a1a1a]">
+      <div className="container mx-auto px-6 mb-16 relative z-10 w-full max-w-[1200px]">
+        {/* Header */}
+        <div className="mb-16">
+          <div className="flex items-center gap-3 mb-6">
+            <Terminal size={18} className="text-[#0ea5e9]" />
+            <span className="text-[10px] font-mono font-bold uppercase tracking-[0.3em] text-[#0ea5e9]">
+              Let&apos;s Connect
+            </span>
+          </div>
+          <ShinyText className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight mb-4 block">
+            Looking for a Frontend developer?
+          </ShinyText>
+          <p className="text-[#666] text-lg max-w-lg">
+            I&apos;m actively looking for opportunities where I can contribute,
+            grow, and build meaningful products.
+          </p>
+        </div>
 
-            <div className="relative z-10">
-              <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-[#1a1a1a] mb-8">
-                <Image
-                  src="/portfolio_img.jpg"
-                  alt="Raisul Rayat"
-                  width={80}
-                  height={80}
-                  className="w-full h-full object-cover"
-                />
+        {/* Main Grid — No Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-12 gap-x-16 mb-16">
+          {/* Contact */}
+          <div>
+            <h3 className="text-[10px] font-mono font-bold uppercase tracking-[0.3em] text-[#555] mb-6">
+              Contact
+            </h3>
+            <div className="space-y-4">
+              <a
+                href="mailto:raisoulrayat@gmail.com"
+                className="flex items-center gap-3 text-[#999] hover:text-white transition-colors group"
+              >
+                <Mail size={14} className="text-[#0ea5e9] shrink-0" />
+                <span className="text-sm">raisoulrayat@gmail.com</span>
+              </a>
+              <a
+                href="tel:01892707713"
+                className="flex items-center gap-3 text-[#999] hover:text-white transition-colors"
+              >
+                <Phone size={14} className="text-[#0ea5e9] shrink-0" />
+                <span className="text-sm">01892707713</span>
+              </a>
+              <div className="flex items-center gap-3 text-[#999]">
+                <MapPin size={14} className="text-[#0ea5e9] shrink-0" />
+                <span className="text-sm">Dhaka, Bangladesh</span>
               </div>
-
-              <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
-                I’m Raisul Rayat.
-              </h2>
-              <p className="text-[#999] text-lg max-w-sm mb-12">
-                I care about making your startup look and feel ready to pitch.
-              </p>
-
-              {/* Signature (Stylized Text representation) */}
-              <div className="mb-16">
-                <div className="relative w-48 h-24">
-                  <svg
-                    viewBox="0 0 200 100"
-                    className="w-full h-full text-[#0ea5e9] opacity-80"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                  >
-                    <path
-                      d="M20,60 Q50,10 80,60 T140,60 T190,40"
-                      strokeLinecap="round"
-                      strokeDasharray="5 5"
-                      className="animate-pulse"
-                    />
-                    <text
-                      x="50%"
-                      y="60%"
-                      textAnchor="middle"
-                      fill="currentColor"
-                      stroke="none"
-                      fontFamily="cursive"
-                      fontSize="24"
-                      fontStyle="italic"
-                    >
-                      Raisul
-                    </text>
-                  </svg>
-                </div>
-              </div>
+              <a
+                href="https://raisulrayat.vercel.app"
+                target="_blank"
+                className="flex items-center gap-3 text-[#999] hover:text-white transition-colors"
+              >
+                <Globe size={14} className="text-[#0ea5e9] shrink-0" />
+                <span className="text-sm">raisulrayat.vercel.app</span>
+              </a>
             </div>
 
-            <div className="relative z-10 flex flex-wrap items-center justify-between gap-6 mt-auto">
-              <div className="flex items-center gap-2">
-                <span className="relative flex h-2.5 w-2.5">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
-                </span>
-                <span className="text-sm font-medium text-[#ccc]">
-                  Taking New Projects
-                </span>
-              </div>
+            {/* Copy Email */}
+            <button
+              onClick={handleCopyEmail}
+              className="mt-6 flex items-center gap-2 text-xs font-mono text-[#555] hover:text-white transition-colors"
+            >
+              {copied ? (
+                <>
+                  <Check size={12} className="text-green-500" />
+                  <span className="text-green-500">Copied!</span>
+                </>
+              ) : (
+                <>
+                  <Copy size={12} />
+                  <span>Copy email</span>
+                </>
+              )}
+            </button>
+          </div>
 
-              <div className="flex items-center gap-3">
+          {/* Quick Links */}
+          <div>
+            <h3 className="text-[10px] font-mono font-bold uppercase tracking-[0.3em] text-[#555] mb-6">
+              Quick Links
+            </h3>
+            <div className="space-y-4">
+              {[
+                {
+                  label: "Resume",
+                  href: "/resume",
+                  icon: <ArrowUpRight size={14} />,
+                },
+                {
+                  label: "Projects",
+                  href: "/projects",
+                  icon: <ArrowUpRight size={14} />,
+                },
+                {
+                  label: "Download CV",
+                  href: "/cv.pdf",
+                  icon: <Download size={14} />,
+                  download: true,
+                },
+              ].map((link) => (
                 <a
-                  href="mailto:raisoulrayat@gmail.com"
-                  className="px-6 py-2.5 bg-white text-black font-medium rounded-full hover:bg-gray-100 transition-colors flex items-center gap-2 text-sm"
+                  key={link.label}
+                  href={link.href}
+                  download={link.download ? "Raisul_Rayat_CV.pdf" : undefined}
+                  className="flex items-center justify-between text-[#999] hover:text-white transition-colors group"
                 >
-                  <Mail size={16} />
-                  Book a Call
+                  <span className="text-sm">{link.label}</span>
+                  <span className="text-[#555] group-hover:text-[#0ea5e9] transition-colors">
+                    {link.icon}
+                  </span>
                 </a>
-                <a
-                  href="/resume"
-                  className="px-6 py-2.5 bg-white text-black font-medium rounded-full hover:bg-gray-100 transition-colors flex items-center gap-2 text-sm"
-                >
-                  <ArrowUpRight size={16} />
-                  View Resume
-                </a>
-              </div>
+              ))}
+            </div>
+
+            {/* Status */}
+            <div className="mt-6 flex items-center gap-2">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+              </span>
+              <span className="text-xs text-[#666]">
+                Open for opportunities
+              </span>
             </div>
           </div>
 
-          {/* Right Grid Section */}
-          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
-            {/* Social Cards */}
-            <SocialCard
-              label="Source"
-              icon={<Github size={24} />}
-              platform="GitHub"
-              href="https://github.com/rayat-7"
-            />
-            <SocialCard
-              label="Community"
-              icon={<Facebook size={24} />}
-              platform="Facebook"
-              href="#"
-            />
-            <SocialCard
-              label="Follow"
-              icon={<Instagram size={24} />}
-              platform="Instagram"
-              href="#"
-            />
-            <SocialCard
-              label="Connect"
-              icon={<Linkedin size={24} />}
-              platform="LinkedIn"
-              href="https://linkedin.com/in/raisulrayat"
-            />
-            <SocialCard
-              label="Call Me"
-              icon={<Phone size={24} />}
-              platform="+880123456789"
-              href="tel:+880123456789"
-            />
-            <SocialCard
-              label="Follow"
-              icon={<Twitter size={24} />}
-              platform="Twitter / X"
-              href="https://x.com/RaisulRayat"
-            />
-
-            {/* Email Card (Full Width) */}
-            <div className="sm:col-span-2 md:col-span-3 bg-[#0d0d0d] border border-[#1a1a1a] rounded-[20px] p-4 flex flex-col justify-between group hover:border-[#0ea5e9]/30 transition-colors">
-              <span className="text-[11px] font-medium text-[#666] uppercase tracking-wider mb-4">
-                Or, Feel free to send a email
-              </span>
-              <div className="flex items-center justify-between gap-4">
-                <div className="flex items-center gap-4 text-white">
-                  <div className="w-10 h-10 rounded-full bg-[#1a1a1a] flex items-center justify-center text-[#999]">
-                    <Mail size={20} />
-                  </div>
-                  <span className="text-base md:text-lg font-medium tracking-tight">
-                    raisoulrayat@gmail.com
-                  </span>
-                </div>
-                <button
-                  onClick={handleCopyEmail}
-                  className="w-10 h-10 rounded-full bg-[#1a1a1a] flex items-center justify-center text-[#999] hover:bg-[#222] hover:text-white transition-colors"
+          {/* Socials */}
+          <div>
+            <h3 className="text-[10px] font-mono font-bold uppercase tracking-[0.3em] text-[#555] mb-6">
+              Socials
+            </h3>
+            <div className="space-y-4">
+              {[
+                {
+                  icon: <Github size={14} />,
+                  label: "GitHub",
+                  handle: "@Rayat-7",
+                  href: "https://github.com/Rayat-7",
+                },
+                {
+                  icon: <Linkedin size={14} />,
+                  label: "LinkedIn",
+                  handle: "raisoul-rayat",
+                  href: "https://linkedin.com/in/raisoul-rayat-48781a263",
+                },
+                {
+                  icon: <Twitter size={14} />,
+                  label: "Twitter / X",
+                  handle: "@RaisulRayat",
+                  href: "https://x.com/RaisulRayat",
+                },
+              ].map((social) => (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-between text-[#999] hover:text-white transition-colors group"
                 >
-                  {copied ? (
-                    <Check size={18} className="text-green-500" />
-                  ) : (
-                    <Copy size={18} />
-                  )}
-                </button>
-              </div>
+                  <div className="flex items-center gap-3">
+                    <span className="text-[#555] group-hover:text-[#0ea5e9] transition-colors">
+                      {social.icon}
+                    </span>
+                    <span className="text-sm">{social.label}</span>
+                  </div>
+                  <span className="text-xs font-mono text-[#444]">
+                    {social.handle}
+                  </span>
+                </a>
+              ))}
             </div>
+
+            {/* CTA */}
+            <a
+              href="mailto:raisoulrayat@gmail.com"
+              className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-[#0ea5e9] hover:text-white transition-colors"
+            >
+              <Mail size={14} />
+              Let&apos;s talk →
+            </a>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-20 flex flex-col md:flex-row items-center justify-between text-[#666] text-xs font-medium uppercase tracking-wider">
-          <div className="flex items-center gap-2">
-            <span className="text-[#0ea5e9] animate-pulse">✦</span>© Raisul
-            Rayat
+        <div className="border-t border-[#1a1a1a] pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <div className="w-7 h-7 rounded-full overflow-hidden border border-[#333]">
+              <Image
+                src="/portfolio_img.jpg"
+                alt="Raisul Rayat"
+                width={28}
+                height={28}
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <span className="text-xs font-mono text-[#555]">
+              © {new Date().getFullYear()} Raisoul Rayat · Built with Next.js
+            </span>
           </div>
-          <div className="flex items-center gap-6 mt-4 md:mt-0">
-            <a href="#" className="hover:text-white transition-colors">
-              Payment Policy
-            </a>
-            <span className="text-[#333]">+</span>
+          <div className="flex items-center gap-5">
+            {[
+              {
+                icon: <Github size={14} />,
+                href: "https://github.com/Rayat-7",
+              },
+              {
+                icon: <Linkedin size={14} />,
+                href: "https://linkedin.com/in/raisoul-rayat-48781a263",
+              },
+              {
+                icon: <Twitter size={14} />,
+                href: "https://x.com/RaisulRayat",
+              },
+            ].map((s, i) => (
+              <a
+                key={i}
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#555] hover:text-white transition-colors"
+              >
+                {s.icon}
+              </a>
+            ))}
           </div>
         </div>
       </div>
 
-      {/* Big Background Text */}
-      <div className="w-full overflow-hidden flex justify-center  pointer-events-none select-none">
-        <h1 className="text-[12vw] md:text-[16vw] font-bold  tracking-tighter leading-[0.8] whitespace-nowrap bg-gradient-to-t from-blue-500 via-blue-400 to-white bg-clip-text text-transparent">
+      {/* Big Background Text — KEPT AS IS */}
+      <div className="w-full overflow-hidden flex justify-center pointer-events-none select-none">
+        <h1 className="text-[12vw] md:text-[16vw] font-bold tracking-tighter leading-[0.8] whitespace-nowrap bg-gradient-to-t from-blue-500 via-blue-400 to-white bg-clip-text text-transparent">
           raisulrayat.
         </h1>
       </div>
     </footer>
-  );
-};
-
-// Helper Component for Social Cards
-const SocialCard = ({
-  label,
-  icon,
-  platform,
-  href,
-}: {
-  label: string;
-  icon: React.ReactNode;
-  platform: string;
-  href: string;
-}) => {
-  return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="bg-[#0d0d0d] border border-[#1a1a1a] rounded-[20px] p-4 flex flex-col justify-between h-[120px] group hover:border-[#0ea5e9]/30 transition-all hover:-translate-y-1"
-    >
-      <span className="text-[11px] font-medium text-[#666] uppercase tracking-wider">
-        {label}
-      </span>
-      <div>
-        <div className="text-white mb-3 opacity-80 group-hover:opacity-100 transition-opacity">
-          {React.isValidElement(icon) &&
-            React.cloneElement(icon, { className: "w-7 h-7" } as any)}
-        </div>
-        <span className="text-base font-medium text-white tracking-tight">
-          {platform}
-        </span>
-      </div>
-    </a>
   );
 };
 
