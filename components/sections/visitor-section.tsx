@@ -52,9 +52,7 @@ const VisitorSection = () => {
   const [isSent, setIsSent] = useState(false);
   const chatEndRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages]);
+
 
   const handleChatSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
