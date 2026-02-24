@@ -4,7 +4,6 @@ import React from "react";
 import Header from "@/components/sections/header";
 import Footer from "@/components/sections/footer";
 import {
-  Trophy,
   Briefcase,
   GraduationCap,
   Sparkles,
@@ -25,6 +24,14 @@ import {
 } from "lucide-react";
 import { NeuButton } from "@/components/ui/neu-button";
 import PixelCard from "@/components/ui/pixel-card";
+import {
+  personalInfo,
+  experience,
+  education,
+  certifications,
+  projects,
+  techStack,
+} from "@/lib/data";
 
 const ResumePage = () => {
   return (
@@ -41,48 +48,50 @@ const ResumePage = () => {
           <div className="relative mb-12">
             <PixelCard
               variant="blue"
-              className="w-full   min-h-[300px] p-12 flex flex-col items-center justify-center text-center border-[#1a1a1a] bg-[#0d0d0d]"
+              className="w-full min-h-[300px] p-12 flex flex-col items-center justify-center text-center border-[#1a1a1a] bg-[#0d0d0d]"
               gap={10}
               speed={10}
-              
               noHover
             >
               <div className="relative z-10 w-full">
                 <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight">
-                  Raisoul <span className="text-[#0ea5e9]">Rayat</span>
+                  {personalInfo.firstName}{" "}
+                  <span className="text-[#0ea5e9]">
+                    {personalInfo.lastName}
+                  </span>
                 </h1>
                 <p className="text-xl text-white mb-4 font-medium">
-                  Frontend Developer
+                  {personalInfo.title}
                 </p>
                 <p className="text-[#999] text-sm max-w-2xl mx-auto mb-8 leading-relaxed">
-                  Frontend Developer with hands-on experience in React.js and
-                  Next.js, specializing in building responsive, scalable, and
-                  user-centric web applications.
+                  {personalInfo.summary}
                 </p>
 
                 <div className="flex flex-wrap justify-center gap-6 mt-8">
                   <a
-                    href="mailto:raisoulrayat@gmail.com"
+                    href={`mailto:${personalInfo.email}`}
                     className="flex items-center gap-2 text-white hover:text-[#0ea5e9] transition-colors"
                   >
                     <Mail size={16} className="text-[#0ea5e9]" />
-                    <span className="text-sm">raisoulrayat@gmail.com</span>
+                    <span className="text-sm">{personalInfo.email}</span>
                   </a>
                   <div className="flex items-center gap-2 text-white hover:text-white transition-colors">
                     <Phone size={16} className="text-[#0ea5e9]" />
-                    <span className="text-sm">01892707713</span>
+                    <span className="text-sm">{personalInfo.phone}</span>
                   </div>
                   <div className="flex items-center gap-2 text-white hover:text-white transition-colors">
                     <MapPin size={16} className="text-[#0ea5e9]" />
-                    <span className="text-sm">Dhaka, Bangladesh</span>
+                    <span className="text-sm">{personalInfo.location}</span>
                   </div>
                   <a
-                    href="https://raisulrayat.vercel.app"
+                    href={personalInfo.portfolio}
                     target="_blank"
                     className="flex items-center gap-2 text-white hover:text-[#0ea5e9] transition-colors"
                   >
                     <Globe size={16} className="text-[#0ea5e9]" />
-                    <span className="text-sm">raisulrayat.vercel.app</span>
+                    <span className="text-sm">
+                      {personalInfo.portfolio.replace("https://", "")}
+                    </span>
                   </a>
                 </div>
               </div>
@@ -91,7 +100,7 @@ const ResumePage = () => {
             <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 z-20 flex gap-3">
               <NeuButton
                 href="/cv.pdf"
-                download="Raisul_Rayat_CV.pdf"
+                download={`${personalInfo.name.replace(" ", "_")}_CV.pdf`}
                 variant="primary"
                 className="px-8 py-3 flex items-center gap-2"
               >
@@ -126,15 +135,7 @@ const ResumePage = () => {
                 </div>
                 <div className="p-6 bg-[#0d0d0d] border border-[#1a1a1a] rounded-2xl">
                   <p className="text-[#999] text-sm leading-relaxed">
-                    Frontend Developer with hands-on experience in React.js and
-                    Next.js, specializing in building responsive, scalable, and
-                    user-centric web applications. Completed a Web Development
-                    Internship at Tekshilpa Solutions Ltd., contributing to UI
-                    development and performance optimization. Strong
-                    understanding of modern frontend architecture, REST APIs,
-                    and full-stack integration using PostgreSQL and Prisma.
-                    Passionate about building production-ready applications and
-                    continuously improving code quality.
+                    {personalInfo.summary} {personalInfo.bio}
                   </p>
                 </div>
               </section>
@@ -151,57 +152,31 @@ const ResumePage = () => {
                 </div>
 
                 <div className="space-y-10 border-l border-[#1a1a1a] ml-5 pl-8">
-                  <div className="relative">
-                    <div className="absolute -left-[37px] top-1.5 w-4 h-4 rounded-full bg-black border-2 border-[#0ea5e9]" />
-                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-3">
-                      <h3 className="text-xl font-bold text-white">
-                        Web Development Intern
-                      </h3>
-                      <span className="text-sm font-mono text-[#0ea5e9] bg-[#0ea5e9]/10 px-3 py-1 border border-[#0ea5e9]/20 rounded-full">
-                        2025
-                      </span>
+                  {experience.map((exp, idx) => (
+                    <div key={idx} className="relative">
+                      <div
+                        className={`absolute -left-[37px] top-1.5 w-4 h-4 rounded-full bg-black border-2 ${idx === 0 ? "border-[#0ea5e9]" : "border-[#333]"}`}
+                      />
+                      <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-3">
+                        <h3 className="text-xl font-bold text-white">
+                          {exp.role}
+                        </h3>
+                        <span
+                          className={`text-sm font-mono ${idx === 0 ? "text-[#0ea5e9] bg-[#0ea5e9]/10 border-[#0ea5e9]/20" : "text-[#666] bg-[#111] border-[#333]"} px-3 py-1 border rounded-full`}
+                        >
+                          {exp.period}
+                        </span>
+                      </div>
+                      <p className="text-[#999] mb-4 font-medium">
+                        {exp.company}
+                      </p>
+                      <ul className="space-y-2 text-[#666] text-sm leading-relaxed">
+                        {exp.description.map((desc, dIdx) => (
+                          <li key={dIdx}>• {desc}</li>
+                        ))}
+                      </ul>
                     </div>
-                    <p className="text-[#999] mb-4 font-medium">
-                      Tekshilpa Solutions Ltd.
-                    </p>
-                    <ul className="space-y-2 text-[#666] text-sm leading-relaxed">
-                      <li>
-                        • Contributed to frontend UI development using React.js
-                        and modern JavaScript.
-                      </li>
-                      <li>
-                        • Improved user experience through responsive layouts
-                        and performance optimization.
-                      </li>
-                      <li>
-                        • Collaborated with team members following structured
-                        development workflow using Git.
-                      </li>
-                    </ul>
-                  </div>
-
-                  <div className="relative">
-                    <div className="absolute -left-[37px] top-1.5 w-4 h-4 rounded-full bg-black border-2 border-[#333]" />
-                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-3">
-                      <h3 className="text-xl font-bold text-white">
-                        Freelance Frontend Developer
-                      </h3>
-                    </div>
-                    <ul className="space-y-2 text-[#666] text-sm leading-relaxed">
-                      <li>
-                        • Developed responsive web interfaces for clients using
-                        React and Tailwind CSS.
-                      </li>
-                      <li>
-                        • Contributed to building reusable React component
-                        libraries.
-                      </li>
-                      <li>
-                        • Delivered optimized and maintainable frontend
-                        solutions.
-                      </li>
-                    </ul>
-                  </div>
+                  ))}
                 </div>
               </section>
 
@@ -217,20 +192,25 @@ const ResumePage = () => {
                 </div>
 
                 <div className="space-y-10 border-l border-[#1a1a1a] ml-5 pl-8">
-                  <div className="relative">
-                    <div className="absolute -left-[37px] top-1.5 w-4 h-4 rounded-full bg-black border-2 border-[#0ea5e9]" />
-                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-3">
-                      <h3 className="text-xl font-bold text-white">
-                        BSc in Computer Science and Engineering
-                      </h3>
-                      <span className="text-sm font-mono text-[#0ea5e9] bg-[#0ea5e9]/10 px-3 py-1 border border-[#0ea5e9]/20 rounded-full">
-                        Expected Graduation: 2027
-                      </span>
+                  {education.map((edu, idx) => (
+                    <div key={idx} className="relative">
+                      <div className="absolute -left-[37px] top-1.5 w-4 h-4 rounded-full bg-black border-2 border-[#0ea5e9]" />
+                      <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-3">
+                        <h3 className="text-xl font-bold text-white">
+                          {edu.degree}
+                        </h3>
+                        <span className="text-sm font-mono text-[#0ea5e9] bg-[#0ea5e9]/10 px-3 py-1 border border-[#0ea5e9]/20 rounded-full">
+                          {edu.period}
+                        </span>
+                      </div>
+                      <p className="text-[#999] mb-2 font-medium">
+                        {edu.institution}
+                      </p>
+                      <p className="text-[#666] text-xs font-mono">
+                        {edu.details}
+                      </p>
                     </div>
-                    <p className="text-[#999] mb-4 font-medium">
-                      United International University
-                    </p>
-                  </div>
+                  ))}
                 </div>
               </section>
 
@@ -246,84 +226,38 @@ const ResumePage = () => {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 ml-1 w-[calc(100%+12px)]">
-                  <div className="p-6 bg-[#0d0d0d] border border-[#1a1a1a] rounded-2xl hover:border-[#0ea5e9]/40 transition-all group">
-                    <h4 className="text-white font-bold mb-1 group-hover:text-[#0ea5e9] transition-colors text-lg">
-                      Cyber Play Arena
-                    </h4>
-                    <p className="text-[#0ea5e9] text-[11px] font-mono mb-3">
-                      Gaming Slot Booking Platform
-                    </p>
-                    <div className="flex flex-wrap gap-1.5 mb-4">
-                      {[
-                        "Next.js",
-                        "React",
-                        "PostgreSQL",
-                        "Prisma",
-                        "Tailwind CSS",
-                      ].map((t) => (
-                        <span
-                          key={t}
-                          className="text-[9px] text-[#0ea5e9] px-2 py-0.5 bg-[#0ea5e9]/5 border border-[#0ea5e9]/20 rounded-full tracking-wider font-medium"
-                        >
-                          {t}
-                        </span>
-                      ))}
-                    </div>
-                    <ul className="space-y-1.5 text-[#666] text-xs leading-relaxed">
-                      <li>
-                        • Built a full-stack slot booking management system with
-                        admin dashboard.
-                      </li>
-                      <li>
-                        • Designed responsive UI with modern component
-                        architecture.
-                      </li>
-                    </ul>
-                    <a
-                      href="/projects"
-                      className="text-[10px] font-bold uppercase tracking-wider text-[#0ea5e9] flex items-center gap-1 mt-4"
+                  {projects.slice(0, 2).map((project, idx) => (
+                    <div
+                      key={idx}
+                      className="p-6 bg-[#0d0d0d] border border-[#1a1a1a] rounded-2xl hover:border-[#0ea5e9]/40 transition-all group"
                     >
-                      View Details →
-                    </a>
-                  </div>
-
-                  <div className="p-6 bg-[#0d0d0d] border border-[#1a1a1a] rounded-2xl hover:border-[#0ea5e9]/40 transition-all group">
-                    <h4 className="text-white font-bold mb-1 group-hover:text-[#0ea5e9] transition-colors text-lg">
-                      Tuition Track
-                    </h4>
-                    <p className="text-[#0ea5e9] text-[11px] font-mono mb-3">
-                      Management Web Application
-                    </p>
-                    <div className="flex flex-wrap gap-1.5 mb-4">
-                      {["Next.js", "MySQL", "Prisma"].map((t) => (
-                        <span
-                          key={t}
-                          className="text-[9px] text-[#0ea5e9] px-2 py-0.5 bg-[#0ea5e9]/5 border border-[#0ea5e9]/20 rounded-full tracking-wider font-medium"
-                        >
-                          {t}
-                        </span>
-                      ))}
+                      <h4 className="text-white font-bold mb-1 group-hover:text-[#0ea5e9] transition-colors text-lg">
+                        {project.title}
+                      </h4>
+                      <p className="text-[#0ea5e9] text-[11px] font-mono mb-3">
+                        {project.tagline}
+                      </p>
+                      <div className="flex flex-wrap gap-1.5 mb-4">
+                        {project.tech.map((t) => (
+                          <span
+                            key={t}
+                            className="text-[9px] text-[#0ea5e9] px-2 py-0.5 bg-[#0ea5e9]/5 border border-[#0ea5e9]/20 rounded-full tracking-wider font-medium"
+                          >
+                            {t}
+                          </span>
+                        ))}
+                      </div>
+                      <p className="text-[#666] text-xs leading-relaxed line-clamp-2">
+                        {project.description}
+                      </p>
+                      <a
+                        href="/projects"
+                        className="text-[10px] font-bold uppercase tracking-wider text-[#0ea5e9] flex items-center gap-1 mt-4"
+                      >
+                        View Details →
+                      </a>
                     </div>
-                    <ul className="space-y-1.5 text-[#666] text-xs leading-relaxed">
-                      <li>
-                        • Developed CRUD-based management system for tracking
-                        tuition activities.
-                      </li>
-                      <li>
-                        • Implemented authentication and database operations.
-                      </li>
-                      <li>
-                        • Structured scalable backend schema with efficient data
-                        handling.
-                      </li>
-                    </ul>
-                    <a
-                      href="/projects"
-                      className="text-[10px] font-bold uppercase tracking-wider text-[#0ea5e9] flex items-center gap-1 mt-4"
-                    >
-                      View Details →
-                    </a>
-                  </div>
+                  ))}
                 </div>
               </section>
             </div>
@@ -339,95 +273,32 @@ const ResumePage = () => {
                   </h3>
 
                   <div className="space-y-6">
-                    <div>
-                      <p className="text-[10px] font-bold text-[#666] uppercase tracking-[0.2em] mb-3 flex items-center gap-1.5">
-                        <Layers size={12} className="text-[#0ea5e9]" />
-                        Frontend
-                      </p>
-                      <div className="flex flex-wrap gap-2">
-                        {[
-                          "React.js",
-                          "Next.js",
-                          "JavaScript (ES6+)",
-                          "TypeScript",
-                          "HTML5",
-                          "CSS3",
-                          "Tailwind CSS",
-                          "ShadCN UI",
-                        ].map((s) => (
-                          <span
-                            key={s}
-                            className="px-3 py-1 bg-[#1a1a1a] text-white text-xs rounded-full border border-[#333]"
-                          >
-                            {s}
-                          </span>
-                        ))}
+                    {techStack.map((category, idx) => (
+                      <div key={idx}>
+                        <p className="text-[10px] font-bold text-[#666] uppercase tracking-[0.2em] mb-3 flex items-center gap-1.5">
+                          {idx === 0 ? (
+                            <Layers size={12} className="text-[#0ea5e9]" />
+                          ) : idx === 1 ? (
+                            <Code size={12} className="text-[#0ea5e9]" />
+                          ) : idx === 2 ? (
+                            <Globe size={12} className="text-[#0ea5e9]" />
+                          ) : (
+                            <Wrench size={12} className="text-[#0ea5e9]" />
+                          )}
+                          {category.category}
+                        </p>
+                        <div className="flex flex-wrap gap-2">
+                          {category.items.map((item: any) => (
+                            <span
+                              key={item.name}
+                              className="px-3 py-1 bg-[#1a1a1a] text-white text-xs rounded-full border border-[#333]"
+                            >
+                              {item.name}
+                            </span>
+                          ))}
+                        </div>
                       </div>
-                    </div>
-
-                    <div>
-                      <p className="text-[10px] font-bold text-[#666] uppercase tracking-[0.2em] mb-3 flex items-center gap-1.5">
-                        <Code size={12} className="text-[#0ea5e9]" />
-                        Backend & Database
-                      </p>
-                      <div className="flex flex-wrap gap-2">
-                        {[
-                          "Node.js",
-                          "REST APIs",
-                          "PostgreSQL",
-                          "MySQL",
-                          "Prisma",
-                          "Firebase",
-                        ].map((s) => (
-                          <span
-                            key={s}
-                            className="px-3 py-1 bg-[#1a1a1a] text-white text-xs rounded-full border border-[#333]"
-                          >
-                            {s}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div>
-                      <p className="text-[10px] font-bold text-[#666] uppercase tracking-[0.2em] mb-3 flex items-center gap-1.5">
-                        <Wrench size={12} className="text-[#0ea5e9]" />
-                        Tools
-                      </p>
-                      <div className="flex flex-wrap gap-2">
-                        {["Git", "GitHub", "Vercel", "VS Code"].map((s) => (
-                          <span
-                            key={s}
-                            className="px-3 py-1 bg-[#1a1a1a] text-white text-xs rounded-full border border-[#333]"
-                          >
-                            {s}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div>
-                      <p className="text-[10px] font-bold text-[#666] uppercase tracking-[0.2em] mb-3 flex items-center gap-1.5">
-                        <Lightbulb size={12} className="text-[#0ea5e9]" />
-                        Concepts
-                      </p>
-                      <div className="flex flex-wrap gap-2">
-                        {[
-                          "Component-based Architecture",
-                          "Responsive Design",
-                          "API Integration",
-                          "Authentication",
-                          "CRUD Operations",
-                        ].map((s) => (
-                          <span
-                            key={s}
-                            className="px-3 py-1 bg-[#1a1a1a] text-white text-xs rounded-full border border-[#333]"
-                          >
-                            {s}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
+                    ))}
                   </div>
                 </div>
 
@@ -436,14 +307,19 @@ const ResumePage = () => {
                     <Award size={18} className="text-[#fbbf24]" />
                     CERTIFICATIONS
                   </h3>
-                  <div className="p-4 bg-[#fbbf24]/5 border border-[#fbbf24]/20 rounded-xl">
-                    <h4 className="text-sm font-bold text-white mb-1">
-                      React Accelerator Course
-                    </h4>
-                    <p className="text-[11px] text-[#fbbf24]/80">
-                      Learn with Sumit
-                    </p>
-                  </div>
+                  {certifications.map((cert, idx) => (
+                    <div
+                      key={idx}
+                      className="p-4 bg-[#fbbf24]/5 border border-[#fbbf24]/20 rounded-xl mb-3"
+                    >
+                      <h4 className="text-sm font-bold text-white mb-1">
+                        {cert.title}
+                      </h4>
+                      <p className="text-[11px] text-[#fbbf24]/80">
+                        {cert.provider}
+                      </p>
+                    </div>
+                  ))}
                 </div>
 
                 <div>
@@ -452,7 +328,7 @@ const ResumePage = () => {
                   </h3>
                   <div className="grid grid-cols-2 gap-4">
                     <a
-                      href="https://github.com/Rayat-7"
+                      href={personalInfo.github}
                       target="_blank"
                       className="flex items-center gap-2 p-3 bg-[#1a1a1a] rounded-xl text-[#999] hover:text-white transition-colors"
                     >
@@ -460,7 +336,7 @@ const ResumePage = () => {
                       <span className="text-xs">GitHub</span>
                     </a>
                     <a
-                      href="https://linkedin.com/in/raisoul-rayat-48781a263"
+                      href={personalInfo.linkedin}
                       target="_blank"
                       className="flex items-center gap-2 p-3 bg-[#1a1a1a] rounded-xl text-[#999] hover:text-white transition-colors"
                     >

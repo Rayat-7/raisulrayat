@@ -11,46 +11,10 @@ import {
   ArrowUpRight,
 } from "lucide-react";
 import ShinyText from "../ui/shiny-text";
+import { projects } from "@/lib/data";
 
 const ProjectsSection = () => {
-  const projects = [
-    {
-      title: "TuitionTrack",
-      tagline: "Academy Management Solution",
-      description:
-        "A comprehensive web application designed for tuition centers in Bangladesh. Simplifies management tasks like student records, attendance tracking, and fee collection with a modern, efficient dashboard.",
-      tech: ["Next.js", "PostgreSQL", "Clerk"],
-      github: "https://github.com/rayat-7/tuitiontrack",
-      live: "#",
-    },
-    {
-      title: "Cyber Play Arena",
-      tagline: "Gaming Slot Booking Platform",
-      description:
-        "Web-based management software tailored for local gaming services. Facilitates slot booking and marketing campaign management with a high-performance interface and robust admin tools.",
-      tech: ["Next.js", "Prisma", "PostgreSQL"],
-      github: "https://github.com/rayat-7/cyber_play_arena",
-      live: "#",
-    },
-    {
-      title: "UIU Sprs",
-      tagline: "Issue Resolution Platform",
-      description:
-        "A dedicated platform for enhancing university issue resolution. Provides a transparent system for students to report issues, track progress, and receive feedback.",
-      tech: ["Next.js", "Supabase", "Clerk"],
-      github: "https://github.com/rayat-7/uiu-sprs",
-      live: "#",
-    },
-    {
-      title: "Spendo",
-      tagline: "Financial Management UI",
-      description:
-        "A high-fidelity user interface for a spending tracker application. Built for a seamless financial management experience, allowing users to effectively track expenses across all devices.",
-      tech: ["Vite", "TypeScript", "React"],
-      github: "https://github.com/rayat-7/spendo-frontend",
-      live: "#",
-    },
-  ];
+  const featuredProjects = projects.filter((p) => p.featured);
 
   return (
     <section
@@ -66,7 +30,7 @@ const ProjectsSection = () => {
             </span>
             <div className="w-12 h-[1px] bg-[#0ea5e9]/50" />
           </div>
-          <ShinyText className="text-4xl md:text-6xl mb-6 tracking-tighter font-medium">
+          <ShinyText className="text-4xl md:text-5xl mb-6 tracking-tighter font-medium">
             Featured Projects
           </ShinyText>
           <p className="text-[#999] max-w-2xl mx-auto text-lg md:text-xl leading-relaxed font-light">
@@ -77,7 +41,7 @@ const ProjectsSection = () => {
 
         {/* Plain Text Project List */}
         <div className="space-y-0">
-          {projects.map((project, idx) => (
+          {featuredProjects.map((project, idx) => (
             <div
               key={idx}
               className="group border-t border-[#1a1a1a] last:border-b py-10 md:py-12 transition-colors hover:bg-[#0a0a0a]"
@@ -89,7 +53,7 @@ const ProjectsSection = () => {
                     0{idx + 1}
                   </span>
                   <div>
-                    <h3 className="text-2xl md:text-3xl font-bold text-white group-hover:text-[#0ea5e9] transition-colors tracking-tight">
+                    <h3 className="text-2xl md:text-3xl font-semibold text-white group-hover:text-[#0ea5e9] transition-colors tracking-tight">
                       {project.title}
                     </h3>
                     <p className="text-[#0ea5e9] text-sm font-medium mt-1">

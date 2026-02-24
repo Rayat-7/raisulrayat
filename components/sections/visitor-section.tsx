@@ -52,8 +52,6 @@ const VisitorSection = () => {
   const [isSent, setIsSent] = useState(false);
   const chatEndRef = useRef<HTMLDivElement>(null);
 
-
-
   const handleChatSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!input.trim() || isTyping) return;
@@ -156,7 +154,7 @@ const VisitorSection = () => {
         />
       </div>
 
-      <div className="container mx-auto px-6 max-w-7xl relative z-10 transition-all duration-700 max-h-[100vh]">
+      <div className="container mx-auto px-6 max-w-7xl relative z-10 transition-all duration-700">
         <div className="mb-16 text-center">
           <div className="flex items-center justify-center gap-2 mb-4">
             <div className="w-8 h-[1px] bg-[#0ea5e9]/30" />
@@ -172,7 +170,7 @@ const VisitorSection = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
           {/* AI Chatbot — Takes more space */}
-          <div className="lg:col-span-3 flex flex-col h-[420px] border border-[#1a1a1a] rounded-xl overflow-hidden">
+          <div className="lg:col-span-3 flex flex-col min-h-[420px] lg:h-[420px] border border-[#1a1a1a] rounded-xl overflow-hidden">
             {/* Chat Header */}
             <div className="px-4 py-3 border-b border-[#1a1a1a] flex items-center gap-2.5">
               <div className="w-6 h-6 rounded-md bg-[#0ea5e9]/10 flex items-center justify-center">
@@ -251,7 +249,7 @@ const VisitorSection = () => {
           </div>
 
           {/* Anonymous Message */}
-          <div className="lg:col-span-2 flex flex-col h-[420px] border border-[#1a1a1a] rounded-xl overflow-hidden">
+          <div className="lg:col-span-2 flex flex-col min-h-[420px] lg:h-[420px] border border-[#1a1a1a] rounded-xl overflow-hidden">
             {/* Header */}
             <div className="px-4 py-3 border-b border-[#1a1a1a] flex items-center gap-2.5">
               <div className="w-6 h-6 rounded-md bg-emerald-500/10 flex items-center justify-center">

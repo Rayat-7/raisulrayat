@@ -17,15 +17,37 @@ import {
 } from "lucide-react";
 import ShinyText from "../ui/shiny-text";
 import Image from "next/image";
+import { personalInfo, navigationLinks } from "@/lib/data";
 
 const Footer = () => {
   const [copied, setCopied] = React.useState(false);
 
   const handleCopyEmail = () => {
-    navigator.clipboard.writeText("raisoulrayat@gmail.com");
+    navigator.clipboard.writeText(personalInfo.email);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
+
+  const socials = [
+    {
+      icon: <Github size={14} />,
+      label: "GitHub",
+      handle: personalInfo.githubUsername,
+      href: personalInfo.github,
+    },
+    {
+      icon: <Linkedin size={14} />,
+      label: "LinkedIn",
+      handle: personalInfo.linkedinUsername,
+      href: personalInfo.linkedin,
+    },
+    {
+      icon: <Twitter size={14} />,
+      label: "Twitter / X",
+      handle: personalInfo.twitterUsername,
+      href: personalInfo.twitter,
+    },
+  ];
 
   return (
     <footer className="w-full bg-black text-white pt-20 pb-0 relative overflow-hidden border-t border-[#1a1a1a]">
@@ -38,8 +60,8 @@ const Footer = () => {
               Let&apos;s Connect
             </span>
           </div>
-          <ShinyText className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight mb-4 block">
-            Looking for a Frontend developer?
+          <ShinyText className="text-4xl md:text-4xl lg:text-5xl tracking-tight mb-4 block">
+            Looking for a {personalInfo.title}?
           </ShinyText>
           <p className="text-[#666] text-lg max-w-lg">
             I&apos;m actively looking for opportunities where I can contribute,
@@ -56,30 +78,32 @@ const Footer = () => {
             </h3>
             <div className="space-y-4">
               <a
-                href="mailto:raisoulrayat@gmail.com"
+                href={`mailto:${personalInfo.email}`}
                 className="flex items-center gap-3 text-[#999] hover:text-white transition-colors group"
               >
                 <Mail size={14} className="text-[#0ea5e9] shrink-0" />
-                <span className="text-sm">raisoulrayat@gmail.com</span>
+                <span className="text-sm">{personalInfo.email}</span>
               </a>
               <a
-                href="tel:01892707713"
+                href={`tel:${personalInfo.phone}`}
                 className="flex items-center gap-3 text-[#999] hover:text-white transition-colors"
               >
                 <Phone size={14} className="text-[#0ea5e9] shrink-0" />
-                <span className="text-sm">01892707713</span>
+                <span className="text-sm">{personalInfo.phone}</span>
               </a>
               <div className="flex items-center gap-3 text-[#999]">
                 <MapPin size={14} className="text-[#0ea5e9] shrink-0" />
-                <span className="text-sm">Dhaka, Bangladesh</span>
+                <span className="text-sm">{personalInfo.location}</span>
               </div>
               <a
-                href="https://raisulrayat.vercel.app"
+                href={personalInfo.portfolio}
                 target="_blank"
                 className="flex items-center gap-3 text-[#999] hover:text-white transition-colors"
               >
                 <Globe size={14} className="text-[#0ea5e9] shrink-0" />
-                <span className="text-sm">raisulrayat.vercel.app</span>
+                <span className="text-sm">
+                  {personalInfo.portfolio.replace("https://", "")}
+                </span>
               </a>
             </div>
 
@@ -108,36 +132,28 @@ const Footer = () => {
               Quick Links
             </h3>
             <div className="space-y-4">
-              {[
-                {
-                  label: "Resume",
-                  href: "/resume",
-                  icon: <ArrowUpRight size={14} />,
-                },
-                {
-                  label: "Projects",
-                  href: "/projects",
-                  icon: <ArrowUpRight size={14} />,
-                },
-                {
-                  label: "Download CV",
-                  href: "/cv.pdf",
-                  icon: <Download size={14} />,
-                  download: true,
-                },
-              ].map((link) => (
+              {navigationLinks.slice(1).map((link) => (
                 <a
                   key={link.label}
                   href={link.href}
-                  download={link.download ? "Raisul_Rayat_CV.pdf" : undefined}
                   className="flex items-center justify-between text-[#999] hover:text-white transition-colors group"
                 >
                   <span className="text-sm">{link.label}</span>
                   <span className="text-[#555] group-hover:text-[#0ea5e9] transition-colors">
-                    {link.icon}
+                    <ArrowUpRight size={14} />
                   </span>
                 </a>
               ))}
+              <a
+                href="/cv.pdf"
+                download="Raisul_Rayat_CV.pdf"
+                className="flex items-center justify-between text-[#999] hover:text-white transition-colors group"
+              >
+                <span className="text-sm">Download CV</span>
+                <span className="text-[#555] group-hover:text-[#0ea5e9] transition-colors">
+                  <Download size={14} />
+                </span>
+              </a>
             </div>
 
             {/* Status */}
@@ -158,26 +174,7 @@ const Footer = () => {
               Socials
             </h3>
             <div className="space-y-4">
-              {[
-                {
-                  icon: <Github size={14} />,
-                  label: "GitHub",
-                  handle: "@Rayat-7",
-                  href: "https://github.com/Rayat-7",
-                },
-                {
-                  icon: <Linkedin size={14} />,
-                  label: "LinkedIn",
-                  handle: "raisoul-rayat",
-                  href: "https://linkedin.com/in/raisoul-rayat-48781a263",
-                },
-                {
-                  icon: <Twitter size={14} />,
-                  label: "Twitter / X",
-                  handle: "@RaisulRayat",
-                  href: "https://x.com/RaisulRayat",
-                },
-              ].map((social) => (
+              {socials.map((social) => (
                 <a
                   key={social.label}
                   href={social.href}
@@ -200,7 +197,7 @@ const Footer = () => {
 
             {/* CTA */}
             <a
-              href="mailto:raisoulrayat@gmail.com"
+              href={`mailto:${personalInfo.email}`}
               className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-[#0ea5e9] hover:text-white transition-colors"
             >
               <Mail size={14} />
@@ -215,31 +212,19 @@ const Footer = () => {
             <div className="w-7 h-7 rounded-full overflow-hidden border border-[#333]">
               <Image
                 src="/portfolio_img.jpg"
-                alt="Raisul Rayat"
+                alt={personalInfo.name}
                 width={28}
                 height={28}
                 className="w-full h-full object-cover"
               />
             </div>
             <span className="text-xs font-mono text-[#555]">
-              © {new Date().getFullYear()} Raisoul Rayat · Built with Next.js
+              © {new Date().getFullYear()} {personalInfo.name} · Built with
+              Next.js
             </span>
           </div>
           <div className="flex items-center gap-5">
-            {[
-              {
-                icon: <Github size={14} />,
-                href: "https://github.com/Rayat-7",
-              },
-              {
-                icon: <Linkedin size={14} />,
-                href: "https://linkedin.com/in/raisoul-rayat-48781a263",
-              },
-              {
-                icon: <Twitter size={14} />,
-                href: "https://x.com/RaisulRayat",
-              },
-            ].map((s, i) => (
+            {socials.map((s, i) => (
               <a
                 key={i}
                 href={s.href}
@@ -256,8 +241,15 @@ const Footer = () => {
 
       {/* Big Background Text — KEPT AS IS */}
       <div className="w-full overflow-hidden flex justify-center pointer-events-none select-none">
-        <h1 className="text-[12vw] md:text-[16vw] font-bold tracking-tighter leading-[0.8] whitespace-nowrap bg-gradient-to-t from-blue-500 via-blue-400 to-white bg-clip-text text-transparent">
-          raisulrayat.
+        <h1
+          className="text-[12vw] md:text-[16vw] font-semibold tracking-tighter leading-[0.8] whitespace-nowrap animate-shine bg-clip-text text-black"
+          style={{
+            backgroundImage:
+              "linear-gradient(120deg, rgba(59, 130, 246, 0.8) 35%, #ffffff 45%, #60a5fa 50%, #ffffff 55%, rgba(59, 130, 246, 0.8) 65%)",
+            backgroundSize: "200% 100%",
+          }}
+        >
+          {personalInfo.name.toLowerCase().replace(" ", "")}.
         </h1>
       </div>
     </footer>

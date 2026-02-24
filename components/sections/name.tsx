@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { personalInfo } from "@/lib/data";
 
 const Name = () => {
   return (
@@ -18,7 +19,7 @@ const Name = () => {
         transition={{ delay: 0.1, duration: 0.7, ease: "easeOut" }}
         className="text-center font-semibold text-white uppercase tracking-tighter select-none leading-[0.9]"
       >
-        Raisul
+        {personalInfo.firstName}
       </motion.p>
       <motion.p
         initial={{ x: -150, opacity: 0 }}
@@ -26,7 +27,7 @@ const Name = () => {
         transition={{ delay: 0.1, duration: 0.7, ease: "easeOut" }}
         className="text-center font-semibold uppercase tracking-tighter select-none leading-[0.9]"
       >
-        Rayat
+        {personalInfo.lastName}
       </motion.p>
     </section>
   );

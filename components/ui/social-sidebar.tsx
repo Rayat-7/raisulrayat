@@ -37,8 +37,26 @@ export function SocialSidebar() {
           initial={{ x: 100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 1.5, ease: "circOut" }}
-          className="bg-transparent backdrop-blur-xl flex flex-col gap-2 rounded-l-xl px-1.5 py-4 "
+          className="relative bg-black/20 backdrop-blur-xl flex flex-col gap-2 rounded-l-xl px-1.5 py-4 border-y border-l border-white/10 overflow-hidden"
         >
+          {/* Vertical Shine Border */}
+          <div className="absolute left-0 top-0 bottom-0 w-[1px] overflow-hidden">
+            <motion.div
+              animate={{
+                y: ["-100%", "100%"],
+              }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                ease: "linear",
+              }}
+              className="w-full h-full"
+              style={{
+                background:
+                  "linear-gradient(to bottom, transparent, rgba(14, 165, 233, 0.5), white, rgba(14, 165, 233, 0.5), transparent)",
+              }}
+            />
+          </div>
           {/* Share icon at top */}
           <div className="text-zinc-100 pb-2 border-b border-zinc-200 flex justify-center">
             <Share2 size={12} strokeWidth={2.5} />

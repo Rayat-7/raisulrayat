@@ -1,143 +1,197 @@
 "use client";
 
-import React from 'react';
-import { Github, Twitter, Linkedin, Menu, X } from 'lucide-react';
-import { useState } from 'react';
-import { NeuButton } from "@/components/ui/neu-button";
+import React, { useState } from "react";
+import { Github, Twitter, Linkedin, Menu, X, Copy, Check } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  personalInfo,
+  navigationLinks,
+  techStack,
+  education,
+} from "@/lib/data";
 
-const Header = () => {
+const Header = ({ isLight = false }: { isLight?: boolean }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [copied, setCopied] = useState(false);
+
+  const handleCopyMarkdown = () => {
+    const details = `
+Raisoul Rayat – ${personalInfo.title}
+Contact Information
+
+Location: ${personalInfo.location}
+
+Phone: ${personalInfo.phone}
+
+Email: ${personalInfo.email}
+
+LinkedIn: ${personalInfo.linkedin}
+
+GitHub: ${personalInfo.github}
+
+Portfolio: ${personalInfo.portfolio}
+
+Professional Summary
+
+${personalInfo.summary}
+
+Technical Skills
+
+Frontend: React.js, Next.js, JavaScript, TypeScript, HTML5, CSS3, Tailwind CSS
+Backend & Database: REST APIs, PostgreSQL, MySQL, Prisma, Firebase
+Tools: Git, GitHub, Vercel
+
+Experience
+
+Web Development Intern – Tekshilpa Solutions Ltd. (2025)
+
+Contributed to frontend UI development.
+
+Assisted with API integration and feature updates.
+
+Freelance Projects
+
+Developed responsive web interfaces using React and Tailwind CSS.
+
+Contributed to a React component library.
+
+Projects
+
+Cyber Play Arena – Slot booking management web application
+Tech: Next.js, React, PostgreSQL, Prisma
+
+Tuition Track – Tuition management web application
+Tech: Next.js, MySQL, Prisma
+
+Startup Achievement
+
+Winner – Spendo AI Startup Competition
+
+Built Spendo AI, an AI-powered Excel sheet solution designed to improve financial understanding and expense tracking.
+
+Awarded 60,000 BDT prize money.
+
+Education
+
+Bachelor of Science in Computer Science and Engineering
+United International University (Expected 2027)
+    `.trim();
+
+    navigator.clipboard.writeText(details);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 w-full bg-black/80 backdrop-blur-xl transition-all duration-300 ">
-      <div className="container mx-auto flex h-14 items-center justify-between px-8">
-        <div className="flex items-center gap-x-12">
+    <motion.nav
+      initial={{ y: -50, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
+      className="absolute top-0 left-0 right-0 z-50 w-full bg-transparent transition-all pr-0 duration-300"
+    >
+      <div className="max-w-[1500px] mx-auto flex h-24 items-center  justify-between px-8 md:px-12">
+        <div className="flex items-center gap-x-12 md:ml-16 ml-0">
           <a href="/" className="block shrink-0 focus-visible:outline-offset-4">
-            <span className="text-lg font-bold tracking-tighter text-white">RAISUL RAYAT</span>
+            <span
+              className={`text-xl font-bold ${isLight ? "text-zinc-900" : "text-white"}`}
+            >
+              {personalInfo.name.toUpperCase()}
+            </span>
           </a>
-
-          <nav className="hidden md:flex">
-            <ul className="flex items-center gap-x-8">
-              <li>
-                <a href="/#techstack" className="text-[13px] font-medium text-[#999999] transition-colors hover:text-white">
-                  Tech Stack
-                </a>
-              </li>
-              <li>
-                <a href="/#experience" className="text-[13px] font-medium text-[#999999] transition-colors hover:text-white">
-                  Experience
-                </a>
-              </li>
-              <li>
-                <a href="/projects" className="text-[13px] font-medium text-[#999999] transition-colors hover:text-white">
-                  Projects
-                </a>
-              </li>
-              <li>
-                <a href="/resume" className="text-[13px] font-medium text-[#999999] transition-colors hover:text-white">
-                  Resume
-                </a>
-              </li>
-            </ul>
-          </nav>
         </div>
 
-        <div className="flex items-center gap-x-6">
-          <div className="hidden items-center gap-x-5 sm:flex">
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-[#999999] transition-colors hover:text-white">
-              <Twitter size={16} />
-            </a>
-            <a href="https://github.com/rayat-7" target="_blank" rel="noopener noreferrer" className="text-[#999999] transition-colors hover:text-white">
-              <Github size={16} />
-            </a>
-            <a href="https://linkedin.com/in/raisulrayat" target="_blank" rel="noopener noreferrer" className="text-[#999999] transition-colors hover:text-white">
-              <Linkedin size={16} />
-            </a>
-          </div>
-          {/* <NeuButton 
-            href="mailto:raisoulrayat@gmail.com" 
-            variant="primary"
-            className="hidden sm:inline-flex px-4 py-1.5 text-[12px]"
+        <div className="hidden md:flex items-center gap-x-12">
+          <ul className="flex items-center gap-4">
+            {navigationLinks.slice(0, 2).map((link) => (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  className={`text-[12px] uppercase font-medium transition-colors ${isLight ? "text-zinc-600 hover:text-blue-600" : "text-white/70 hover:text-white"}`}
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          <button
+            onClick={handleCopyMarkdown}
+            className="flex items-center justify-center rounded-4xl gap-2 w-[160px] h-9 bg-white text-black text-[11px] font-bold uppercase tracking-wider hover:bg-zinc-100 transition-all  group"
           >
-            Get in touch
-          </NeuButton> */}
-          
-          <button 
+            {copied ? (
+              <>
+                <Check size={14} className="text-green-600" />
+                <span>Copied!</span>
+              </>
+            ) : (
+              <>
+                <Copy
+                  size={14}
+                  className="group-hover:scale-110 transition-transform"
+                />
+                <span>Copy Details</span>
+              </>
+            )}
+          </button>
+        </div>
+
+        <div className="md:hidden flex items-center">
+          <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden text-white p-2"
+            className={`p-2 ${isLight ? "text-zinc-900" : "text-white"}`}
           >
-            {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </div>
 
-      {mobileMenuOpen && (
-        <div className="md:hidden bg-black border-t border-[#1a1a1a]">
-          <nav className="container mx-auto px-8 py-6">
-            <ul className="flex flex-col gap-4">
-              <li>
-                <a 
-                  href="/#techstack" 
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block text-[16px] font-medium text-[#999999] transition-colors hover:text-white py-2"
-                >
-                  Tech Stack
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="/#experience" 
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block text-[16px] font-medium text-[#999999] transition-colors hover:text-white py-2"
-                >
-                  Experience
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="/projects" 
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block text-[16px] font-medium text-[#999999] transition-colors hover:text-white py-2"
-                >
-                  Projects
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="/resume" 
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block text-[16px] font-medium text-[#999999] transition-colors hover:text-white py-2"
-                >
-                  Resume
-                </a>
-              </li>
-              <li className="pt-4 border-t border-[#1a1a1a]">
-                <div className="flex items-center gap-6">
-                  <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-[#999999] transition-colors hover:text-white">
-                    <Twitter size={20} />
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="md:hidden fixed inset-0 z-[60] bg-black/95 backdrop-blur-2xl flex flex-col items-center justify-center text-center"
+          >
+            <button
+              onClick={() => setMobileMenuOpen(false)}
+              className="absolute top-8 right-8 text-white p-2"
+            >
+              <X size={32} />
+            </button>
+            <ul className="flex flex-col items-center gap-8 mb-12">
+              {navigationLinks.map((link) => (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="text-2xl font-light tracking-widest text-white hover:text-blue-400 transition-colors"
+                  >
+                    {link.uppercase}
                   </a>
-                  <a href="https://github.com/rayat-7" target="_blank" rel="noopener noreferrer" className="text-[#999999] transition-colors hover:text-white">
-                    <Github size={20} />
-                  </a>
-                  <a href="https://linkedin.com/in/raisulrayat" target="_blank" rel="noopener noreferrer" className="text-[#999999] transition-colors hover:text-white">
-                    <Linkedin size={20} />
-                  </a>
-                </div>
-              </li>
-              <li className="pt-4">
-                <NeuButton 
-                  href="mailto:raisoulrayat@gmail.com" 
-                  variant="primary"
-                  className="px-6 py-2.5"
-                >
-                  Get in touch
-                </NeuButton>
-              </li>
+                </li>
+              ))}
             </ul>
-          </nav>
-        </div>
-      )}
-    </header>
+
+            <button
+              onClick={() => {
+                handleCopyMarkdown();
+                setMobileMenuOpen(false);
+              }}
+              className="flex items-center gap-3 px-8 py-4 bg-white text-black text-sm font-bold uppercase tracking-widest rounded-full shadow-xl active:scale-95 transition-all"
+            >
+              {copied ? (
+                <Check size={20} className="text-green-600" />
+              ) : (
+                <Copy size={20} />
+              )}
+              {copied ? "Copied to Clipboard!" : "Copy Profile Summary"}
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.nav>
   );
 };
 
