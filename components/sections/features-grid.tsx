@@ -26,14 +26,14 @@ const ProjectsSection = () => {
           <div className="flex items-center justify-center gap-2 mb-4">
             <div className="w-12 h-[1px] bg-[#0ea5e9]/50" />
             <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-[#0ea5e9]">
-              Innovation Gallery
+              My Works
             </span>
             <div className="w-12 h-[1px] bg-[#0ea5e9]/50" />
           </div>
-          <ShinyText className="text-4xl md:text-5xl mb-6 tracking-tighter font-medium">
+          <ShinyText className="text-4xl md:text-5xl mb-6 tracking-tighter p-1 font-medium">
             Featured Projects
           </ShinyText>
-          <p className="text-[#999] max-w-2xl mx-auto text-lg md:text-xl leading-relaxed font-light">
+          <p className="text-[#999] max-w-2xl mx-auto text-lg md:text-xl  leading-relaxed font-light">
             Real solutions for real problems. Building scalable products with a
             focus on user experience and performance.
           </p>
@@ -49,14 +49,14 @@ const ProjectsSection = () => {
               <div className="flex flex-col md:flex-row md:items-start gap-6 md:gap-12">
                 {/* Left: Number + Title */}
                 <div className="md:w-[45%] flex items-start gap-5">
-                  <span className="text-[11px] font-mono text-[#333] mt-1.5 shrink-0">
+                  <span className="text-[11px] font-mono text-[#1889fa] mt-1.5 shrink-0">
                     0{idx + 1}
                   </span>
                   <div>
                     <h3 className="text-2xl md:text-3xl font-semibold text-white group-hover:text-[#0ea5e9] transition-colors tracking-tight">
                       {project.title}
                     </h3>
-                    <p className="text-[#0ea5e9] text-sm font-medium mt-1">
+                    <p className=" text-sm font-medium mt-1">
                       {project.tagline}
                     </p>
                   </div>

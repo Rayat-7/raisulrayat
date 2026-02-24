@@ -47,7 +47,7 @@ const TechStack = () => {
             </span>
             <div className="w-12 h-[1px] bg-[#0ea5e9]/50" />
           </div>
-          <ShinyText className="text-4xl md:text-5xl  mb-6 tracking-tighter">
+          <ShinyText className="text-4xl md:text-5xl p-1  mb-6 tracking-tighter">
             Technical Stack
           </ShinyText>
           <p className="text-[#999] max-w-2xl mx-auto text-lg md:text-xl leading-relaxed">

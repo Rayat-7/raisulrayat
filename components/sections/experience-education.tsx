@@ -24,8 +24,8 @@ const ExperienceEducation = () => {
             </span>
             <div className="w-8 h-[1px] bg-[#0ea5e9]" />
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight text-white mb-4">
-            My <ShinyText>Journey</ShinyText>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight text-white pb-1 mb-4">
+            My <ShinyText className="pb-1">Journey</ShinyText>
           </h2>
           <p className="max-w-xl text-[#999999] text-pretty text-base leading-relaxed">
             Building foundations for the future through academic excellence,

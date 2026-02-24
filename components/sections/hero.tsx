@@ -282,7 +282,7 @@ const HeroSection = () => {
       </motion.div>
 
       {/* Glowing Bottom Border - Slow Bluish-White Shine */}
-      <div className="absolute bottom-0 left-0 right-0 h-[2px] w-full overflow-hidden z-20">
+      <div className="absolute bottom-0 left-0 right-0 h-[3px] w-full overflow-hidden z-20">
         <motion.div
           animate={{
             x: ["-100%", "100%"],
