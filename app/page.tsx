@@ -10,6 +10,7 @@ import ProjectsSection from "@/components/sections/features-grid";
 import Footer from "@/components/sections/footer";
 import { Trophy, Briefcase, GraduationCap, Sparkles, Code } from "lucide-react";
 import VisitorSection from "@/components/sections/visitor-section";
+import CleanHero from "@/components/sections/cleanhero";
 
 export default function Home() {
   return (
@@ -17,7 +18,8 @@ export default function Home() {
       {/* <Header /> */}
 
       <main className="flex-grow">
-        <HeroSection />
+        {/* <HeroSection /> */}
+        <CleanHero />
         <ExperienceEducation />
         <TechStackSection />
 

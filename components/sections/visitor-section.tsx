@@ -235,12 +235,18 @@ const VisitorSection = () => {
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   placeholder="Ask about my work..."
-                  className="w-full bg-[#111] border border-[#1a1a1a] rounded-lg px-3.5 py-2 text-[13px] text-zinc-300 placeholder:text-zinc-700 focus:outline-none focus:border-[#0ea5e9]/20 transition-colors"
+                  className={`w-full bg-[#111] rounded-lg px-3.5 py-2 text-[13px] text-zinc-300 placeholder:text-zinc-700 focus:outline-none transition-all duration-300 ${
+                    input.trim()
+                      ? "border border-[#0ea5e9]/40 shadow-[0_0_10px_rgba(14,165,233,0.1)]"
+                      : "border border-[#1a1a1a]"
+                  }`}
                 />
                 <button
                   type="submit"
                   disabled={isTyping || !input.trim()}
-                  className="absolute right-1.5 p-1.5 text-zinc-600 hover:text-[#0ea5e9] disabled:opacity-20 transition-colors"
+                  className={`absolute right-1.5 p-1.5 transition-colors duration-300 ${
+                    input.trim() ? "text-[#0ea5e9]" : "text-zinc-600"
+                  } disabled:opacity-20`}
                 >
                   <Send size={14} />
                 </button>
@@ -271,14 +277,22 @@ const VisitorSection = () => {
                   value={anonName}
                   onChange={(e) => setAnonName(e.target.value)}
                   placeholder="Name"
-                  className="w-full bg-[#111] border border-[#1a1a1a] rounded-lg px-3 py-2 text-[12px] text-zinc-400 placeholder:text-zinc-700 focus:outline-none focus:border-emerald-500/20 transition-colors"
+                  className={`w-full bg-[#111] rounded-lg px-3 py-2 text-[12px] text-zinc-400 placeholder:text-zinc-700 focus:outline-none transition-all duration-300 ${
+                    anonName.trim()
+                      ? "border border-[#0ea5e9]/40 shadow-[0_0_10px_rgba(14,165,233,0.05)]"
+                      : "border border-[#1a1a1a]"
+                  }`}
                 />
                 <input
                   type="email"
                   value={anonEmail}
                   onChange={(e) => setAnonEmail(e.target.value)}
                   placeholder="Email"
-                  className="w-full bg-[#111] border border-[#1a1a1a] rounded-lg px-3 py-2 text-[12px] text-zinc-400 placeholder:text-zinc-700 focus:outline-none focus:border-emerald-500/20 transition-colors"
+                  className={`w-full bg-[#111] rounded-lg px-3 py-2 text-[12px] text-zinc-400 placeholder:text-zinc-700 focus:outline-none transition-all duration-300 ${
+                    anonEmail.trim()
+                      ? "border border-[#0ea5e9]/40 shadow-[0_0_10px_rgba(14,165,233,0.05)]"
+                      : "border border-[#1a1a1a]"
+                  }`}
                 />
               </div>
 
@@ -286,7 +300,11 @@ const VisitorSection = () => {
                 value={anonMsg}
                 onChange={(e) => setAnonMsg(e.target.value)}
                 placeholder="Your message..."
-                className="w-full flex-grow bg-[#111] border border-[#1a1a1a] rounded-lg px-3 py-2.5 text-[12px] text-zinc-400 placeholder:text-zinc-700 focus:outline-none focus:border-emerald-500/20 transition-colors resize-none min-h-[100px]"
+                className={`w-full flex-grow bg-[#111] rounded-lg px-3 py-2.5 text-[12px] text-zinc-400 placeholder:text-zinc-700 focus:outline-none transition-all duration-300 resize-none min-h-[100px] ${
+                  anonMsg.trim()
+                    ? "border border-[#0ea5e9]/40 shadow-[0_0_10px_rgba(14,165,233,0.1)]"
+                    : "border border-[#1a1a1a]"
+                }`}
               />
 
               <button
@@ -295,7 +313,9 @@ const VisitorSection = () => {
                 className={`w-full py-2.5 rounded-lg flex items-center justify-center gap-2 text-[11px] uppercase tracking-widest font-medium transition-all ${
                   isSent
                     ? "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20"
-                    : "bg-[#111] text-zinc-500 border border-[#1a1a1a] hover:text-[#0ea5e9] hover:border-[#0ea5e9]/20 active:scale-[0.98]"
+                    : anonMsg.trim()
+                      ? "bg-[#0ea5e9]/10 text-[#0ea5e9] border border-[#0ea5e9]/30 shadow-[0_0_15px_rgba(14,165,233,0.1)] active:scale-[0.98]"
+                      : "bg-[#111] text-zinc-500 border border-[#1a1a1a] hover:text-[#0ea5e9] hover:border-[#0ea5e9]/20 active:scale-[0.98]"
                 }`}
               >
                 {isSent ? (

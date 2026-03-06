@@ -13,7 +13,7 @@ const HeroSection = () => {
   return (
     <section className="relative w-full overflow-hidden bg-black text-white">
       {/* Background Layer: hero2.jpg */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 t">
         <Image
           src="/hero2.jpg"
           alt="Hero Background"
@@ -22,7 +22,18 @@ const HeroSection = () => {
           priority
           unoptimized
         />
-        {/* <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" /> */}
+        {/* Bottom fade — blends hero into next section */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/25 to-transparen" />
+        {/* Left reading overlay — keeps text legible */}
+        <div
+          className="absolute inset-0 mt-95"
+          style={{
+            background:
+              "linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.2) 30%, transparent 70%)",
+          }}
+        />
+        {/* Top vignette — grounds the navbar area */}
+        {/* <div className="absolute inset-0 bg-gradient-to-b from-black/5 via-transparent to-transparent" /> */}
       </div>
 
       <Header isLight={false} />
@@ -39,10 +50,15 @@ const HeroSection = () => {
           className="max-w-full  lg:max-w-[800px]"
         >
           {/* Status Badge moved to bottom right */}
-
+          {/* <ShinyText className=" mt-1" isLight={false}>
+            <p className="text-2xl sm:text-2xl md:text-8xl font-semibold ">
+              {personalInfo.name}
+            </p>
+          </ShinyText>
+          <br /> */}
           {/* Intro Text / Designation */}
-          <ShinyText className=" mt-4" isLight={false}>
-            <p className="text-2xl sm:text-2xl md:text-4xl font-medium ">
+          <ShinyText className=" mt-28" isLight={false}>
+            <p className="text-2xl sm:text-2xl md:text-3xl font-medium ">
               {personalInfo.title}
             </p>
           </ShinyText>
@@ -53,7 +69,10 @@ const HeroSection = () => {
           </p>
           {/* Bio - Content matched from Hero1 */}
           <p className="text-white text-sm sm:text-base md:text-lg leading-relaxed max-w-[500px] mb-4 sm:mb-8">
-            Transforming real-world challenges into fast, scalable web applications — driven by modern technologies like <span className="font-semibold text-xl ">React</span> and <span className="font-semibold text-xl ">Next.js</span>.
+            Transforming real-world challenges into fast, scalable web
+            applications — driven by modern technologies like{" "}
+            <span className="font-semibold text-xl ">React</span> and{" "}
+            <span className="font-semibold text-xl ">Next.js</span>.
           </p>
 
           {/* Action Buttons - Content matched from Hero1 but with luxury spacing */}
@@ -77,6 +96,7 @@ const HeroSection = () => {
             >
               View Projects
             </a>
+            
           </div>
 
           {/* Mobile-only: Tech Icons + Status Badge */}
@@ -301,6 +321,7 @@ const HeroSection = () => {
         {/* Subtle base line */}
         <div className="absolute inset-0 bg-[#0ea5e9]/20" />
       </div>
+      <Name/>
     </section>
   );
 };

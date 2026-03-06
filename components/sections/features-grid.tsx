@@ -44,7 +44,7 @@ const ProjectsSection = () => {
           {featuredProjects.map((project, idx) => (
             <div
               key={idx}
-              className="group border-t border-[#1a1a1a] last:border-b py-10 md:py-12 transition-colors hover:bg-[#0a0a0a]"
+              className="group border-t border-[#1a1a1a] last:border-b py-10 md:py-10 transition-colors hover:bg-[#0a0a0a]"
             >
               <div className="flex flex-col md:flex-row md:items-start gap-6 md:gap-12">
                 {/* Left: Number + Title */}
@@ -95,21 +95,41 @@ const ProjectsSection = () => {
                         <Github size={12} />
                         Source
                       </a>
-                      <a
-                        href={project.live}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest text-[#0ea5e9] hover:text-blue-400 transition-colors"
-                      >
-                        <ArrowUpRight size={12} />
-                        Live
-                      </a>
+
+                      {project.live && project.live !== "#" && (
+                        <a
+                          href={project.live}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest text-[#0ea5e9] hover:text-blue-400 transition-colors"
+                        >
+                          <ArrowUpRight size={12} />
+                          Live
+                        </a>
+                      )}
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           ))}
+        </div>
+
+        {/* View All Projects Button */}
+        <div className="mt-16 flex justify-center">
+          <a
+            href="/projects"
+            className="group relative flex items-center gap-2 px-6 py-3 text-[11px] font-bold uppercase tracking-[0.3em] text-[#0ea5e9] transition-all hover:text-white"
+          >
+            <span className="relative z-10 transition-colors">
+              View All Projects
+            </span>
+            <ArrowUpRight
+              size={14}
+              className="relative z-10 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+            />
+            <div className="absolute inset-0 -z-0 bg-[#0ea5e9]/5 rounded-full scale-0 group-hover:scale-100 transition-transform duration-300" />
+          </a>
         </div>
       </div>
     </section>

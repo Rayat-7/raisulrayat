@@ -57,6 +57,7 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap"
           rel="stylesheet"
         />
+        <script defer src="https://cloud.umami.is/script.js" data-website-id="f26d5e9b-4600-46a7-a981-7a61f9e9ef04"></script>
       </head>
       <body className="antialiased">
         {children}
