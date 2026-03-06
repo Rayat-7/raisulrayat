@@ -231,7 +231,7 @@ export const education = [
     degree: "BSc in Computer Science and Engineering",
     institution: "United International University",
     period: "Expected Graduation: 2027",
-    details: "Dean's List, 3.5+ CGPA",
+    details: "Learned about data structures, algorithms, and software engineering principles.",
   },
 ];
 

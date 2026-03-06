@@ -76,9 +76,15 @@ const CleanHero = () => {
               className=" "
             >
               <h2 className="text-2xl md:text-4xl font-bold text-white leading-[1.05] tracking-tight uppercase mb-8 md:mb-18">
-                Hi, I'm {personalInfo.firstName} {personalInfo.lastName}, a{" "}
-                frontend developer specializing in scalable, high‑performance
-                web applications.
+                Hi, I&apos;m{" "}
+                <span
+                  className="text-transparent"
+                  style={{ WebkitTextStroke: "1px rgba(255, 255, 255, 0.6)" }}
+                >
+                  {personalInfo.firstName} {personalInfo.lastName}
+                </span>
+                , a frontend developer specializing in scalable,
+                high‑performance web applications.
               </h2>
 
               <p className="text-sm md:text-base text-white/50 leading-tight mb-10 max-w-[420px] hidden md:block">

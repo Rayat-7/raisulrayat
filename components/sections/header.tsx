@@ -94,40 +94,40 @@ United International University (Expected 2027)
         <div className="flex items-center">
           <a href="/" className="block focus-visible:outline-offset-4">
             <span className="text-xl font-bold text-white tracking-widest">
-              RAYAT.R7<span className="text-[10px] align-top">®</span>
+              RAYAT.7<span className="text-[10px] align-top">®</span>
             </span>
           </a>
         </div>
 
         {/* Desktop Navigation Link Groups */}
-        <div className="hidden md:flex items-center space-x-12 lg:space-x-24">
+        <div className="hidden md:flex items-center  space-x-12 ml-20 lg:space-x-24">
           {/* Link Group 1 */}
-          <div className="flex items-center gap-6">
+          <div className="flex items-center  gap-6">
             <a
               href="#about"
-              className="text-[10px] md:text-[11px] font-medium tracking-[0.2em] text-white/50 hover:text-white transition-all uppercase"
+              className="text-[10px] md:text-[11px] font-medium tracking-[0.2em] text-white/80 hover:text-white transition-all uppercase"
             >
               [ABOUT]
             </a>
             <a
               href="#tech"
-              className="text-[10px] md:text-[11px] font-medium tracking-[0.2em] text-white/50 hover:text-white transition-all uppercase"
+              className="text-[10px] md:text-[11px] font-medium tracking-[0.2em] text-white/80 hover:text-white transition-all uppercase"
             >
               [STACK]
             </a>
           </div>
 
           {/* Link Group 2 */}
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-6 ">
             <a
               href="#projects"
-              className="text-[10px] md:text-[11px] font-medium tracking-[0.2em] text-white/50 hover:text-white transition-all uppercase"
+              className="text-[10px] md:text-[11px]  font-medium tracking-[0.2em] text-white/80 hover:text-white transition-all uppercase"
             >
               [WORK]
             </a>
             <a
               href="#contact"
-              className="text-[10px] md:text-[11px] font-medium tracking-[0.2em] text-white/50 hover:text-white transition-all uppercase"
+              className="text-[10px] md:text-[11px] font-medium tracking-[0.2em] text-white/80 hover:text-white transition-all uppercase"
             >
               [CONTACT]
             </a>

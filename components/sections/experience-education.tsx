@@ -3,12 +3,17 @@
 import React from "react";
 import Image from "next/image";
 import ShinyText from "@/components/ui/shiny-text";
-import { personalInfo, experience, education } from "@/lib/data";
+import {
+  personalInfo,
+  experience,
+  education,
+  certifications,
+} from "@/lib/data";
 
 const ExperienceEducation = () => {
   return (
     <section
-      id="experience"
+      id="about"
       className="py-16 bg-black relative overflow-hidden border-t border-[#1a1a1a]"
     >
       {/* Background decoration */}
@@ -78,9 +83,6 @@ const ExperienceEducation = () => {
                   <div className="flex items-center justify-between mb-3">
                     <span className="text-[#999] text-[10px] font-bold uppercase tracking-wider">
                       Growth
-                    </span>
-                    <span className="text-[10px] font-mono text-[#666]">
-                      2022 — 2023
                     </span>
                   </div>
                   <h3 className="text-lg font-medium text-white mb-1.5">
@@ -175,32 +177,23 @@ const ExperienceEducation = () => {
                   </div>
                 ))}
 
-                <div className="bg-[#0d0d0d] border border-[#1a1a1a] p-5 rounded-xl hover:border-[#0ea5e9]/30 transition-all duration-300 group">
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="text-[#999] text-[10px] font-bold uppercase tracking-wider">
-                      Technical
-                    </span>
-                    <span className="text-[10px] font-mono text-[#666]">
-                      2023 — Present
-                    </span>
-                  </div>
-                  <h3 className="text-lg font-medium text-white mb-1.5">
-                    Full Stack Projects
-                  </h3>
-                  <p className="text-[#999999] text-xs mb-3">
-                    Self-Driven Learning
-                  </p>
-                  <div className="flex flex-wrap gap-1.5 mt-2">
-                    {["Next.js", "React", "TS", "Postgres"].map((tech) => (
-                      <span
-                        key={tech}
-                        className="text-[9px] text-[#0ea5e9] px-1.5 py-0.5 bg-[#0ea5e9]/5 border border-[#0ea5e9]/20 rounded tracking-wider font-medium"
-                      >
-                        {tech}
+                {/* Certifications Block */}
+                {certifications.map((cert, idx) => (
+                  <div
+                    key={idx}
+                    className="bg-gradient-to-br from-[#0ea5e9]/10 to-transparent border border-[#0ea5e9]/20 p-5 rounded-xl hover:border-[#0ea5e9]/40 transition-all duration-300 group"
+                  >
+                    <div className="flex items-center justify-between mb-3">
+                      <span className="text-[#0ea5e9] text-[10px] font-bold uppercase tracking-widest">
+                        Certification
                       </span>
-                    ))}
+                    </div>
+                    <h3 className="text-lg font-medium text-white mb-1">
+                      {cert.title}
+                    </h3>
+                    <p className="text-[#999] text-xs">{cert.provider}</p>
                   </div>
-                </div>
+                ))}
               </div>
             </div>
 
@@ -229,6 +222,23 @@ const ExperienceEducation = () => {
                   {experience[0].company} • {experience[0].period}
                 </p>
               </div>
+
+              {/* Mobile Certs */}
+              {certifications.map((cert, idx) => (
+                <div
+                  key={idx}
+                  className="bg-[#0d0d0d] border border-[#1a1a1a] p-4 rounded-xl"
+                >
+                  <span className="text-[#0ea5e9] text-[9px] font-bold tracking-widest uppercase mb-2 block">
+                    Certification
+                  </span>
+                  <h3 className="text-white font-medium text-base mb-1">
+                    {cert.title}
+                  </h3>
+                  <p className="text-[#666] text-[11px]">{cert.provider}</p>
+                </div>
+              ))}
+
               <div className="bg-[#0d0d0d] border border-[#1a1a1a] p-4 rounded-xl">
                 <span className="text-[#fbbf24] text-[9px] font-bold tracking-widest uppercase mb-2 block">
                   Achievement
@@ -237,17 +247,6 @@ const ExperienceEducation = () => {
                   Startup Champion
                 </h3>
                 <p className="text-[#666] text-[11px]">Spendo AI • UIU IC6</p>
-              </div>
-              <div className="bg-[#0d0d0d] border border-[#1a1a1a] p-4 rounded-xl">
-                <span className="text-[#999] text-[9px] font-bold tracking-widest uppercase mb-2 block">
-                  Technical
-                </span>
-                <h3 className="text-white font-medium text-base mb-1">
-                  Full Stack Development
-                </h3>
-                <p className="text-[#666] text-[11px]">
-                  Next.js, React, TypeScript
-                </p>
               </div>
             </div>
           </div>
