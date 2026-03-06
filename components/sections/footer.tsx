@@ -50,7 +50,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="w-full bg-black text-white pt-20 pb-0 relative overflow-hidden border-t border-[#1a1a1a]">
+    <footer id="contact" className="w-full bg-black text-white pt-20 pb-0 relative overflow-hidden border-t border-[#1a1a1a]">
       <div className="container mx-auto px-6 mb-16 relative z-10 w-full max-w-[1200px]">
         {/* Header */}
         <div className="mb-16">

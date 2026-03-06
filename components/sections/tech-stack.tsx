@@ -13,7 +13,7 @@ const getDevIcon = (name: string, variant: string = "original") =>
 const TechStack = () => {
   return (
     <section
-      id="techstack"
+      id="tech"
       className="py-24 bg-black relative overflow-hidden border-t border-[#1a1a1a]"
     >
       {/* Background Gradients */}

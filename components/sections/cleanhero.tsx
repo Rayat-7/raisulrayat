@@ -34,16 +34,21 @@ const CleanHero = () => {
       <Header isLight={false} />
 
       {/* Main Content Overlay */}
-      <div className="absolute inset-0 z-20 containe mx-auto px-6 md:px-10 md:pl-13 md:pr-1 flex flex-col justify-between py-10 md:py-24 pointer-events-none">
+      <div className="absolute inset-0 z-20  mx-auto px-6 md:px-10 md:pl-13 md:pr-1 flex flex-col justify-between py-10 md:py-24 pointer-events-none">
         {/* Top Section: Tagline (Top Right) */}
-        <div className="flex justify-start pl-78 pt-4 hidden md:block">
+        <motion.div
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
+          className="flex justify-start pl-78 pt-4 hidden md:block"
+        >
           <div className="max-w-[180px] text-right">
             <p className="text-[10px] leading-tight font-medium tracking-tight text-white/40 uppercase">
               Building high-performance web applications with modern
               architecture
             </p>
           </div>
-        </div>
+        </motion.div>
 
         {/* Middle Section: Scattered Layout */}
         <div className="relative flex flex-col md:flex-row items-end md:items-center justify-end md:justify-between w-full flex-grow pb-24 md:pb-0">
