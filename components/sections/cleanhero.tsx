@@ -93,8 +93,9 @@ const CleanHero = () => {
               </h2>
 
               <p className="text-sm md:text-base text-white/50 leading-tight mb-10 max-w-[420px] hidden md:block">
-                Currently {personalInfo.summary.split(".")[0]}. Focused on
-                architecting efficient digital systems that solve complex
+                Currently Frontend Developer experienced in building web applications using  <span className="text-white font-semibold uppercase"
+                  > React & Next js</span>. Focused on
+                architecting efficient frontend systems that solve complex
                 problems at scale.
               </p>
 

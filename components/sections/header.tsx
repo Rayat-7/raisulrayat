@@ -10,6 +10,13 @@ import {
   education,
 } from "@/lib/data";
 
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+
 const Header = ({ isLight = false }: { isLight?: boolean }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [copied, setCopied] = useState(false);
@@ -142,18 +149,66 @@ United International University (Expected 2027)
           >
             [RESUME]
           </a>
-          <button
-            onClick={handleCopyMarkdown}
-            title="Copy Details"
-            className="text-white/40 hover:text-white transition-colors"
-          >
-            {copied ? (
-              <Check size={14} className="text-green-500" />
-            ) : (
-              <Copy size={14} />
-            )}
-          </button>
+          <TooltipProvider delayDuration={0}>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <motion.button
+                  onClick={handleCopyMarkdown}
+                  className="text-white/80 hover:text-white transition-colors relative h-8 w-8 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/10"
+                  whileHover={{ scale: 1.2, rotate: [0, -10, 10, 0] }}
+                  whileTap={{ scale: 0.9 }}
+                  animate={{
+                    boxShadow: [
+                      "0 0 0px rgba(14, 165, 233, 0)",
+                      "0 0 10px rgba(14, 165, 233, 0.4)",
+                      "0 0 0px rgba(14, 165, 233, 0)",
+                    ],
+                  }}
+                  transition={{
+                    boxShadow: {
+                      duration: 2,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    },
+                  }}
+                >
+                  {copied ? (
+                    <motion.div
+                      initial={{ scale: 0.5, opacity: 0 }}
+                      animate={{ scale: 1.2, opacity: 1 }}
+                      className="text-emerald-400 drop-shadow-[0_0_8px_rgba(52,211,153,0.5)]"
+                    >
+                      <Check size={16} strokeWidth={3} />
+                    </motion.div>
+                  ) : (
+                    <Copy size={14} />
+                  )}
+                  {!copied && (
+                    <motion.span
+                      className="absolute inset-0 rounded-full border border-sky-500/30"
+                      animate={{
+                        scale: [1, 1.5, 1],
+                        opacity: [0, 0.5, 0],
+                      }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        ease: "easeOut",
+                      }}
+                    />
+                  )}
+                </motion.button>
+              </TooltipTrigger>
+              <TooltipContent
+                side="bottom"
+                className="bg-black/90 backdrop-blur-md text-white border-white/10 px-2 py-1 text-[8px] font-bold tracking-[0.2em] uppercase rounded-none"
+              >
+                Copy Markdown
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
         </div>
+
 
         {/* Mobile Menu Toggle */}
         <div className="md:hidden flex items-center">
@@ -195,12 +250,14 @@ United International University (Expected 2027)
               ))}
             </ul>
 
-            <button
+            <motion.button
               onClick={() => {
                 handleCopyMarkdown();
                 setMobileMenuOpen(false);
               }}
-              className="flex items-center gap-3 px-8 py-4 bg-white text-black text-sm font-bold uppercase tracking-widest rounded-full shadow-xl active:scale-95 transition-all"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="flex items-center gap-3 px-8 py-4 bg-white text-black text-sm font-bold uppercase tracking-widest rounded-full shadow-xl active:scale-95 transition-all relative overflow-hidden"
             >
               {copied ? (
                 <Check size={20} className="text-green-600" />
@@ -208,7 +265,20 @@ United International University (Expected 2027)
                 <Copy size={20} />
               )}
               {copied ? "Copied to Clipboard!" : "Copy Profile Summary"}
-            </button>
+              {!copied && (
+                <motion.div
+                  className="absolute inset-0 bg-sky-400/10 pointer-events-none"
+                  animate={{
+                    x: ["-100%", "100%"],
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "linear",
+                  }}
+                />
+              )}
+            </motion.button>
           </motion.div>
         )}
       </AnimatePresence>
