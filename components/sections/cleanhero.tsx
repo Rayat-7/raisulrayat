@@ -5,6 +5,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import Header from "./header";
 import { personalInfo } from "@/lib/data";
+import { SiReact, SiNextdotjs } from "react-icons/si";
 
 const CleanHero = () => {
   return (
@@ -93,10 +94,13 @@ const CleanHero = () => {
               </h2>
 
               <p className="text-sm md:text-base text-white/50 leading-tight mb-10 max-w-[420px] hidden md:block">
-                Currently Frontend Developer experienced in building web applications using  <span className="text-white font-semibold uppercase"
-                  > React & Next js</span>. Focused on
-                architecting efficient frontend systems that solve complex
-                problems at scale.
+                Currently Frontend Developer experienced in building web applications using{" "}
+                <span className=" mt-0.5 text-white font- uppercase inline-flex items-start gap-1.5">
+                  <SiReact className="text-[#61DAFB] " /> React &{" "}
+                  <SiNextdotjs className="text-white " /> Next.js
+                </span>
+                . Focused on architecting efficient frontend systems that solve
+                complex problems at scale.
               </p>
 
               <a

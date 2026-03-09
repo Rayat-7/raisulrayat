@@ -8,6 +8,7 @@ import ShinyText from "@/components/ui/shiny-text";
 import { NeuButton } from "@/components/ui/neu-button";
 import Name from "./name";
 import { personalInfo } from "@/lib/data";
+import { SiReact, SiNextdotjs } from "react-icons/si";
 
 const HeroSection = () => {
   return (
@@ -71,8 +72,14 @@ const HeroSection = () => {
           <p className="text-white text-sm sm:text-base md:text-lg leading-relaxed max-w-[500px] mb-4 sm:mb-8">
             Transforming real-world challenges into fast, scalable web
             applications — driven by modern technologies like{" "}
-            <span className="font-semibold text-xl ">React</span> and{" "}
-            <span className="font-semibold text-xl ">Next.js</span>.
+            <span className="font-semibold text-xl inline-flex items-center gap-1.5">
+              <SiReact className="text-[#61DAFB] w-[1.1em] h-[1.1em]" /> React
+            </span>{" "}
+            and{" "}
+            <span className="font-semibold text-xl inline-flex items-center gap-1.5">
+              <SiNextdotjs className="text-white w-[1.1em] h-[1.1em]" /> Next.js
+            </span>
+            .
           </p>
 
           {/* Action Buttons - Content matched from Hero1 but with luxury spacing */}

@@ -15,7 +15,7 @@ const SOCIAL_LINKS = [
   {
     id: "linkedin",
     label: "LinkedIn",
-    url: "https://linkedin.com/in/raisulrayat",
+    url: "https://www.linkedin.com/in/raisoul-rayat-48781a263/",
     icon: Linkedin,
   },
   {
