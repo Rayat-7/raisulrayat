@@ -73,13 +73,14 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-12 gap-x-16 mb-16">
           {/* Contact */}
           <div>
-            <h3 className="text-[10px] font-mono font-bold uppercase tracking-[0.3em] text-[#555] mb-6">
+            <h2 className="text-[10px] font-mono font-bold uppercase tracking-[0.3em] text-[#555] mb-6">
               Contact
-            </h3>
+            </h2>
             <div className="space-y-4">
               <a
                 href={`mailto:${personalInfo.email}`}
                 className="flex items-center gap-3 text-[#999] hover:text-white transition-colors group"
+                aria-label="Email Raisul Rayat"
               >
                 <Mail size={14} className="text-[#0ea5e9] shrink-0" />
                 <span className="text-sm">{personalInfo.email}</span>
@@ -87,6 +88,7 @@ const Footer = () => {
               <a
                 href={`tel:${personalInfo.phone}`}
                 className="flex items-center gap-3 text-[#999] hover:text-white transition-colors"
+                aria-label="Call Raisul Rayat"
               >
                 <Phone size={14} className="text-[#0ea5e9] shrink-0" />
                 <span className="text-sm">{personalInfo.phone}</span>
@@ -99,6 +101,7 @@ const Footer = () => {
                 href={personalInfo.portfolio}
                 target="_blank"
                 className="flex items-center gap-3 text-[#999] hover:text-white transition-colors"
+                aria-label="Visit Portfolio"
               >
                 <Globe size={14} className="text-[#0ea5e9] shrink-0" />
                 <span className="text-sm">
@@ -111,6 +114,7 @@ const Footer = () => {
             <button
               onClick={handleCopyEmail}
               className="mt-6 flex items-center gap-2 text-xs font-mono text-[#555] hover:text-white transition-colors"
+              aria-label="Copy email address"
             >
               {copied ? (
                 <>
@@ -128,10 +132,10 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-[10px] font-mono font-bold uppercase tracking-[0.3em] text-[#555] mb-6">
+            <h2 className="text-[10px] font-mono font-bold uppercase tracking-[0.3em] text-[#555] mb-6">
               Quick Links
-            </h3>
-            <div className="space-y-4">
+            </h2>
+            <nav className="space-y-4" aria-label="Footer Quick Links">
               {navigationLinks.slice(1).map((link) => (
                 <a
                   key={link.label}
@@ -154,7 +158,7 @@ const Footer = () => {
                   <Download size={14} />
                 </span>
               </a>
-            </div>
+            </nav>
 
             {/* Status */}
             <div className="mt-6 flex items-center gap-2">
@@ -170,10 +174,10 @@ const Footer = () => {
 
           {/* Socials */}
           <div>
-            <h3 className="text-[10px] font-mono font-bold uppercase tracking-[0.3em] text-[#555] mb-6">
+            <h2 className="text-[10px] font-mono font-bold uppercase tracking-[0.3em] text-[#555] mb-6">
               Socials
-            </h3>
-            <div className="space-y-4">
+            </h2>
+            <nav className="space-y-4" aria-label="Social Media Links">
               {socials.map((social) => (
                 <a
                   key={social.label}
@@ -193,7 +197,7 @@ const Footer = () => {
                   </span>
                 </a>
               ))}
-            </div>
+            </nav>
 
             {/* CTA */}
             <a
@@ -241,8 +245,9 @@ const Footer = () => {
 
       {/* Big Background Text — KEPT AS IS */}
       <div className="w-full overflow-hidden flex justify-center pointer-events-none select-none">
-        <h1
+        <div
           className="text-[12vw] md:text-[16vw] font-semibold tracking-tighter leading-[0.8] whitespace-nowrap animate-shine bg-clip-text text-black"
+          aria-hidden="true"
           style={{
             backgroundImage:
               "linear-gradient(120deg, rgba(59, 130, 246, 0.8) 35%, #ffffff 45%, #60a5fa 50%, #ffffff 55%, rgba(59, 130, 246, 0.8) 65%)",
@@ -250,7 +255,7 @@ const Footer = () => {
           }}
         >
           {personalInfo.name.toLowerCase().replace(" ", "")}.
-        </h1>
+        </div>
       </div>
     </footer>
   );

@@ -81,7 +81,7 @@ const CleanHero = () => {
               transition={{ delay: 0.3, duration: 1 }}
               className=" "
             >
-              <h2 className="text-2xl md:text-4xl font-bold text-white leading-[1.05] tracking-tight uppercase mb-8 md:mb-18">
+              <h1 className="text-2xl md:text-4xl font-bold text-white leading-[1.05] tracking-tight uppercase mb-8 md:mb-18">
                 Hi, I&apos;m{" "}
                 <span
                   className="text-transparent"
@@ -91,7 +91,7 @@ const CleanHero = () => {
                 </span>
                 , a frontend developer specializing in scalable,
                 high‑performance web applications.
-              </h2>
+              </h1>
 
               <p className="text-sm md:text-base text-white/50 leading-tight mb-10 max-w-[420px] hidden md:block">
                 Currently Frontend Developer experienced in building web applications using{" "}
@@ -138,10 +138,13 @@ const CleanHero = () => {
           transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
           className="flex justify-center"
         >
-          <h1 className="text-[14vw] font-semibold text-white/10 uppercase">
+          <div 
+            className="text-[14vw] font-semibold text-white/10 uppercase"
+            aria-hidden="true"
+          >
             {personalInfo.firstName}
             {personalInfo.lastName}
-          </h1>
+          </div>
         </motion.div>
 
         {/* Gradient Fade to Ground Section */}

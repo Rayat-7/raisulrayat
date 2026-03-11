@@ -2,15 +2,35 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Script from "next/script";
 
+const baseUrl = "https://raisulrayat.vercel.app";
+
 export const metadata: Metadata = {
-  title: "Raisul Rayat | Frontend Developer",
+  metadataBase: new URL(baseUrl),
+  title: {
+    default: "Raisul Rayat | Frontend Developer",
+    template: "%s | Raisul Rayat",
+  },
   description:
     "Raisul Rayat - Frontend Developer specialized in React and Next.js. Building scalable and user-centric web applications.",
+  keywords: [
+    "Raisul Rayat",
+    "Raisul",
+    "Rayat",
+    "Frontend Developer",
+    "React Developer",
+    "Next.js Developer",
+    "Web Developer Bangladesh",
+    "Portfolio",
+    "Software Engineer",
+  ],
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "Raisul Rayat | Frontend Developer",
     description:
       "Frontend Developer specialized in React and Next.js. Building scalable and user-centric web applications.",
-    url: "https://raisulrayat.vercel.app",
+    url: baseUrl,
     siteName: "Raisul Rayat Portfolio",
     images: [
       {
@@ -29,11 +49,23 @@ export const metadata: Metadata = {
     description:
       "Frontend Developer specialized in React and Next.js. Building scalable and user-centric web applications.",
     images: ["/og-image.png"],
+    creator: "@RaisulRayat",
   },
   icons: {
     icon: "/favicon.png",
     shortcut: "/favicon.png",
     apple: "/favicon.png",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 
@@ -44,6 +76,20 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Raisul Rayat",
+    url: baseUrl,
+    jobTitle: "Frontend Developer",
+    sameAs: [
+      "https://github.com/Rayat-7",
+      "https://linkedin.com/in/raisul-rayat-48781a263",
+      "https://x.com/RaisulRayat",
+    ],
+    description: "Frontend Developer specialized in React and Next.js.",
+  };
+
   return (
     <html lang="en">
       <head>
@@ -62,6 +108,11 @@ export default function RootLayout({
           src="https://cloud.umami.is/script.js"
           data-website-id="f26d5e9b-4600-46a7-a981-7a61f9e9ef04"
         ></script>
+        <Script
+          id="json-ld"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
       </head>
       <body className="antialiased">
         {children}
