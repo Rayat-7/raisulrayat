@@ -70,6 +70,7 @@ export const metadata: Metadata = {
 };
 
 import { SocialSidebar } from "@/components/ui/social-sidebar";
+import { SmoothScroll } from "@/components/ui/smooth-scroll";
 
 export default function RootLayout({
   children,
@@ -115,8 +116,10 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased">
-        {children}
-        <SocialSidebar />
+        <SmoothScroll>
+          {children}
+          <SocialSidebar />
+        </SmoothScroll>
       </body>
     </html>
   );
